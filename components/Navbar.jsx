@@ -14,7 +14,7 @@ const Navbar = () => {
     ];
 
     return (
-        <header className="w-full px-6 md:px-16 py-6 md:py-10">
+        <header className="w-full px-6 md:px-16 py-6 ">
             <nav className="flex items-center justify-between">
 
                 {/* Logo */}
