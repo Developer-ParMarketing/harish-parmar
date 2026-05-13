@@ -2,24 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => { setMounted(true); }, []);
 
-    const fadeUp = (delay = 0) => mounted ? {
+
+    const fadeUp = (delay = 0) => ({
         initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
         transition: { duration: 0.6, delay },
-    } : {};
+    });
 
-    const fadeIn = (delay = 0) => mounted ? {
+    const fadeIn = (delay = 0) => ({
         initial: { opacity: 0 },
-        animate: { opacity: 1 },
+        whileInView: { opacity: 1 },
+        viewport: { once: true },
         transition: { duration: 0.6, delay },
-    } : {};
+    });
 
     return (
         <section className="relative bg-white min-h-screen flex items-center overflow-hidden py-5">
@@ -33,14 +34,21 @@ const Hero = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center min-h-[90vh] lg:min-h-screen">
 
                     {/* ==================== LEFT CONTENT ==================== */}
-                    <div className="flex flex-col justify-center pt-8 lg:pt-0">
+                    <div className="order-2 lg:order-1 flex flex-col justify-center pt-8 lg:pt-0">
 
                         {/* Top Label */}
-                        <motion.div {...fadeUp(0)} className="flex items-center gap-3 mb-6">
-                            <div className="h-px w-8 bg-[#4D4AB8]" />
-                            <span className="uppercase text-xs tracking-[4px] text-[#4D4AB8] font-semibold">
+                        <motion.div
+                            {...fadeUp(0)}
+                            className="flex items-center justify-center lg:justify-start gap-3 mb-6"
+                        >
+                            <div className="h-px w-8 bg-[#4D4AB8] shrink-0" />
+
+                            <span className="uppercase text-[10px] sm:text-xs tracking-[3px] sm:tracking-[4px] text-[#4D4AB8] font-semibold text-center">
                                 GLOBAL FINANCIAL LEADERSHIP
                             </span>
+
+                            {/* Right dash only on mobile */}
+                            <div className="h-px w-8 bg-[#4D4AB8] shrink-0 lg:hidden" />
                         </motion.div>
 
                         {/* Name - Fixed Hydration Issue */}
@@ -141,7 +149,7 @@ const Hero = () => {
                     </div>
 
                     {/* ==================== RIGHT IMAGE ==================== */}
-                    <div className="relative flex justify-center lg:justify-end pt-8 lg:pt-0">
+                    <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end pt-8 lg:pt-0">
 
                         {/* Main Image Container */}
                         <div className="relative z-10 w-full max-w-[360px] md:max-w-[400px] lg:max-w-[460px] xl:max-w-[500px]">
@@ -156,27 +164,41 @@ const Hero = () => {
 
                             {/* Experience Badge */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.7 }}
-                                className="absolute -top-5 -left-4 bg-white rounded-2xl shadow-xl px-6 py-4 text-center border border-black/5 z-20"
+                                initial={false}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.7 }}
+                                className="absolute -top-2 sm:-top-5 left-2 sm:-left-4 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
                             >
-                                <p className="text-xs uppercase tracking-widest text-black/60">EXPERIENCE</p>
-                                <p className="text-4xl font-bold text-black mt-1">40+</p>
-                                <p className="text-xs text-black/70">YEARS</p>
+                                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-black/60">
+                                    EXPERIENCE
+                                </p>
+
+                                <p className="text-2xl sm:text-4xl font-bold text-black mt-1">
+                                    40+
+                                </p>
+
+                                <p className="text-[10px] sm:text-xs text-black/70">
+                                    YEARS
+                                </p>
                             </motion.div>
 
                             {/* Markets Badge */}
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.9 }}
-                                className="absolute -top-5 right-4 bg-white rounded-2xl shadow-xl px-6 py-4 text-center border border-black/5 z-20"
+                                initial={false}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.9 }}
+                                className="absolute -top-2 sm:-top-5 right-2 sm:right-4 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
                             >
-                                <p className="text-xs uppercase tracking-widest text-black/60">MARKETS</p>
-                                <p className="text-sm font-semibold text-black mt-1">India • UAE • UK</p>
-                            </motion.div>
+                                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-black/60">
+                                    MARKETS
+                                </p>
 
+                                <p className="text-xs sm:text-sm font-semibold text-black mt-1 whitespace-nowrap">
+                                    India • UAE • UK
+                                </p>
+                            </motion.div>
                             {/* Bottom Caption */}
                             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg px-6 py-3 text-center border border-black/5 z-20">
                                 <p className="font-semibold text-black">Harish Parmar</p>
