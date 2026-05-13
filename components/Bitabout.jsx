@@ -272,7 +272,7 @@ const Bitabout = () => {
             </div>
 
             {/* ── MEDIA WALL ──────────────────────────────────────────── */}
-            <div className="bg-[#fafafa] border-t border-black/[0.05] px-6 md:px-12 lg:px-16 py-20 md:py-28">
+            <div className="bg-[#fafafa] border-t border-black/[0.05] px-6 md:px-12 lg:px-16 py-10 md:py-14">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Heading */}
