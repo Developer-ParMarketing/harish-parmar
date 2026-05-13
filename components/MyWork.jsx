@@ -534,7 +534,7 @@ function ExpertiseRow({ item, index }) {
 /* ─── Main ───────────────────────────────────────────────────────────────── */
 export default function MyWork() {
     return (
-        <section className="relative overflow-hidden bg-[#3E3AA8] text-white py-16 md:py-24 px-5 md:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#3E3AA8] text-white py-8 md:py-16 px-5 md:px-10 lg:px-16">
 
             {/* Background glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -546,7 +546,7 @@ export default function MyWork() {
             <div className="relative z-10 max-w-7xl mx-auto">
 
                 {/* ── Heading ───────────────────────────────────────── */}
-                <div className="max-w-4xl mx-auto text-center mb-20 md:mb-28">
+                <div className="max-w-4xl mx-auto text-center mb-10 md:mb-14">
                     <div className="flex items-center justify-center gap-3 mb-5">
                         <div className="w-8 h-px bg-white/30" />
                         <p className="uppercase tracking-[5px] text-white/50 text-[10px] md:text-[11px] font-semibold">
@@ -565,19 +565,19 @@ export default function MyWork() {
                 </div>
 
                 {/* ── Expertise rows ─────────────────────────────────── */}
-                <div className="space-y-20 md:space-y-28">
+                <div className="space-y-10 md:space-y-14">
                     {expertise.map((item, i) => (
                         <div key={i}>
                             <ExpertiseRow item={item} index={i} />
                             {i < expertise.length - 1 && (
-                                <div className="mt-20 md:mt-28 h-px w-full bg-white/[0.07]" />
+                                <div className="mt-10 md:mt-14 h-px w-full bg-white/[0.07]" />
                             )}
                         </div>
                     ))}
                 </div>
 
                 {/* ── Scale & Impact ──────────────────────────────────── */}
-                <div className="mt-20 md:mt-28 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14">
+                <div className="mt-10 md:mt-14 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14">
 
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-3 mb-4">

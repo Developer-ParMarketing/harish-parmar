@@ -592,7 +592,7 @@ export default function Subhero() {
     }, [onMouseMove, onMouseUp]);
 
     return (
-        <section className="w-full py-16 md:py-24 bg-[#fafafa] overflow-hidden relative">
+        <section className="w-full py-8 md:py-16 bg-[#fafafa] overflow-hidden relative">
 
             {/* Bg glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#4D4AB8]/5 blur-[130px] rounded-full pointer-events-none" />

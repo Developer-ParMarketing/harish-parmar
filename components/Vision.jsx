@@ -25,12 +25,12 @@ const Vision = () => {
             </div>
 
             {/* ── Content ── */}
-            <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 md:px-16 py-24 md:py-36 flex flex-col items-center text-center">
+            <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 md:px-16 py-12 md:py-18 flex flex-col items-center text-center">
 
                 {/* Label */}
 
 
-                <div className="flex items-center justify-center gap-3  mb-12 md:mb-16">
+                <div className="flex items-center justify-center gap-3  mb-6 md:mb-8">
                     <div className="w-8 h-px bg-white/30" />
                     <p className="uppercase tracking-[5px] text-white/50 text-[10px] md:text-[11px] font-semibold">
                         Vision & Philosophy
@@ -67,7 +67,7 @@ const Vision = () => {
                 </p>
 
                 {/* Attribution */}
-                <div className="mt-12 md:mt-16 flex items-center gap-4">
+                <div className="mt-6 md:mt-8 flex items-center gap-4">
                     <div className="w-8 h-[1px] bg-white/30" />
                     <p className="text-[11px] uppercase tracking-[4px] text-white/40 font-medium">
                         Harish Parmar, Founder — SingleDebt

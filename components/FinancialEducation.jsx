@@ -37,7 +37,7 @@ const FinancialEducation = () => {
             {/* ══════════════════════════════════
                 SECTION HEADER
             ══════════════════════════════════ */}
-            <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-20 md:pt-28">
+            <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-10 md:pt-14">
 
                 {/* Label */}
                 <div className="flex items-center gap-3 mb-10">
