@@ -118,9 +118,9 @@ const Leadership = () => {
                 </div>
                 <div className="mt-14 relative">
                     {/* Left accent bar */}
-                    <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-white/25" />
+                    <div className="absolute left-0 top-0 bottom-0  bg-white/25" />
 
-                    <div className="pl-8 pr-6 py-8 border border-white/10 bg-white/[0.04] backdrop-blur-sm">
+                    <div className="mt-20 md:mt-28 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14">
 
                         <p className="uppercase tracking-[5px] text-[10px] font-semibold text-white/40 mb-5">
                             Key Achievement
