@@ -1,127 +1,3 @@
-// import Image from "next/image";
-// import React from "react";
-
-// const Bitabout = () => {
-
-//     const media = [
-//         {
-//             name: "ET Now",
-//             image: "/etnow.png",
-//         },
-//         {
-//             name: "Business Standard",
-//             image: "/businessstandard.png",
-//         },
-//         {
-//             name: "Financial Chronicles",
-//             image: "/financial.png",
-//         },
-//     ];
-
-//     return (
-//         <section className="w-full px-6 md:px-16 py-20 md:py-32 overflow-hidden bg-[#f8f8f8]">
-//             <div className="max-w-7xl mx-auto">
-
-//                 {/* Top Section */}
-//                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-//                     {/* Left Image */}
-//                     <div className="flex justify-center lg:justify-start">
-//                         <div className="relative w-full max-w-[520px] h-[620px] md:h-[900px] overflow-hidden">
-//                             <Image
-//                                 src="/harish.png"
-//                                 alt="Harish Parmar"
-//                                 fill
-//                                 className="object-cover"
-//                             />
-
-//                             <div className="absolute inset-0 bg-black/20"></div>
-//                         </div>
-//                     </div>
-
-//                     {/* Right Content */}
-//                     <div>
-
-//                         <p className="text-[22px] md:text-[30px] font-semibold text-[#4D4AB8] mb-4">
-//                             Media Presence & Industry Voice
-//                         </p>
-
-//                         <h2 className="text-[28px] sm:text-[38px] md:text-[56px] leading-[1.1] font-semibold text-black">
-//                             A Trusted Voice in Finance
-//                         </h2>
-
-//                         <div className="w-full h-[1px] bg-gray-300 my-6"></div>
-
-//                         <p className="text-[18px] md:text-[21px] leading-[2] text-[#333] font-light">
-//                             Harish Parmar&apos;s insights shape industry conversations.
-//                             He is regularly featured in business media and invited
-//                             to spearhead discussions on fintech, ethical debt
-//                             resolution, and financial inclusion at premier industry
-//                             forums.
-//                         </p>
-
-
-
-//                         {/* Industry Leadership */}
-//                         <div className="mt-10">
-//                             <h3 className="text-[24px] md:text-[30px] font-semibold text-black mb-4">
-//                                 Industry Leadership
-//                             </h3>
-
-//                             <p className="text-[18px] md:text-[20px] text-[#444] leading-[1.8]">
-//                                 Keynote speaker and panelist at IFTA
-//                                 (International Financial Technologists Association)
-//                                 Conclaves and Taurus Group Annual Meets.
-//                             </p>
-//                         </div>
-//                     </div>
-//                 </div>
-
-//                 {/* Media Wall */}
-//                 <div className="mt-28 md:mt-36">
-
-//                     <div className="text-center mb-16">
-//                         <p className="uppercase tracking-[4px] text-[#4D4AB8] text-[14px] mb-5">
-//                             Media Wall
-//                         </p>
-
-//                         <h3 className="text-[34px] md:text-[58px] leading-[1.2] font-semibold text-black">
-//                             Featured Media Platforms
-//                         </h3>
-
-//                         <p className="text-[18px] md:text-[20px] text-[#555] mt-6 max-w-4xl mx-auto leading-[1.9]">
-//                             A dynamic grid showcasing logos of featured media
-//                             outlets, video clips from talks, and photos from
-//                             speaking engagements.
-//                         </p>
-//                     </div>
-
-//                     {/* Logo Grid */}
-//                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-//                         {media.map((item, i) => (
-//                             <div
-//                                 key={i}
-//                                 className="bg-white border border-gray-200 h-[220px] flex items-center justify-center p-10 hover:shadow-xl transition-all duration-300"
-//                             >
-//                                 <Image
-//                                     src={item.image}
-//                                     alt={item.name}
-//                                     width={220}
-//                                     height={100}
-//                                     className="object-contain"
-//                                 />
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default Bitabout;
-
 "use client";
 
 import Image from "next/image";
@@ -186,28 +62,19 @@ const Bitabout = () => {
                         </div>
                     </div>
 
-                    {/* Floating stat pill */}
-                    <div className="absolute top-8 right-8 bg-white rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.15)]">
-                        <p className="text-[8px] uppercase tracking-[3px] text-black/35">Media features</p>
-                        <p className="text-[22px] font-bold text-black leading-none mt-0.5">15+</p>
-                        <p className="text-[8px] uppercase tracking-[2px] text-[#4D4AB8] font-semibold mt-0.5">Outlets</p>
-                    </div>
+
+
                 </div>
 
                 {/* RIGHT — Content */}
                 <div className="flex flex-col justify-center px-8 md:px-12 lg:px-14 xl:px-16 py-16 lg:py-20 order-1 lg:order-2 bg-white">
 
                     {/* Label */}
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="w-8 h-px bg-[#4D4AB8]" />
-                        <span className="text-[10px] uppercase tracking-[5px] text-[#4D4AB8] font-semibold">
-                            Media Presence &amp; Industry Voice
-                        </span>
-                    </div>
+
 
                     {/* Heading */}
                     <h2 className="text-[32px] sm:text-[44px] md:text-[52px] lg:text-[44px] xl:text-[52px] leading-[1.05] font-semibold text-black">
-                        A Trusted Voice<br />
+                        A Trusted Voice&nbsp;
                         <span className="text-[#4D4AB8]">in Finance</span>
                     </h2>
 
@@ -279,23 +146,13 @@ const Bitabout = () => {
                     <div className="text-center mb-14">
 
 
-                        <div className="flex items-center gap-3 mb-10">
-                            <span className="block w-7 h-[1px] bg-black/30" />
-                            <p className="uppercase tracking-[5px] text-[10px] font-semibold text-[#4D4AB8]">
-                                Media Wall
-                            </p>
-                        </div>
 
 
                         <h3 className="text-[28px] sm:text-[40px] md:text-[52px] leading-[1.1] font-semibold text-black">
                             Featured Media Platforms
                         </h3>
 
-                        <p className="text-[14px] md:text-[16px] text-gray-500 mt-5 max-w-2xl mx-auto leading-[1.9] font-light">
-                            A dynamic grid showcasing logos of featured media
-                            outlets, video clips from talks, and photos from
-                            speaking engagements.
-                        </p>
+
                     </div>
 
                     {/* Logo grid */}

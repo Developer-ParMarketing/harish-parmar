@@ -25,13 +25,7 @@ const Leadership = () => {
             {/* ── HEADER LABEL ── */}
 
 
-            <div className="flex items-center justify-center gap-3 pt-10 md:pt-14 pb-0">
-                <div className="w-8 h-px bg-white/30" />
-                <p className="uppercase tracking-[5px] text-white/50 text-[10px] md:text-[11px] font-semibold">
-                    Leadership at SingleDebt
-                </p>
-                <div className="w-8 h-px bg-white/30" />
-            </div>
+
 
             {/* ── MAIN GRID ── */}
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-12 pb-20 md:pb-28">
@@ -118,34 +112,68 @@ const Leadership = () => {
                 </div>
                 <div className="mt-4 relative">
                     {/* Left accent bar */}
-                    <div className="absolute left-0 top-0 bottom-0  bg-white/25" />
 
-                    <div className="mt-10 md:mt-14 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14">
+                    <div className="mt-10 md:mt-14 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14 overflow-hidden relative">
 
-                        <p className="uppercase tracking-[5px] text-[10px] font-semibold text-white/40 mb-5">
-                            Key Achievement
-                        </p>
+                        {/* Glow effect */}
+                        <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#4D4AB8]/20 blur-3xl rounded-full pointer-events-none" />
 
-                        <h3 className="text-[24px] md:text-[32px] leading-[1.3] font-semibold">
-                            ET Brand Equity DigiPlus Awards 2026
-                        </h3>
+                        {/* Content */}
+                        <div className="relative z-10">
 
-                        <p className="text-[16px] md:text-[17px] leading-[1.85] text-white/65 mt-5 font-light">
-                            SingleDebt was shortlisted for{" "}
-                            <span className="font-medium text-white">
-                                "Category Creation & Innovation"
-                            </span>{" "}
-                            at the prestigious ET Brand Equity DigiPlus
-                            Awards 2026, standing alongside Fortune 500
-                            companies—a testament to its disruptive vision.
-                        </p>
+                            {/* Top label */}
 
-                        {/* Fortune 500 badge */}
-                        <div className="mt-7 inline-flex items-center gap-2 border border-white/15 px-4 py-2">
-                            <span className="block w-1.5 h-1.5 rounded-full bg-white/50" />
-                            <span className="text-[12px] uppercase tracking-[3px] text-white/50 font-medium">
-                                Alongside Fortune 500 Companies
-                            </span>
+
+                            {/* Heading */}
+                            <h3 className="text-[24px] md:text-[32px] leading-[1.25] font-semibold max-w-4xl">
+                                ET Brand Equity DigiPlus Awards 2026
+                            </h3>
+
+                            {/* Description */}
+                            <p className="text-[15px] md:text-[17px] leading-[1.9] text-white/65 mt-5 font-light max-w-4xl">
+                                SingleDebt was shortlisted for{" "}
+                                <span className="font-medium text-white">
+                                    "Category Creation & Innovation"
+                                </span>{" "}
+                                at the prestigious ET Brand Equity DigiPlus
+                                Awards 2026, standing alongside Fortune 500
+                                companies — a testament to its disruptive vision.
+                            </p>
+
+                            {/* Logo section */}
+                            <div className="mt-10">
+
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="h-px flex-1 bg-white/10" />
+                                    <span className="text-[11px] uppercase tracking-[4px] text-white/40 whitespace-nowrap">
+                                        Associated Recognition
+                                    </span>
+                                    <div className="h-px flex-1 bg-white/10" />
+                                </div>
+
+                                {/* Logos grid */}
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
+
+                                    {[
+                                        "/SOS-Unit.webp",
+                                        "/Maan-Talks.webp",
+                                        "/IFTA-Unit-White.webp",
+                                        "/Unicef-1.webp",
+                                    ].map((logo, i) => (
+                                        <div
+                                            key={i}
+                                            className="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md h-[90px] md:h-[110px] flex items-center justify-center p-5 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-1"
+                                        >
+                                            <img
+                                                src={logo}
+                                                alt="Recognition Logo"
+                                                className="max-h-full max-w-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+                                            />
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

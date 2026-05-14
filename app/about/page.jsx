@@ -1,5 +1,6 @@
 "use client";
 
+import Leadership from "@/components/Leadership";
 import React, { useState, useEffect, useRef } from "react";
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
@@ -178,7 +179,7 @@ export default function Page() {
 
     return (
         <div className="bg-[#f7f6f3] overflow-hidden">
-
+            <Leadership />
             {/* ══════════════════════════════════════
                 HERO HEADER
             ══════════════════════════════════════ */}
@@ -196,54 +197,7 @@ export default function Page() {
                     <div className="absolute bottom-8 right-8 md:bottom-12 md:right-14 w-7 h-7 border-b border-r border-white/20" />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-20 md:pt-28 pb-16 md:pb-20">
 
-                    {/* Label */}
-                    <div
-                        className="flex items-center gap-3 mb-10"
-                        style={{ opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(12px)", transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s" }}
-                    >
-                        <span className="block w-6 h-[1px] bg-white/40" />
-                        <p className="uppercase tracking-[5px] text-[10px] font-semibold text-white/50">Professional Journey</p>
-                        <span className="block w-6 h-[1px] bg-white/40" />
-                    </div>
-
-                    {/* Headline + subtext */}
-                    <div
-                        className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-10 lg:gap-20 items-end"
-                        style={{ opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(20px)", transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s" }}
-                    >
-                        <h1 className="text-[40px] sm:text-[56px] md:text-[72px] xl:text-[84px] leading-[1.0] font-semibold tracking-tight">
-                            A Timeline of Global
-                            <br />
-                            <span className="text-white/25">Financial Leadership</span>
-                        </h1>
-
-                        <p className="text-[15px] md:text-[24px] leading-[1.9] text-white/55 font-light lg:pb-1">
-                            Harish Parmar's journey reflects a rare blend of international exposure,
-                            system-building expertise, and long-term industry shaping — spanning
-                            the UK, India, and the UAE.
-                        </p>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="w-full h-[1px] bg-white/10 mt-12 mb-10"
-                        style={{ opacity: mounted ? 1 : 0, transition: "opacity 0.6s ease 0.4s" }}
-                    />
-
-                    {/* Stats */}
-                    <div
-                        className="grid grid-cols-2 sm:grid-cols-4 gap-8"
-                        style={{ opacity: mounted ? 1 : 0, transform: mounted ? "none" : "translateY(10px)", transition: "opacity 0.6s ease 0.45s, transform 0.6s ease 0.45s" }}
-                    >
-                        {stats.map((s, i) => (
-                            <div key={i}>
-                                <p className="text-[40px] md:text-[48px] font-semibold leading-none">{s.value}</p>
-                                <p className="text-[10px] uppercase tracking-[3px] text-white/35 mt-2">{s.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
 
             {/* ══════════════════════════════════════
@@ -251,11 +205,6 @@ export default function Page() {
             ══════════════════════════════════════ */}
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-16 md:py-24">
 
-                {/* Section label */}
-                <div className="flex items-center gap-3 mb-10">
-                    <span className="block w-7 h-[1px] bg-[#4D4AB8]/50" />
-                    <p className="uppercase tracking-[5px] text-[10px] font-semibold text-[#4D4AB8]/70">Key Milestones</p>
-                </div>
 
                 {/*
                     Chess grid:

@@ -39,13 +39,7 @@ const FinancialEducation = () => {
             ══════════════════════════════════ */}
             <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-10 md:pt-14">
 
-                {/* Label */}
-                <div className="flex items-center gap-3 mb-10">
-                    <span className="block w-7 h-[1px] bg-[#4D4AB8]/50" />
-                    <p className="uppercase tracking-[5px] text-[10px] font-semibold text-[#4D4AB8]/70">
-                        Financial Education & Public Advocacy
-                    </p>
-                </div>
+
 
                 {/* Headline + body — two column on lg */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-10 lg:gap-20 items-end">

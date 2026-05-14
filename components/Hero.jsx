@@ -2,8 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+
+
+const AnimatedStat = ({ num, label }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const [display, setDisplay] = useState(0);
+
+    const target = parseInt(num);
+    const suffix = num.replace(/[0-9]/g, "");
+
+    useEffect(() => {
+        if (!isInView) return;
+
+        const duration = 1800;
+        const startTime = performance.now();
+
+        const tick = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setDisplay(Math.floor(eased * target));
+            if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+    }, [isInView, target]);
+
+    return (
+        <div ref={ref} className="text-center lg:text-left">
+            <div className="text-[42px] md:text-[52px] lg:text-[58px] font-bold text-black leading-none">
+                {display}{suffix}
+            </div>
+            <div className="text-[10px] md:text-xs uppercase tracking-[2px] text-black/60 mt-1 font-medium">
+                {label}
+            </div>
+        </div>
+    );
+};
 
 const Hero = () => {
 
@@ -21,6 +59,7 @@ const Hero = () => {
         viewport: { once: true },
         transition: { duration: 0.6, delay },
     });
+
 
     return (
         <section className="relative bg-white min-h-screen flex items-center overflow-hidden py-5">
@@ -70,7 +109,7 @@ const Hero = () => {
 
                         {/* Financial Visionary */}
                         <motion.div {...fadeUp(0.5)} className="mt-12">
-                            <div className="uppercase text-xs tracking-[3px] text-[#4D4AB8] font-semibold mb-3">
+                            <div className="uppercase text-center md:text-left text-xs tracking-[3px] text-[#4D4AB8] font-semibold mb-3">
                                 FINANCIAL VISIONARY
                             </div>
                             <h2 className="text-[28px] md:text-[34px] lg:text-[38px] xl:text-[42px] leading-tight font-semibold text-black text-center lg:text-left">
@@ -104,19 +143,12 @@ const Hero = () => {
                                 { num: "3", label: "CONTINENTS" },
                                 { num: "15+", label: "VENTURES" },
                             ].map((stat, i) => (
-                                <div key={i} className="text-center lg:text-left">
-                                    <div className="text-[42px] md:text-[52px] lg:text-[58px] font-bold text-black leading-none">
-                                        {stat.num}
-                                    </div>
-                                    <div className="text-[10px] md:text-xs uppercase tracking-[2px] text-black/60 mt-1 font-medium">
-                                        {stat.label}
-                                    </div>
-                                </div>
+                                <AnimatedStat key={i} num={stat.num} label={stat.label} />
                             ))}
                         </motion.div>
 
                         {/* CTAs */}
-                        <motion.div {...fadeUp(0.9)} className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start">
+                        <motion.div {...fadeUp(0.9)} className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start md:my-8">
                             <Link
                                 href="https://linkedin.com"
                                 target="_blank"
@@ -135,7 +167,7 @@ const Hero = () => {
                         </motion.div>
 
                         {/* Tags */}
-                        <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 md:my-8 justify-center lg:justify-start">
+                        {/* <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 md:my-8 justify-center lg:justify-start">
                             {["INDIA", "UAE", "UNITED KINGDOM", "FINTECH", "WEALTH MANAGEMENT"].map((tag) => (
                                 <span
                                     key={tag}
@@ -144,7 +176,7 @@ const Hero = () => {
                                     {tag}
                                 </span>
                             ))}
-                        </motion.div>
+                        </motion.div> */}
 
                     </div>
 

@@ -19,9 +19,9 @@ const page = () => {
       <Subhero />
       <MyWork />
       <Bitabout />
-      <Leadership />
-      <FinancialEducation />
-      <Vision />
+
+
+
       <Contact />
 
     </>
