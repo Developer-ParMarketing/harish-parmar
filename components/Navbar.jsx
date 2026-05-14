@@ -8,7 +8,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     const links = [
-        { name: "My work", path: "/work" },
+
         { name: "About", path: "/about" },
         { name: "Contact", path: "/contact" },
     ];

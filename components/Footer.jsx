@@ -12,7 +12,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const links = [
-        { name: "My work", path: "/work" },
+
         { name: "About", path: "/about" },
         { name: "Contact", path: "/contact" },
     ];

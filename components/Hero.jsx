@@ -135,7 +135,7 @@ const Hero = () => {
                         </motion.div>
 
                         {/* Tags */}
-                        <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 mt-8 justify-center lg:justify-start">
+                        <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 md:my-8 justify-center lg:justify-start">
                             {["INDIA", "UAE", "UNITED KINGDOM", "FINTECH", "WEALTH MANAGEMENT"].map((tag) => (
                                 <span
                                     key={tag}
@@ -211,6 +211,41 @@ const Hero = () => {
 
             {/* Extra bottom spacing */}
             <div className="h-16 lg:h-24"></div>
+            {/* ── MARQUEE — paste this just before </section> ── */}
+            <div className="absolute bottom-0 left-0 right-0 z-10 w-full border-t border-black/[0.05] bg-white/80 overflow-hidden py-3.5">
+                <motion.div
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    className="flex gap-8 whitespace-nowrap w-max"
+                >
+                    {[
+                        "Global Financial Leadership",
+                        "Fintech Pioneer",
+                        "Debt Freedom Advocate",
+                        "India · UAE · United Kingdom",
+                        "40+ Years of Excellence",
+                        "Wealth Architect",
+                        "Three Continents · One Vision",
+                        "Sustainable Financial Freedom",
+                        "Global Financial Leadership",
+                        "Fintech Pioneer",
+                        "Debt Freedom Advocate",
+                        "India · UAE · United Kingdom",
+                        "40+ Years of Excellence",
+                        "Wealth Architect",
+                        "Three Continents · One Vision",
+                        "Sustainable Financial Freedom",
+                    ].map((text, i) => (
+                        <span
+                            key={i}
+                            className="text-[9px] uppercase tracking-[4px] text-black font-medium flex items-center gap-8"
+                        >
+                            {text}
+                            <span className="w-1 h-1 rounded-full bg-[#4D4AB8]/25 inline-block flex-shrink-0" />
+                        </span>
+                    ))}
+                </motion.div>
+            </div>
         </section>
     );
 };
