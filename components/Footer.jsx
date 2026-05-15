@@ -14,8 +14,8 @@ const Footer = () => {
     const links = [
 
         { name: "About", path: "/about" },
-        { name: "Contact", path: "/contact" },
         { name: "Financial Literacy", path: "/financialliteracy" },
+        { name: "Contact", path: "/contact" },
     ];
 
     const icons = [
