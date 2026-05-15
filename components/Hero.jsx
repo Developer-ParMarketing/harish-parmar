@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-
+import { ArrowRight } from "lucide-react";
 
 const AnimatedStat = ({ num, label }) => {
     const ref = useRef(null);
@@ -148,24 +148,61 @@ const Hero = () => {
                         </motion.div>
 
                         {/* CTAs */}
-                        <motion.div {...fadeUp(0.9)} className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start md:my-8">
+                        <motion.div
+                            {...fadeUp(0.9)}
+                            className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start md:my-8"
+                        >
                             <Link
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/harishparmar1/"
                                 target="_blank"
-                                className="bg-[#4D4AB8] hover:bg-[#3d3aa0] text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 transition-all duration-300 text-base shadow-lg shadow-[#4D4AB8]/30 text-center"
+                                className="group bg-[#4D4AB8] hover:bg-[#3d3aa0] text-white px-4 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 text-base shadow-lg shadow-[#4D4AB8]/30 text-center"
                             >
-                                Connect on LinkedIn
-                                <span className="text-lg">↗</span>
+                                <div className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center border border-white/10">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-[18px] h-[18px]"
+                                    >
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                        <rect x="2" y="9" width="4" height="12" />
+                                        <circle cx="4" cy="4" r="2" />
+                                    </svg>
+                                </div>
+
+                                <span>Connect on LinkedIn</span>
+
+                                <ArrowRight
+                                    size={18}
+                                    className="transition-transform duration-300 group-hover:translate-x-1"
+                                />
                             </Link>
 
                             <Link
                                 href="/about"
-                                className="border-2 border-black/20 hover:border-black text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 text-center text-base"
+                                className="group border-2 border-black/15 hover:border-black text-black px-4 py-4 rounded-full font-semibold transition-all duration-300 text-base flex items-center justify-center gap-3"
                             >
-                                Explore His Journey
+                                <div className="w-9 h-9 rounded-full bg-black/5 flex items-center justify-center border border-black/10">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-[18px] h-[18px]"
+                                    >
+                                        <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5z" />
+                                        <path d="M20 21a8 8 0 1 0-16 0" />
+                                    </svg>
+                                </div>
+
+                                <span>Explore His Journey</span>
                             </Link>
                         </motion.div>
-
                         {/* Tags */}
                         {/* <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 md:my-8 justify-center lg:justify-start">
                             {["INDIA", "UAE", "UNITED KINGDOM", "FINTECH", "WEALTH MANAGEMENT"].map((tag) => (
