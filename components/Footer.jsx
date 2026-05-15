@@ -15,6 +15,7 @@ const Footer = () => {
 
         { name: "About", path: "/about" },
         { name: "Contact", path: "/contact" },
+        { name: "Financial Literacy", path: "/financialliteracy" },
     ];
 
     const icons = [
