@@ -98,10 +98,19 @@ const Bitabout = () => {
                                 className="w-8 h-8 rounded-xl flex items-center justify-center"
                                 style={{ backgroundColor: "#4D4AB815" }}
                             >
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#4D4AB8" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="#4D4AB8"
+                                    strokeWidth={1.7}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="w-4 h-4"
+                                >
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             </div>
+
                             <h3 className="text-[13px] font-bold text-black uppercase tracking-[2px]">
                                 Industry Leadership
                             </h3>
@@ -112,6 +121,107 @@ const Bitabout = () => {
                             (International Financial Technologists Association)
                             Conclaves and Taurus Group Annual Meets.
                         </p>
+
+                        {/* Social Media */}
+                        <div className="mt-7 pt-6 border-t border-black/[0.06]">
+                            <p className="text-[10px] uppercase tracking-[3px] text-black/35 mb-4">
+                                Connect & Follow
+                            </p>
+
+                            <div className="flex flex-wrap gap-3">
+                                {[
+                                    {
+                                        name: "Instagram",
+                                        link: "https://www.instagram.com/harishparmarr_?igsh=MTI5aG1sMjQ0a21ucg==",
+                                        icon: (
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="w-4 h-4"
+                                            >
+                                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                            </svg>
+                                        ),
+                                    },
+                                    {
+                                        name: "Facebook",
+                                        link: "https://www.facebook.com/profile.php?id=61587471657903&sk=about",
+                                        icon: (
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="w-4 h-4"
+                                            >
+                                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                            </svg>
+                                        ),
+                                    },
+                                    {
+                                        name: "X",
+                                        link: "https://x.com/HarishParmarr_",
+                                        icon: (
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="w-4 h-4"
+                                            >
+                                                <path d="M4 4l16 16" />
+                                                <path d="M20 4L4 20" />
+                                            </svg>
+                                        ),
+                                    },
+                                    {
+                                        name: "LinkedIn",
+                                        link: "https://www.linkedin.com/in/harishparmar1/",
+                                        icon: (
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="w-4 h-4"
+                                            >
+                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                                <rect x="2" y="9" width="4" height="12" />
+                                                <circle cx="4" cy="4" r="2" />
+                                            </svg>
+                                        ),
+                                    },
+                                ].map((social, i) => (
+                                    <a
+                                        key={i}
+                                        href={social.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group flex items-center gap-2 rounded-full border border-black/[0.08] bg-white px-4 py-2.5 hover:border-[#4D4AB8]/25 hover:bg-[#4D4AB8] transition-all duration-300"
+                                    >
+                                        <span className="text-black/55 group-hover:text-white transition-colors duration-300">
+                                            {social.icon}
+                                        </span>
+
+                                        {/* <span className="text-[11px] uppercase tracking-[2px] text-black/60 group-hover:text-white transition-colors duration-300">
+                                            {social.name}
+                                        </span> */}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Stat pills row */}

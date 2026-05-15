@@ -195,25 +195,7 @@ const Hero = () => {
                             />
 
                             {/* Experience Badge */}
-                            <motion.div
-                                initial={false}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.7 }}
-                                className="absolute -top-2 sm:-top-5 left-2 sm:-left-4 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
-                            >
-                                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-black/60">
-                                    EXPERIENCE
-                                </p>
 
-                                <p className="text-2xl sm:text-4xl font-bold text-black mt-1">
-                                    40+
-                                </p>
-
-                                <p className="text-[10px] sm:text-xs text-black/70">
-                                    YEARS
-                                </p>
-                            </motion.div>
 
                             {/* Markets Badge */}
                             <motion.div
@@ -221,15 +203,34 @@ const Hero = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.9 }}
-                                className="absolute -top-2 sm:-top-5 right-2 sm:right-4 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
+                                className="absolute -top-18 sm:-top-15 right-2 sm:-right-2 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
                             >
-                                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-black/60">
-                                    MARKETS
-                                </p>
 
-                                <p className="text-xs sm:text-sm font-semibold text-black mt-1 whitespace-nowrap">
-                                    India • UAE • UK
-                                </p>
+                                <div className="flex items-center justify-center gap-2 mt-2">
+                                    <Image
+                                        src="/ind.png"
+                                        alt="India"
+                                        width={34}
+                                        height={34}
+                                        className="rounded-full object-cover"
+                                    />
+
+                                    <Image
+                                        src="/uae.png"
+                                        alt="UAE"
+                                        width={34}
+                                        height={34}
+                                        className="rounded-full object-cover"
+                                    />
+
+                                    <Image
+                                        src="/uk.png"
+                                        alt="UK"
+                                        width={34}
+                                        height={34}
+                                        className="rounded-full object-cover"
+                                    />
+                                </div>
                             </motion.div>
                             {/* Bottom Caption */}
                             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg px-6 py-3 text-center border border-black/5 z-20">

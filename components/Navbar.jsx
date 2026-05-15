@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -15,16 +16,21 @@ const Navbar = () => {
     ];
 
     return (
-        <header className="w-full px-6 md:px-16 py-6 ">
-            <nav className="flex items-center justify-between">
+        <header className="w-full px-6 md:px-16 py-6 sticky top-0 z-50 bg-white/80 backdrop-blur-md">
+            <nav className="flex items-center justify-between ">
 
                 {/* Logo */}
                 <Link href="/">
-                    <span className="text-[22px] md:text-[26px] font-bold text-black cursor-pointer">
-                        Harish Parmar
-                    </span>
+                    <div className="relative w-[180px] md:w-[280px] h-[50px] cursor-pointer">
+                        <Image
+                            src="/signature.png"
+                            alt="Harish Parmar Signature"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
                 </Link>
-
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex items-center gap-8 text-[#5A56C8] text-[18px] font-light">
                     {links.map((link, i) => (
