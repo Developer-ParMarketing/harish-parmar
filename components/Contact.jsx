@@ -2,14 +2,7 @@
 
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
-import {
-    Mail,
-    ArrowUpRight,
-    FileText,
-    X,
-    ChevronDown,
-    Linkedin,
-} from "lucide-react";
+import { Mail, ArrowUpRight, FileText, X, ChevronDown } from "lucide-react";
 
 /* ─── Icons ── */
 const LinkedinIcon = () => (
@@ -289,10 +282,10 @@ const Contact = () => {
     const formSectionRef = useRef(null);
 
     return (
-        <section className="relative w-full bg-[#f7f6f3] overflow-hidden">
+        <section className="relative w-full bg-[#f7f6f3]">
 
             {/* Background geometry */}
-            <div className="absolute inset-0 pointer-events-none select-none">
+            <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
                 <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full border border-black/[0.05]" />
                 <div className="absolute -bottom-16 -right-16 w-[320px] h-[320px] rounded-full border border-black/[0.04]" />
                 <div className="absolute top-0 left-0 w-[260px] h-[260px] border-b border-r border-black/[0.05]" />
@@ -302,8 +295,8 @@ const Contact = () => {
             <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-10 md:pt-14">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_440px] gap-10 lg:gap-20 items-end">
                     <h2 className="text-[38px] sm:text-[52px] md:text-[68px] xl:text-[76px] leading-[1.0] font-semibold text-black tracking-tight">
-                        Let's Start a<br />
-                        <span className="text-black/20">Professional Dialogue</span>
+                        Let’s Start a<br />
+                        <span className="text-black/20">Professional Chat</span>
                     </h2>
                     <p className="text-[16px] md:text-[24px] leading-[1.9] text-[#555] font-light lg:pb-2">
                         For speaking engagements, media inquiries, or professional dialogue.
