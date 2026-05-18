@@ -38,7 +38,7 @@ const Bitabout = () => {
                     <div className="absolute inset-0 bg-[#eeedf8]" />
 
                     <Image
-                        src="/billu.png"
+                        src="/Finance.jpg"
                         alt="Harish Parmar"
                         fill
                         className="object-cover object-top"

@@ -81,10 +81,10 @@ const Leadership = () => {
                         {/* Image frame */}
                         <div className="relative w-full aspect-[3/4] md:h-[780px] md:aspect-auto overflow-hidden border border-white/15">
                             <Image
-                                src="/clear.png"
+                                src="/hero.jpg"
                                 alt="Harish Parmar — Founder, SingleDebt"
                                 fill
-                                className="object-cover object-top"
+                                className="object-cover object-right"
                             />
 
                             {/* Bottom gradient overlay */}

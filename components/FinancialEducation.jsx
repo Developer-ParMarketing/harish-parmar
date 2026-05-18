@@ -157,7 +157,7 @@ const FinancialEducation = () => {
                     {/* Right — image with play */}
                     <div className="relative min-h-[300px] sm:min-h-[380px] md:min-h-[460px] lg:min-h-0">
                         <Image
-                            src="/billu.png"
+                            src="/Engagement.jpg"
                             alt="Financial Education & Workshops"
                             fill
                             className="object-cover"
