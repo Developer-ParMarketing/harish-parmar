@@ -9,6 +9,7 @@ const Footer = () => {
     const links = [
         { name: "About", path: "/about" },
         { name: "Financial Literacy", path: "/financialliteracy" },
+        { name: "Blogs", path: "/blogs" },
         { name: "Contact", path: "/contact" },
     ];
 

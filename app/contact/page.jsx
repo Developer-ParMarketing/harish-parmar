@@ -126,10 +126,29 @@ const ContactPage = () => {
     const handleChange = (e) =>
         setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setTimeout(() => { setLoading(false); setSubmitted(true); }, 1400);
+
+        try {
+            const res = await fetch("http://localhost:5000/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                setSubmitted(true);
+            } else {
+                alert(data.message || "Something went wrong. Please try again.");
+            }
+        } catch (err) {
+            alert("Could not reach the server. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     const underline = (field) => ({

@@ -61,15 +61,29 @@ const Contact = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
         setLoading(true);
 
-        setTimeout(() => {
+        try {
+            const res = await fetch("http://localhost:5000/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                setSubmitted(true);
+            } else {
+                alert(data.message || "Something went wrong. Please try again.");
+            }
+        } catch (err) {
+            alert("Could not reach the server. Please try again later.");
+        } finally {
             setLoading(false);
-            setSubmitted(true);
-        }, 1500);
+        }
     };
 
     const underline = (field) => ({
@@ -428,8 +442,8 @@ const Contact = () => {
                                             style={{
                                                 outline: "none",
                                                 borderBottom: `1px solid ${focused === "message"
-                                                        ? "#3E3AA8"
-                                                        : "rgba(0,0,0,0.15)"
+                                                    ? "#3E3AA8"
+                                                    : "rgba(0,0,0,0.15)"
                                                     }`,
                                                 transition:
                                                     "border-color 0.3s ease",
