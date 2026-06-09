@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { api } from "@/app/variables";
 
 const AdminSignup = () => {
     const router = useRouter();
@@ -33,7 +34,7 @@ const AdminSignup = () => {
         setLoading(true);
 
         try {
-            const res = await fetch("http://localhost:5000/api/auth/signup", {
+            const res = await fetch(`${api}/auth/signup`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const API = "http://localhost:5000";
+import { api } from "../variables";
 
 const BlogsPage = () => {
     const [blogs, setBlogs] = useState([]);
@@ -20,7 +19,7 @@ const BlogsPage = () => {
                 if (activeCategory) params.set("category", activeCategory);
                 params.set("limit", "50");
 
-                const res = await fetch(`${API}/api/blog?${params}`);
+                const res = await fetch(`${api}/blog?${params}`);
                 const data = await res.json();
 
                 if (data.success) {
@@ -83,8 +82,8 @@ const BlogsPage = () => {
                             <button
                                 onClick={() => setActiveCategory("")}
                                 className={`px-4 py-2 text-[11px] uppercase tracking-[2px] border transition-all duration-200 ${!activeCategory
-                                        ? "bg-[#3E3AA8] border-[#3E3AA8] text-white"
-                                        : "bg-white border-black/15 text-black/55 hover:border-black/30"
+                                    ? "bg-[#3E3AA8] border-[#3E3AA8] text-white"
+                                    : "bg-white border-black/15 text-black/55 hover:border-black/30"
                                     }`}
                             >
                                 All
@@ -94,8 +93,8 @@ const BlogsPage = () => {
                                     key={cat}
                                     onClick={() => setActiveCategory(cat === activeCategory ? "" : cat)}
                                     className={`px-4 py-2 text-[11px] uppercase tracking-[2px] border transition-all duration-200 ${activeCategory === cat
-                                            ? "bg-[#3E3AA8] border-[#3E3AA8] text-white"
-                                            : "bg-white border-black/15 text-black/55 hover:border-black/30"
+                                        ? "bg-[#3E3AA8] border-[#3E3AA8] text-white"
+                                        : "bg-white border-black/15 text-black/55 hover:border-black/30"
                                         }`}
                                 >
                                     {cat}

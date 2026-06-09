@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import BlogForm from "../../../../components/admin/BlogForm";
+import { api } from "@/app/variables";
 
-const API = "http://localhost:5000";
+
 
 const EditBlogPage = () => {
     const { id } = useParams();
@@ -14,7 +15,7 @@ const EditBlogPage = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await fetch(`${API}/api/blog/admin/${id}`, { credentials: "include" });
+                const res = await fetch(`${api}/blog/admin/${id}`, { credentials: "include" });
                 const data = await res.json();
                 if (data.success) {
                     setBlog(data.data);

@@ -2,8 +2,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { api } from "@/app/variables";
 
-const API = "http://localhost:5000";
+
 
 const STATUS_STYLES = {
     draft: { bg: "bg-yellow-50", text: "text-yellow-700", border: "border-yellow-200" },
@@ -25,7 +26,7 @@ const AdminBlogs = () => {
             if (filterStatus) params.set("status", filterStatus);
             if (search) params.set("search", search);
 
-            const res = await fetch(`${API}/api/blog/admin/all?${params}`, { credentials: "include" });
+            const res = await fetch(`${api}/blog/admin/all?${params}`, { credentials: "include" });
             const data = await res.json();
 
             if (data.success) {
@@ -48,7 +49,7 @@ const AdminBlogs = () => {
     const deleteBlog = async (id, title) => {
         if (!confirm(`Delete "${title}"? This cannot be undone.`)) return;
         try {
-            const res = await fetch(`${API}/api/blog/admin/${id}`, {
+            const res = await fetch(`${api}/blog/admin/${id}`, {
                 method: "DELETE",
                 credentials: "include",
             });

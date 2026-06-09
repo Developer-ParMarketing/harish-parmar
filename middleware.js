@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { api } from "./app/variables";
 
 const PUBLIC_ROUTES = ["/admin/login", "/admin/signup"];
 
@@ -26,7 +27,7 @@ export async function middleware(req) {
 
     // Verify token with backend
     try {
-        const res = await fetch("http://localhost:5000/api/auth/me", {
+        const res = await fetch(`${api}/auth/me`, {
             headers: {
                 Cookie: `adminToken=${token}`,
             },

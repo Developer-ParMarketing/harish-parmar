@@ -2,8 +2,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { api } from "@/app/variables";
 
-const API = "http://localhost:5000";
+
 
 const BlogDetailPage = () => {
     const { slug } = useParams();
@@ -21,7 +22,7 @@ const BlogDetailPage = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await fetch(`${API}/api/blog/${slug}`);
+                const res = await fetch(`${api}/blog/${slug}`);
                 const data = await res.json();
                 if (data.success) {
                     setBlog(data.data);
@@ -43,7 +44,7 @@ const BlogDetailPage = () => {
     const handleLike = async () => {
         if (liked) return;
         try {
-            const res = await fetch(`${API}/api/blog/${slug}/like`, { method: "POST" });
+            const res = await fetch(`${api}/blog/${slug}/like`, { method: "POST" });
             const data = await res.json();
             if (data.success) {
                 setLikeCount(data.likes);
@@ -59,7 +60,7 @@ const BlogDetailPage = () => {
         if (!comment.name || !comment.email || !comment.comment) return;
         setCommentLoading(true);
         try {
-            const res = await fetch(`${API}/api/blog/${slug}/comment`, {
+            const res = await fetch(`${api}/blog/${slug}/comment`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(comment),

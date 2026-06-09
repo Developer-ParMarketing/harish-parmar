@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { api } from "@/app/variables";
 
 const AdminLogin = () => {
     const router = useRouter();
@@ -24,7 +25,7 @@ const AdminLogin = () => {
         setLoading(true);
 
         try {
-            const res = await fetch("http://localhost:5000/api/auth/login", {
+            const res = await fetch(`${api}/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include", // send/receive cookies

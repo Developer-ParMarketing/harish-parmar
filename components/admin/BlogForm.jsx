@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { api } from "@/app/variables";
 
-const API = "http://localhost:5000";
+
 
 const EMPTY_FORM = {
     title: "",
@@ -137,7 +138,7 @@ const BlogForm = ({ initialData = null, blogId = null }) => {
         };
 
         try {
-            const url = isEdit ? `${API}/api/blog/admin/${blogId}` : `${API}/api/blog/admin`;
+            const url = isEdit ? `${api}/blog/admin/${blogId}` : `${api}/blog/admin`;
             const method = isEdit ? "PUT" : "POST";
 
             const res = await fetch(url, {

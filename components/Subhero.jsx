@@ -1,102 +1,32 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-import React, { useRef, useEffect, useCallback, useState } from "react";
-
-/* ─── Icons ──────────────────────────────────────────────────────────────── */
-const Icon = ({ name, className = "w-5 h-5" }) => {
-    const map = {
-        graduation: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
-                <path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" />
-            </svg>
-        ),
-        building: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
-            </svg>
-        ),
-        globe: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18M3 12h18" />
-            </svg>
-        ),
-        rocket: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09zM12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-            </svg>
-        ),
-        monitor: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <path d="M8 21h8M12 17v4" />
-            </svg>
-        ),
-        map: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                <circle cx="12" cy="10" r="3" />
-            </svg>
-        ),
-        award: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <circle cx="12" cy="8" r="6" />
-                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
-            </svg>
-        ),
-        smartphone: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <rect x="5" y="2" width="14" height="20" rx="2" />
-                <path d="M12 18h.01" />
-            </svg>
-        ),
-        compass: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" className={className}>
-                <circle cx="12" cy="12" r="10" />
-                <path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z" />
-            </svg>
-        ),
-    };
-    return map[name] || null;
-};
-
-/* ─── Data ───────────────────────────────────────────────────────────────── */
 const history = [
     {
-        year: "1994", icon: "graduation", color: "#6366f1",
+        year: "1994",
         title: "Academic & Early UK Foundation",
         img: "/billu.png",
         desc: "Harish Parmar, founder of SingleDebt, graduated from The University of Manchester Institute of Science and Technology (UMIST) and began consulting on the design of financial products for banks in the UK and USA.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        links: { SingleDebt: "https://singledebt.in/" },
     },
     {
-        year: "1999", icon: "building", color: "#0ea5e9",
+        year: "1999",
         title: "India Market Entry & Institutional Building",
         img: "/billu.png",
-        desc: "Founded One Debt, a debt management company catering to UK nationals, at a time when consumer debt in the UK was increasing significantly (peaking at 156.4% of household disposable income in 2008).",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        desc: "Founded One Debt, a debt management company catering to UK nationals, at a time when consumer debt in the UK was increasing significantly.",
+        links: {},
     },
     {
-        year: "2007", icon: "globe", color: "#10b981",
+        year: "2007",
         title: "BPO & Financial Operations Expansion",
         img: "/billu.png",
         desc: "Established a Business Process Outsourcing (BPO) center in India to support financial products and banking services for clients in the UK and USA.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        links: {},
     },
     {
-        year: "2020s", icon: "rocket", color: "#f59e0b",
+        year: "2020",
         title: "Ecosystem Leadership & Mass Impact",
         img: "/billu.png",
         desc: "Founded SingleDebt, introducing a structured legal-fintech model for debt resolution in India.",
@@ -107,543 +37,270 @@ const history = [
             "Promote financial literacy and responsible restructuring",
         ],
         extra: "This marked a shift from service execution to ecosystem innovation.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        links: { SingleDebt: "https://singledebt.in/" },
     },
     {
-        year: "2021", icon: "monitor", color: "#8b5cf6",
+        year: "2021",
         title: "First Debt Management Platform",
         img: "/billu.png",
-        desc: "Introduced a customer-first Debt Management Platform, providing easy access to representatives and online resources for debt solutions, significantly reducing time and effort for clients.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        desc: "Introduced a customer-first Debt Management Platform, providing easy access to representatives and online resources for debt solutions.",
+        links: {},
     },
     {
-        year: "2022", icon: "map", color: "#ef4444",
+        year: "2022",
         title: "UAE Expansion – Dubai Headquarters",
         img: "/billu.png",
-        desc: "Expanded operations to the UAE, establishing Dubai as a regional headquarters. Extended services to the GCC market — marking a strategic international growth milestone.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
-    },
-    {
-        year: "2023", icon: "award", color: "#f97316",
-        title: "Industry Recognition",
-        img: "/billu.png",
-        desc: "Awarded the 'Best Debt Management Company in India & UAE' by SOS Nitelife, recognizing SingleDebt's excellence and commitment to client success.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
-    },
-    {
-        year: "2024", icon: "smartphone", color: "#06b6d4",
-        title: "Technology Acceleration & Fintech Recognition",
-        img: "/billu.png",
-        desc: "Launched the SingleDebt customer app and digital portal, strengthening accessibility and digital engagement. SingleDebt was shortlisted as a finalist at IFTA 2024 from nominations across 20 countries.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
-    },
-    {
-        year: "Present & Future", icon: "compass", color: "#4D4AB8",
-        title: "Cross-Border Financial Leadership",
-        img: "/billu.png",
-        desc: "With four decades of global financial exposure spanning the UK, India, and UAE, Harish Parmar now oversees a diversified portfolio focused on ethical debt resolution, structured financial recovery, and cross-border compliance.",
-        links: {
-            SingleDebt: "https://singledebt.in/",
-            SOS: "https://sos.singledebt.in/",
-        },
+        desc: "Expanded operations to the UAE, establishing Dubai as a regional headquarters. Extended services to the GCC market.",
+        links: {},
     },
 ];
 
-
-const renderTextWithLinks = (text, links = {}, color) => {
+const renderTextWithLinks = (text, links = {}) => {
     if (!links || Object.keys(links).length === 0) return text;
-
-    const regex = new RegExp(
-        `(${Object.keys(links).join("|")})`,
-        "gi"
-    );
-
-    return text.split(regex).map((part, index) => {
-        const matchedKey = Object.keys(links).find(
-            (key) => key.toLowerCase() === part.toLowerCase()
-        );
-
-        if (matchedKey) {
+    const regex = new RegExp(`(${Object.keys(links).join("|")})`, "gi");
+    return text.split(regex).map((part, i) => {
+        const key = Object.keys(links).find((k) => k.toLowerCase() === part.toLowerCase());
+        if (key) {
             return (
-                <a
-                    key={index}
-                    href={links[matchedKey]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold underline underline-offset-2 hover:opacity-70 transition-opacity"
-                    style={{ color }}
-                >
+                <a key={i} href={links[key]} target="_blank" rel="noopener noreferrer"
+                    className="font-semibold text-[#C19A5B] underline underline-offset-2 hover:opacity-70 transition-opacity">
                     {part}
                 </a>
             );
         }
-
         return part;
     });
 };
 
-const CARD_W = 340;
-const CARD_GAP = 16;
-const STEP = CARD_W + CARD_GAP;
+const TimelineCard = ({ item }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="relative"
+    >
+        {/* Gold connector line */}
+        <div className="absolute -top-16 left-0 w-[2px] h-28 bg-[#C19A5B]" />
 
-/* ─── Card ───────────────────────────────────────────────────────────────── */
-function TimelineCard({ item, index, total, isActive }) {
-    const [expanded, setExpanded] = useState(false);
-    const [imgVisible, setImgVisible] = useState(false);
-
-    const DESC_LIMIT = 100;
-    const hasLongContent =
-        item.desc.length > DESC_LIMIT || item.points?.length > 0 || item.extra;
-
-    const shortDesc = item.desc.length > DESC_LIMIT
-        ? item.desc.slice(0, DESC_LIMIT).trimEnd() + "…"
-        : item.desc;
-
-    return (
-        <div
-            className="flex-shrink-0 flex flex-col"
-            style={{ width: CARD_W, marginRight: CARD_GAP }}
-        >
-            {/* Connector row */}
-            <div className="flex items-center" style={{ height: 52 }}>
-                <div
-                    className="flex-1 h-px"
-                    style={{ background: `linear-gradient(to right, rgba(0,0,0,0.06), ${item.color}55)` }}
-                />
-                <div className="relative flex-shrink-0 mx-2">
-                    {isActive && (
-                        <div
-                            className="absolute rounded-full opacity-20 animate-ping"
-                            style={{
-                                inset: -4,
-                                backgroundColor: item.color,
-                                animationDuration: `${2 + (index % 4) * 0.5}s`,
-                            }}
-                        />
-                    )}
-                    <div
-                        className="relative w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300"
-                        style={{
-                            backgroundColor: item.color,
-                            boxShadow: `0 4px 16px ${item.color}55`,
-                            transform: isActive ? "scale(1.1)" : "scale(1)",
-                        }}
-                    >
-                        <span className="text-white">
-                            <Icon name={item.icon} />
-                        </span>
-                    </div>
-                </div>
-                <div
-                    className="flex-1 h-px"
-                    style={{ background: `linear-gradient(to right, ${item.color}55, rgba(0,0,0,0.06))` }}
-                />
-            </div>
-
-            {/* Card body — fixed height, flex column */}
-            <div className="pt-3 flex-1 flex flex-col">
-                <div
-                    className="group relative bg-white rounded-[20px] border overflow-hidden flex flex-col transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.11)]"
-                    style={{
-                        padding: "20px 22px 22px",
-                        height: 420,
-                        boxShadow: isActive
-                            ? `0 4px 24px ${item.color}33`
-                            : "0 2px 12px rgba(0,0,0,0.06)",
-                        borderColor: isActive ? `${item.color}40` : "rgba(0,0,0,0.07)",
-                    }}
-                    /* Desktop: hover shows image via CSS group-hover */
-                    onMouseEnter={() => setImgVisible(true)}
-                    onMouseLeave={() => setImgVisible(false)}
-                    /* Mobile: tap toggles image */
-                    onTouchEnd={(e) => {
-                        // only toggle if not a scroll gesture
-                        e.stopPropagation();
-                        setImgVisible((v) => !v);
-                    }}
-                >
-                    {/* Background image — controlled by imgVisible state */}
-                    {item.img && (
-                        <div
-                            className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-500"
-                            style={{ opacity: imgVisible ? 1 : 0 }}
-                        >
-                            <img
-                                src={item.img}
-                                alt=""
-                                className="w-full h-full object-cover"
-                            />
-                            <div
-                                className="absolute inset-0"
-                                style={{ background: "rgba(255,255,255,0.78)" }}
-                            />
-                        </div>
-                    )}
-
-                    {/* Color wash — follows same imgVisible state */}
-                    <div
-                        className="absolute inset-0 pointer-events-none z-[1] transition-opacity duration-500"
-                        style={{
-                            opacity: imgVisible ? 1 : 0,
-                            background: `radial-gradient(ellipse at 20% 20%, ${item.color}0d, transparent 60%)`,
-                        }}
-                    />
-
-                    {/* ── Content ── */}
-                    <div className="relative z-[2] flex flex-col h-full">
-
-                        {/* Year + counter */}
-                        <div className="flex items-center justify-between mb-3">
-                            <div
-                                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[18px] font-bold tracking-wide"
-                                style={{ backgroundColor: `${item.color}15`, color: item.color }}
-                            >
-                                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }} />
-                                {item.year}
-                            </div>
-                            <span className="text-[10px] text-black/20 tabular-nums">
-                                {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-                            </span>
-                        </div>
-
-                        {/* Icon chip */}
-                        <div
-                            className="w-9 h-9 rounded-xl flex items-center justify-center mb-3"
-                            style={{ backgroundColor: `${item.color}12`, color: item.color }}
-                        >
-                            <Icon name={item.icon} />
-                        </div>
-
-                        {/* Title */}
-                        <h3 className="text-[15px] font-bold text-gray-900 leading-[1.35] mb-2">
-                            {item.title}
-                        </h3>
-
-                        {/* Accent bar */}
-                        <div
-                            className="w-6 h-[2px] rounded-full mb-3"
-                            style={{ backgroundColor: item.color }}
-                        />
-
-                        {/* Scrollable content area — fills remaining height */}
-                        <div className="flex-1 overflow-hidden flex flex-col min-h-0">
-
-                            {/* Description — collapsed or expanded */}
-                            <p className="text-[13px] leading-[1.85] text-gray-600">
-                                {renderTextWithLinks(
-                                    expanded ? item.desc : shortDesc,
-                                    item.links,
-                                    item.color
-                                )}
-                            </p>
-
-                            {/* Expanded extra content */}
-                            {expanded && (
-                                <>
-                                    {item.points && (
-                                        <ul className="mt-3 space-y-1.5">
-                                            {item.points.map((pt, i) => (
-                                                <li key={i} className="flex items-start gap-2 text-[12.5px] text-gray-600 leading-[1.75]">
-                                                    <span
-                                                        className="mt-[6px] w-1.5 h-1.5 rounded-full flex-shrink-0"
-                                                        style={{ backgroundColor: item.color }}
-                                                    />
-                                                    {pt}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                    {item.extra && (
-                                        <p
-                                            className="text-[12px] leading-[1.8] text-gray-500 italic mt-3 pl-3 border-l-2"
-                                            style={{ borderColor: item.color }}
-                                        >
-                                            {item.extra}
-                                        </p>
-                                    )}
-                                </>
-                            )}
-
-                            {/* Read more / less toggle */}
-                            {hasLongContent && (
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setExpanded((v) => !v);
-                                    }}
-                                    className="mt-3 text-[12px] font-semibold self-start transition-colors duration-200"
-                                    style={{ color: item.color }}
-                                >
-                                    {expanded ? "Read less ↑" : "Read more ↓"}
-                                </button>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Bottom bar on hover */}
-                    <div
-                        className="absolute bottom-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[2]"
-                        style={{ background: `linear-gradient(90deg, ${item.color}, ${item.color}44)` }}
-                    />
-                </div>
-            </div>
+        {/* Image */}
+        <div className="relative mb-6 h-[220px] w-full overflow-hidden bg-[#5c5c5c]">
+            <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                sizes="(max-width:1024px) 100vw, 320px"
+                className="object-cover"
+            />
         </div>
-    );
-}
 
-/* ─── Main ───────────────────────────────────────────────────────────────── */
-export default function Subhero() {
-    const trackRef = useRef(null);
-    const animRef = useRef(null);
-    const pausedRef = useRef(false);
-    const posRef = useRef(0);
-    const dragRef = useRef({ active: false, startX: 0, startPos: 0 });
-    const touchRef = useRef({ startX: 0, startPos: 0 });
+        {/* Year */}
+        <h3
+            className="
+                font-[family-name:var(--font-serif)]
+                text-[58px]
+                leading-none
+                text-[#161616]
+            "
+        >
+            {item.year}
+        </h3>
 
-    const [mounted, setMounted] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
+        {/* Title */}
+        <h4
+            className="
+                mt-2
+                text-[18px]
+                font-semibold
+                text-[#161616]
+                leading-tight
+            "
+        >
+            {item.title}
+        </h4>
 
-    useEffect(() => { setMounted(true); }, []);
+        {/* Description */}
+        <p
+            className="
+                mt-4
+                text-[14px]
+                leading-[1.7]
+                text-[#6E695E]
+            "
+        >
+            {renderTextWithLinks(item.desc, item.links)}
+        </p>
 
-    const doubled = [...history, ...history];
+        {/* Bullet Points */}
+        {item.points && (
+            <ul className="mt-4 space-y-2">
+                {item.points.map((p, idx) => (
+                    <li
+                        key={idx}
+                        className="flex items-start gap-3 text-[13px] leading-relaxed text-[#6E695E]"
+                    >
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#C19A5B]" />
+                        <span>{p}</span>
+                    </li>
+                ))}
+            </ul>
+        )}
 
-    const updateActiveDot = useCallback(() => {
-        const el = trackRef.current;
-        if (!el) return;
-        const half = el.scrollWidth / 2;
-        const safePos = posRef.current % half;
-        const idx = Math.round(safePos / STEP) % history.length;
-        setActiveIndex(idx);
-    }, []);
+        {/* Extra text */}
+        {item.extra && (
+            <p className="mt-4 text-[13px]  text-[#6E695E]">
+                {item.extra}
+            </p>
+        )}
+    </motion.div>
+);
 
-    useEffect(() => {
-        if (!mounted) return;
-        const el = trackRef.current;
-        if (!el) return;
-
-        let halfWidth = 0;
-        const init = requestAnimationFrame(() => {
-            halfWidth = el.scrollWidth / 2;
-            const tick = () => {
-                if (!pausedRef.current) {
-                    posRef.current += 0.5;
-                    if (posRef.current >= halfWidth) posRef.current = 0;
-                    el.scrollLeft = posRef.current;
-                    updateActiveDot();
-                }
-                animRef.current = requestAnimationFrame(tick);
-            };
-            animRef.current = requestAnimationFrame(tick);
-        });
-
-        return () => {
-            cancelAnimationFrame(init);
-            cancelAnimationFrame(animRef.current);
-        };
-    }, [mounted, updateActiveDot]);
-
-    const pause = useCallback(() => { pausedRef.current = true; }, []);
-    const resume = useCallback(() => { pausedRef.current = false; }, []);
-
-    const jumpTo = useCallback((idx) => {
-        const el = trackRef.current;
-        if (!el) return;
-        pause();
-        const target = idx * STEP;
-        posRef.current = target;
-        el.scrollLeft = target;
-        setActiveIndex(idx);
-        setTimeout(resume, 1200);
-    }, [pause, resume]);
-
-    const nudge = useCallback((dir) => {
-        const el = trackRef.current;
-        if (!el) return;
-        pause();
-        const half = el.scrollWidth / 2;
-        let next = posRef.current + dir * STEP;
-        if (next < 0) next = 0;
-        if (next >= half) next = 0;
-        posRef.current = next;
-        el.scrollLeft = next;
-        updateActiveDot();
-        setTimeout(resume, 700);
-    }, [pause, resume, updateActiveDot]);
-
-    const onMouseDown = useCallback((e) => {
-        const el = trackRef.current;
-        if (!el) return;
-        pause();
-        dragRef.current = { active: true, startX: e.clientX, startPos: posRef.current };
-        el.style.cursor = "grabbing";
-        e.preventDefault();
-    }, [pause]);
-
-    const onMouseMove = useCallback((e) => {
-        if (!dragRef.current.active) return;
-        const el = trackRef.current;
-        if (!el) return;
-        const dx = e.clientX - dragRef.current.startX;
-        const next = Math.max(0, dragRef.current.startPos - dx);
-        posRef.current = next;
-        el.scrollLeft = next;
-        updateActiveDot();
-    }, [updateActiveDot]);
-
-    const onMouseUp = useCallback(() => {
-        if (!dragRef.current.active) return;
-        dragRef.current.active = false;
-        const el = trackRef.current;
-        if (el) el.style.cursor = "grab";
-        setTimeout(resume, 1000);
-    }, [resume]);
-
-    const onTouchStart = useCallback((e) => {
-        pause();
-        touchRef.current = { startX: e.touches[0].clientX, startPos: posRef.current };
-    }, [pause]);
-
-    const onTouchMove = useCallback((e) => {
-        const el = trackRef.current;
-        if (!el) return;
-        const dx = e.touches[0].clientX - touchRef.current.startX;
-        const next = Math.max(0, touchRef.current.startPos - dx);
-        posRef.current = next;
-        el.scrollLeft = next;
-        updateActiveDot();
-    }, [updateActiveDot]);
-
-    const onTouchEnd = useCallback(() => {
-        setTimeout(resume, 800);
-    }, [resume]);
-
-    useEffect(() => {
-        window.addEventListener("mousemove", onMouseMove);
-        window.addEventListener("mouseup", onMouseUp);
-        return () => {
-            window.removeEventListener("mousemove", onMouseMove);
-            window.removeEventListener("mouseup", onMouseUp);
-        };
-    }, [onMouseMove, onMouseUp]);
+export default function TimelineSection() {
+    const columns = [[], [], []];
+    history.forEach((item, i) => columns[i % 3].push(item));
 
     return (
-        <section className="w-full py-8 md:py-16 bg-[#fafafa] overflow-hidden relative">
+        <section className="relative bg-[#ECE7DC] py-10 lg:py-12 overflow-hidden">
+            <div className="mx-auto max-w-7xl px-6 lg:px-10 relative">
+                {/* Header - Desktop Version (Large Screens) */}
+                <div className="relative mb-72 hidden lg:block">
 
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#4D4AB8]/5 blur-[130px] rounded-full pointer-events-none" />
+                    {/* Top horizontal line */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#e48720]" />
 
-            <style>{`
-                .timeline-track::-webkit-scrollbar { display: none; }
-                .timeline-track { -ms-overflow-style: none; scrollbar-width: none; }
-            `}</style>
+                    {/* Center vertical line */}
+                    <div className="absolute left-1/2 top-0 h-[720px] w-[2px] bg-[#e48720]" />
 
-            <div className="relative z-10">
+                    <div className="grid grid-cols-2 min-h-[520px]">
 
-                <div className="text-center max-w-3xl mx-auto mb-10 px-5">
-                    <h2 className="text-[28px] sm:text-[40px] md:text-[54px] leading-[1.05] font-semibold text-black">
-                        A Timeline of Global{" "}
-                        <span className="text-[#4D4AB8]">Financial Leadership</span>
-                    </h2>
-                    <p className="mt-5 text-[14px] md:text-[17px] leading-[1.9] text-gray-500 font-light max-w-2xl mx-auto">
-                        Harish Parmar's journey reflects a rare blend of international exposure,
-                        system-building expertise, and long-term industry shaping — spanning
-                        the UK, India, and the UAE.
-                    </p>
+                        {/* Left Side */}
+                        <div className="flex items-center justify-center relative">
+                            <h2
+                                className="
+    font-[family-name:var(--font-serif)]
+    text-[78px]
+    leading-[0.95]
+    uppercase
+    text-[#161616]
+    absolute
+    top-30
+    lg:left-[200px]
+    md:left-[100px]
+    bg-[#ece7dc]
+    whitespace-pre-line
+    w-[500px]
+  "
+                            >
+                                A TIMELINE
+                                <br />
+                                OF GLOBAL
+                            </h2>
+                        </div>
+
+                        {/* Right Side */}
+                        <div className="flex flex-col justify-center pl-20 relative">
+                            <h2
+                                className="
+          font-[family-name:var(--font-serif)]
+          text-[78px]
+          leading-[0.95]
+          uppercase
+          text-[#161616]
+          absolute
+          top-90
+          lg:right-[200px]
+           md:right-[100px]
+          bg-[#ece7dc]
+          whitespace-pre-line
+        
+        "
+                            >
+                                FINANCIAL
+                                <br />
+                                LEADERSHIP
+                            </h2>
+
+                            <p
+                                className="
+          mt-5
+          max-w-[420px]
+          text-[17px]
+         
+          text-black/80
+          absolute
+          top-[550px]
+          lg:right-[150px]
+        md:left-[18px]
+        "
+                            >
+                                Harish Parmar's journey reflects a rare blend of
+                                international exposure, system-building expertise,
+                                and long-term industry shaping spanning the UK,
+                                India, and the UAE.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    {/* Bottom horizontal line */}
+                    <div className="absolute left-0 right-0 top-[720px] h-[2px] bg-[#e48720]" />
+
                 </div>
 
-                <div className="flex items-center justify-between px-5 md:px-10 lg:px-14 mb-5">
-                    <p className="text-[11px] uppercase tracking-[3px] text-black/25 hidden sm:block">
-                        Drag or use arrows to explore
-                    </p>
-                    <div className="flex items-center gap-2 ml-auto">
-                        <button
-                            onClick={() => nudge(-1)}
-                            className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-[16px] text-black/40 hover:border-[#4D4AB8] hover:text-[#4D4AB8] transition-all duration-300"
-                            aria-label="Previous"
-                        >←</button>
-                        <button
-                            onClick={() => nudge(1)}
-                            className="w-10 h-10 rounded-full bg-[#4D4AB8] flex items-center justify-center text-[16px] text-white hover:bg-[#3d3aa0] active:scale-95 transition-all duration-300"
-                            aria-label="Next"
-                        >→</button>
+                {/* Mobile & Tablet Version */}
+                <div className="lg:hidden py-10 px-6">
+                    <div className="max-w-3xl mx-auto text-center space-y-8">
+                        <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
+                            A TIMELINE
+                            <br />
+                            OF GLOBAL
+                        </h2>
+
+                        <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
+                            FINANCIAL
+                            <br />
+                            LEADERSHIP
+                        </h2>
+
+                        <p className="text-[15px] leading-[1.8] text-[#6E695E] max-w-md mx-auto">
+                            Harish Parmar's journey reflects a rare blend of international exposure,
+                            system-building expertise, and long-term industry shaping spanning the UK,
+                            India, and the UAE.
+                        </p>
                     </div>
                 </div>
 
-                <div className="relative select-none">
-                    <div
-                        ref={trackRef}
-                        onMouseDown={onMouseDown}
-                        onMouseEnter={pause}
-                        onMouseLeave={() => { if (!dragRef.current.active) resume(); }}
-                        onTouchStart={onTouchStart}
-                        onTouchMove={onTouchMove}
-                        onTouchEnd={onTouchEnd}
-                        className="timeline-track flex overflow-x-scroll"
-                        style={{
-                            cursor: "grab",
-                            paddingLeft: 24,
-                            paddingRight: 24,
-                            paddingBottom: 20,
-                            alignItems: "flex-start",
-                        }}
-                    >
-                        {doubled.map((item, i) => (
-                            <TimelineCard
-                                key={i}
-                                item={item}
-                                index={i % history.length}
-                                total={history.length}
-                                isActive={mounted && (i % history.length) === activeIndex}
-                            />
-                        ))}
-                    </div>
+                {/* Desktop Layout */}
+                <div className="hidden lg:grid grid-cols-3 gap-x-16 xl:gap-x-20">
 
-                    <div
-                        className="absolute left-0 top-0 bottom-5 pointer-events-none z-10"
-                        style={{ width: "clamp(12px, 4vw, 48px)", background: "linear-gradient(to right, #fafafa, transparent)" }}
-                    />
-                    <div
-                        className="absolute right-0 top-0 bottom-5 pointer-events-none z-10"
-                        style={{ width: "clamp(12px, 4vw, 48px)", background: "linear-gradient(to left, #fafafa, transparent)" }}
-                    />
+                    {columns.map((col, colIndex) => (
+                        <div
+                            key={colIndex}
+                            className={`
+                ${colIndex === 0 ? "pt-0" : ""}
+                ${colIndex === 1 ? "pt-32" : ""}
+                ${colIndex === 2 ? "pt-16" : ""}
+                space-y-44
+            `}
+                        >
+                            {col.map((item, i) => (
+                                <TimelineCard key={i} item={item} />
+                            ))}
+                        </div>
+                    ))}
+
                 </div>
 
-                <div className="flex items-center justify-center gap-2 mt-4">
+                {/* Mobile Layout */}
+                <div className="lg:hidden space-y-16 relative pl-10">
+                    <div className="absolute left-4 top-6 bottom-8 w-px bg-[#C19A5B]/50" />
                     {history.map((item, i) => (
-                        <button
-                            key={i}
-                            onClick={() => jumpTo(i)}
-                            aria-label={`Go to ${item.year}`}
-                            className="transition-all duration-300 rounded-full"
-                            style={{
-                                width: i === activeIndex ? 24 : 6,
-                                height: 4,
-                                backgroundColor: i === activeIndex ? item.color : "rgba(0,0,0,0.1)",
-                            }}
-                        />
+                        <div key={i} className="relative">
+                            <div className="absolute -left-6 top-7 h-3 w-3 rounded-full border-[2.5px] border-[#C19A5B] bg-[#ECE7DC]" />
+                            <TimelineCard item={item} />
+                        </div>
                     ))}
                 </div>
-
-                {mounted && (
-                    <p className="text-center text-[11px] uppercase tracking-[3px] text-black mt-3">
-                        <span className="text-[#4D4AB8] font-extrabold">{history[activeIndex]?.year}</span> — {history[activeIndex]?.title}
-                    </p>
-                )}
-
             </div>
         </section>
     );

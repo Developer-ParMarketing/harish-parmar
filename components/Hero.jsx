@@ -1,320 +1,88 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
-const AnimatedStat = ({ num, label }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const [display, setDisplay] = useState(0);
+const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 24 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay, ease: "easeOut" },
+});
 
-    const target = parseInt(num);
-    const suffix = num.replace(/[0-9]/g, "");
-
-    useEffect(() => {
-        if (!isInView) return;
-
-        const duration = 1800;
-        const startTime = performance.now();
-
-        const tick = (now) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setDisplay(Math.floor(eased * target));
-            if (progress < 1) requestAnimationFrame(tick);
-        };
-
-        requestAnimationFrame(tick);
-    }, [isInView, target]);
-
-    return (
-        <div ref={ref} className="text-center lg:text-left">
-            <div className="text-[42px] md:text-[52px] lg:text-[58px] font-bold text-black leading-none">
-                {display}{suffix}
-            </div>
-            <div className="text-[10px] md:text-xs uppercase tracking-[2px] text-black/60 mt-1 font-medium">
-                {label}
-            </div>
-        </div>
-    );
-};
+const GOLD = "#e48720";
 
 const Hero = () => {
-
-
-    const fadeUp = (delay = 0) => ({
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true },
-        transition: { duration: 0.6, delay },
-    });
-
-    const fadeIn = (delay = 0) => ({
-        initial: { opacity: 0 },
-        whileInView: { opacity: 1 },
-        viewport: { once: true },
-        transition: { duration: 0.6, delay },
-    });
-
-
     return (
-        <section className="relative bg-white min-h-screen flex items-center overflow-hidden py-5">
-            {/* Background Glows */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#4D4AB8]/5 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#4D4AB8]/5 rounded-full blur-[100px] translate-y-1/4 -translate-x-1/4" />
-            </div>
+        <section className="relative min-h-screen w-full overflow-hidden bg-[#0B0B0B]">
+            <Image
+                src="/HP-Banner.jpg"
+                alt="Harish Parmar"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover object-left grayscale"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/45 to-[#0B0B0B]" />
+            <div className="absolute inset-0 bg-black/40 lg:hidden" />
 
-            <div className="relative z-10 max-w-[1420px] mx-auto px-6 md:px-12 lg:px-16 xl:px-20 py-12 lg:py-0">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center min-h-[90vh] lg:min-h-screen">
+            <div className="relative z-10 mx-auto flex min-h-screen max-w-[1500px] items-center px-6 sm:px-10 lg:px-16">
+                <div className="ml-auto flex w-full flex-col text-center lg:max-w-xl lg:items-end lg:text-right">
+                    {/* Script name — inline fontFamily + richer gold */}
+                    <motion.h1
+                        {...fadeUp(0.1)}
+                        style={{ fontFamily: "var(--font-script)", color: GOLD }}
+                        className="leading-none text-[52px] sm:text-[80px] lg:text-[96px] xl:text-[104px] lg:pt-25"
+                    >
+                        Harish Parmar
+                    </motion.h1>
 
-                    {/* ==================== LEFT CONTENT ==================== */}
-                    <div className="order-2 lg:order-1 flex flex-col justify-center pt-8 lg:pt-0">
+                    {/* Subtitle (Jost, inherited) */}
+                    <motion.p
+                        {...fadeUp(0.3)}
+                        className="mt-2 text-[16px] font-light leading-relaxed tracking-wide text-[#CFCABF] sm:text-[17px]"
+                    >
+                        Founder · Leading Financial Groups in India, UAE, UK
+                        <br />
+                        Fintech Pioneer &amp; Debt Freedom Advocate
+                    </motion.p>
 
-                        {/* Top Label */}
-                        <motion.div
-                            {...fadeUp(0)}
-                            className="flex items-center justify-center lg:justify-start gap-3 mb-6"
-                        >
-                            <div className="h-px w-8 bg-[#4D4AB8] shrink-0" />
+                    {/* Serif heading — inline fontFamily guarantees Cormorant */}
+                    <motion.h2
+                        {...fadeUp(0.45)}
+                        style={{ fontFamily: "var(--font-serif)" }}
+                        className="mt-10 font-medium leading-[1.1] text-white text-[30px] sm:text-[44px] lg:text-[48px] xl:text-[45px]"
+                    >
+                        Architecting Financial Solutions Across Borders
+                    </motion.h2>
 
-                            <span className="uppercase text-[10px] sm:text-xs tracking-[3px] sm:tracking-[4px] text-[#4D4AB8] font-semibold text-center">
-                                GLOBAL FINANCIAL LEADERSHIP
-                            </span>
+                    {/* Paragraph (Jost, inherited) */}
+                    <motion.p
+                        {...fadeUp(0.6)}
+                        className="
+    mt-6
+    max-w-[760px]
+    ml-auto
+    text-justify
+    text-[#B5B0A6]
+    font-light
+    leading-[1.7]
+    text-[18px]
+    xl:text-[20px]
+  "
+                    >
+                        For over four decades, Harish Parmar has been a transformative force
+                        in global finance. From foundational advisory roles to pioneering
+                        fintech ventures across three continents, his career is dedicated to
+                        building systems that empower individuals, businesses, and the
+                        broader economy towards sustainable financial freedom.
+                    </motion.p>
 
-                            {/* Right dash only on mobile */}
-                            <div className="h-px w-8 bg-[#4D4AB8] shrink-0 lg:hidden" />
-                        </motion.div>
-
-                        {/* Name - Fixed Hydration Issue */}
-                        <motion.h1
-                            {...fadeUp(0.1)}
-                            className="text-[46px] sm:text-[58px] md:text-[72px] lg:text-[82px] xl:text-[96px] 2xl:text-[108px] leading-[0.92] font-bold tracking-[-2px] sm:tracking-[-3px] text-black text-center lg:text-left"
-                        >
-                            Harish <span className="text-[#4D4AB8]">Parmar</span>
-                        </motion.h1>
-
-                        {/* Availability */}
-                        <motion.div {...fadeIn(0.4)} className="flex items-center gap-2 mt-4 justify-center lg:justify-start">
-                            <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
-                            </span>
-                            <span className="text-sm text-black/70">Available for advisory &amp; consulting</span>
-                        </motion.div>
-
-                        {/* Financial Visionary */}
-                        <motion.div {...fadeUp(0.5)} className="mt-12">
-                            <div className="uppercase text-center md:text-left text-xs tracking-[3px] text-[#4D4AB8] font-semibold mb-3">
-                                FINANCIAL VISIONARY
-                            </div>
-                            <h2 className="text-[28px] md:text-[34px] lg:text-[38px] xl:text-[42px] leading-tight font-semibold text-black text-center lg:text-left">
-                                Architecting Financial Solutions Across Borders
-                            </h2>
-                        </motion.div>
-
-                        {/* Short Description */}
-                        <motion.p
-                            {...fadeUp(0.6)}
-                            className="mt-6 text-[15px] md:text-[16px] text-black/80 text-center lg:text-left max-w-lg mx-auto lg:mx-0"
-                        >
-                            Founder · Leading Financial Groups in India, UAE, UK | Fintech Pioneer &amp; Debt Freedom Advocate
-                        </motion.p>
-
-                        {/* Long Description */}
-                        <motion.p
-                            {...fadeUp(0.65)}
-                            className="mt-5 text-[15px] leading-relaxed text-black/70 text-center lg:text-left max-w-lg mx-auto lg:mx-0"
-                        >
-                            For over four decades, Harish Parmar has been a transformative force in global finance.
-                            From foundational advisory roles to pioneering fintech ventures across three continents,
-                            his career is dedicated to building systems that empower individuals, businesses, and
-                            the broader economy towards sustainable financial freedom.
-                        </motion.p>
-
-                        {/* Stats */}
-                        <motion.div {...fadeUp(0.8)} className="flex justify-center lg:justify-start gap-12 md:gap-16 mt-12">
-                            {[
-                                { num: "40+", label: "YEARS" },
-                                { num: "3", label: "CONTINENTS" },
-                                { num: "15+", label: "VENTURES" },
-                            ].map((stat, i) => (
-                                <AnimatedStat key={i} num={stat.num} label={stat.label} />
-                            ))}
-                        </motion.div>
-
-                        {/* CTAs */}
-                        <motion.div
-                            {...fadeUp(0.9)}
-                            className="flex flex-col sm:flex-row gap-4 mt-10 justify-center lg:justify-start md:my-8"
-                        >
-                            <Link
-                                href="https://www.linkedin.com/in/harishparmar1/"
-                                target="_blank"
-                                className="group bg-[#4D4AB8] hover:bg-[#3d3aa0] text-white px-4 py-4 rounded-full font-semibold flex items-center justify-center gap-3 transition-all duration-300 text-base shadow-lg shadow-[#4D4AB8]/30 text-center"
-                            >
-                                <div className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center border border-white/10">
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="w-[18px] h-[18px]"
-                                    >
-                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                        <rect x="2" y="9" width="4" height="12" />
-                                        <circle cx="4" cy="4" r="2" />
-                                    </svg>
-                                </div>
-
-                                <span>Connect on LinkedIn</span>
-
-                                <ArrowRight
-                                    size={18}
-                                    className="transition-transform duration-300 group-hover:translate-x-1"
-                                />
-                            </Link>
-
-                            <Link
-                                href="/about"
-                                className="group border-2 border-black/15 hover:border-black text-black px-4 py-4 rounded-full font-semibold transition-all duration-300 text-base flex items-center justify-center gap-3"
-                            >
-                                <div className="w-9 h-9 rounded-full bg-black/5 flex items-center justify-center border border-black/10">
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="w-[18px] h-[18px]"
-                                    >
-                                        <path d="M12 12c2.761 0 5-2.239 5-5S14.761 2 12 2 7 4.239 7 7s2.239 5 5 5z" />
-                                        <path d="M20 21a8 8 0 1 0-16 0" />
-                                    </svg>
-                                </div>
-
-                                <span>Explore His Journey</span>
-                            </Link>
-                        </motion.div>
-                        {/* Tags */}
-                        {/* <motion.div {...fadeUp(1)} className="flex flex-wrap gap-3 md:my-8 justify-center lg:justify-start">
-                            {["INDIA", "UAE", "UNITED KINGDOM", "FINTECH", "WEALTH MANAGEMENT"].map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="text-xs border border-black/10 px-5 py-2.5 rounded-full tracking-wider text-black/70 bg-white whitespace-nowrap"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </motion.div> */}
-
-                    </div>
-
-                    {/* ==================== RIGHT IMAGE ==================== */}
-                    <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end pt-8 lg:pt-0">
-
-                        {/* Main Image Container */}
-                        <div className="relative z-10 w-full max-w-[360px] md:max-w-[400px] lg:max-w-[460px] xl:max-w-[500px]">
-                            <Image
-                                src="/clear.png"
-                                width={600}
-                                height={720}
-                                alt="Harish Parmar"
-                                priority
-                                className=" w-full h-auto object-cover"
-                            />
-
-                            {/* Experience Badge */}
-
-
-                            {/* Markets Badge */}
-                            <motion.div
-                                initial={false}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.9 }}
-                                className="absolute -top-18 sm:-top-15 right-2 sm:-right-2 bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-3 sm:py-4 text-center border border-black/5 z-20"
-                            >
-
-                                <div className="flex items-center justify-center gap-2 mt-2">
-                                    <Image
-                                        src="/ind.png"
-                                        alt="India"
-                                        width={34}
-                                        height={34}
-                                        className="rounded-full object-cover"
-                                    />
-
-                                    <Image
-                                        src="/uae.png"
-                                        alt="UAE"
-                                        width={34}
-                                        height={34}
-                                        className="rounded-full object-cover"
-                                    />
-
-                                    <Image
-                                        src="/uk.png"
-                                        alt="UK"
-                                        width={34}
-                                        height={34}
-                                        className="rounded-full object-cover"
-                                    />
-                                </div>
-                            </motion.div>
-                            {/* Bottom Caption */}
-                            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-white rounded-2xl shadow-lg px-6 py-3 text-center border border-black/5 z-20">
-                                <p className="font-semibold text-black">Harish Parmar</p>
-                                <p className="text-xs text-black/60">Founder &amp; Financial Strategist</p>
-                            </div>
-                        </div>
-                    </div>
+                    <motion.div
+                        {...fadeUp(0.75)}
+                        style={{ backgroundColor: GOLD }}
+                        className="mt-10 h-px w-full opacity-70"
+                    />
                 </div>
-            </div>
-
-            {/* Extra bottom spacing */}
-            <div className="h-16 lg:h-24"></div>
-            {/* ── MARQUEE — paste this just before </section> ── */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 w-full border-t border-black/[0.05] bg-white/80 overflow-hidden py-3.5">
-                <motion.div
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    className="flex gap-8 whitespace-nowrap w-max"
-                >
-                    {[
-                        "Global Financial Leadership",
-                        "Fintech Pioneer",
-                        "Debt Freedom Advocate",
-                        "India · UAE · United Kingdom",
-                        "40+ Years of Excellence",
-                        "Wealth Architect",
-                        "Three Continents · One Vision",
-                        "Sustainable Financial Freedom",
-                        "Global Financial Leadership",
-                        "Fintech Pioneer",
-                        "Debt Freedom Advocate",
-                        "India · UAE · United Kingdom",
-                        "40+ Years of Excellence",
-                        "Wealth Architect",
-                        "Three Continents · One Vision",
-                        "Sustainable Financial Freedom",
-                    ].map((text, i) => (
-                        <span
-                            key={i}
-                            className="text-[9px] uppercase tracking-[4px] text-black font-medium flex items-center gap-8"
-                        >
-                            {text}
-                            <span className="w-1 h-1 rounded-full bg-[#4D4AB8]/25 inline-block flex-shrink-0" />
-                        </span>
-                    ))}
-                </motion.div>
             </div>
         </section>
     );
