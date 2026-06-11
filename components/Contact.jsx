@@ -3,24 +3,52 @@
 import React, { useState } from "react";
 import {
     Mail,
-    ArrowUpRight,
-    Send,
+    Phone,
+    MapPin,
+
 } from "lucide-react";
 import { api } from "@/app/variables";
 
-/* ─────────────────────────────────────────────
-   LinkedIn Icon
-───────────────────────────────────────────── */
-const LinkedinIcon = () => (
+
+const FacebookIcon = () => (
     <svg
-        width="20"
-        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        className="w-5 h-5"
+    >
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+);
+
+const InstagramIcon = () => (
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5 h-5"
+    >
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" />
+    </svg>
+);
+
+const LinkedinIcon = () => (
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-5 h-5"
     >
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
         <rect x="2" y="9" width="4" height="12" />
@@ -28,9 +56,6 @@ const LinkedinIcon = () => (
     </svg>
 );
 
-/* ─────────────────────────────────────────────
-   Inquiry Types
-───────────────────────────────────────────── */
 const inquiryTypes = [
     "Speaking Engagement",
     "Media Inquiry",
@@ -39,19 +64,16 @@ const inquiryTypes = [
     "Other",
 ];
 
-/* ─────────────────────────────────────────────
-   Main Component
-───────────────────────────────────────────── */
 const Contact = () => {
     const [form, setForm] = useState({
         name: "",
         email: "",
         company: "",
-        type: "",
+        subject: "",
+        type: "Speaking Engagement",
         message: "",
     });
 
-    const [focused, setFocused] = useState("");
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
@@ -64,12 +86,15 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         setLoading(true);
 
         try {
             const res = await fetch(`${api}/contact`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify(form),
             });
 
@@ -77,449 +102,300 @@ const Contact = () => {
 
             if (data.success) {
                 setSubmitted(true);
+
+                setForm({
+                    name: "",
+                    email: "",
+                    company: "",
+                    subject: "",
+                    type: "Speaking Engagement",
+                    message: "",
+                });
+
+                setTimeout(() => {
+                    setSubmitted(false);
+                }, 5000);
             } else {
-                alert(data.message || "Something went wrong. Please try again.");
+                alert(data.message || "Something went wrong.");
             }
-        } catch (err) {
-            alert("Could not reach the server. Please try again later.");
+        } catch (error) {
+            console.error(error);
+            alert("Could not reach the server.");
         } finally {
             setLoading(false);
         }
     };
 
-    const underline = (field) => ({
-        outline: "none",
-        borderBottom: `1px solid ${focused === field ? "#3E3AA8" : "rgba(0,0,0,0.15)"
-            }`,
-        transition: "all 0.3s ease",
-    });
-
     return (
-        <section className="relative w-full overflow-hidden bg-[#f7f6f3]">
-            {/* Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full border border-black/[0.04]" />
-                <div className="absolute bottom-[-120px] left-[-120px] w-[350px] h-[350px] rounded-full border border-black/[0.04]" />
-            </div>
+        <section className="bg-[#ECE7DC] px-5 md:px-10 lg:px-16 ">
+            <div className="max-w-7xl mx-auto">
 
-            <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-16 md:py-24">
-                {/* ───── Header ───── */}
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-10 lg:gap-20 mb-14 md:mb-20">
-                    <div>
-                        <p className="text-[11px] uppercase tracking-[5px] text-[#4D4AB8] font-semibold mb-6">
-                            Professional Contact
-                        </p>
+                {/* Heading */}
+                <div className="text-center py-12 md:py-20 relative">
 
-                        <h2 className="text-[40px] sm:text-[54px] md:text-[68px] xl:text-[80px] leading-[0.95] font-semibold tracking-tight text-black">
-                            Let’s Start a
-                            <br />
-                            <span className="text-black/20">
-                                Professional Conversation
-                            </span>
-                        </h2>
-                    </div>
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-10 bg-[#e48720]" />
 
-                    <div className="flex items-end">
-                        <p className="text-[15px] sm:text-[17px] md:text-[20px] leading-[2] text-[#666] font-light">
-                            For speaking engagements, strategic advisory,
-                            consulting opportunities, partnerships, or media
-                            conversations.
-                        </p>
-                    </div>
+                    <p className="uppercase tracking-[3px] text-[#e48720] text-sm">
+                        LET'S CONNECT
+                    </p>
+
+                    <h2
+                        className="
+                            font-serif
+                            text-[42px]
+                            sm:text-[54px]
+                            md:text-[68px]
+                            leading-[1.05]
+                            text-[#161616]
+                            mt-4
+                            uppercase
+                        "
+                    >
+                        Let's Start a
+                        <br />
+                        Professional Conversation
+                    </h2>
+
+                    <p className="max-w-xl mx-auto mt-6 text-black/60 text-[15px] md:text-[16px] leading-relaxed">
+                        For speaking engagements, strategic advisory,
+                        consulting opportunities, partnerships,
+                        or media conversations.
+                    </p>
+
+                    <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[2px] h-10 bg-[#e48720]" />
+
                 </div>
 
-                {/* ───── Main Card ───── */}
-                <div className="border border-black/10 bg-white overflow-hidden rounded-[28px] shadow-[0_10px_60px_rgba(0,0,0,0.04)]">
-                    <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
-                        {/* ───────────────── LEFT PANEL ───────────────── */}
-                        <div className="relative bg-[#3E3AA8] text-white p-8 sm:p-10 md:p-14 lg:p-16 overflow-hidden">
-                            {/* Decorative */}
-                            <div className="absolute inset-0 pointer-events-none">
-                                <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full border border-white/[0.05]" />
-                                <div className="absolute -bottom-8 -right-8 w-44 h-44 rounded-full border border-white/[0.05]" />
+                {/* Content */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0">
 
-                                <div
-                                    className="absolute inset-0 opacity-[0.03]"
-                                    style={{
-                                        backgroundImage:
-                                            "repeating-linear-gradient(135deg, white 0, white 1px, transparent 1px, transparent 70px)",
-                                    }}
+                    {/* Left Side */}
+                    <div className="lg:pr-14">
+
+                        <h3 className="font-serif text-[30px] uppercase text-[#161616] text-center md:text-left">
+                            Get In Touch
+                        </h3>
+
+                        <p className="mt-8 text-black/70 leading-7 md:leading-8 max-w-md text-center md:text-left">
+                            Whether you're seeking a keynote speaker,
+                            strategic advisor, or a media voice on
+                            financial wellness and fintech,
+                            Harish Parmar brings decades of global
+                            financial leadership experience.
+                        </p>
+
+                        <div className="mt-12 space-y-8 text-center md:text-left">
+
+                            <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-4">
+                                <Mail
+                                    size={20}
+                                    className="text-[#e48720] mt-1 flex-shrink-0"
                                 />
-                            </div>
 
-                            <div className="relative z-10 h-full flex flex-col justify-between">
                                 <div>
-                                    <p className="text-[11px] uppercase tracking-[5px] text-white/50 mb-8">
-                                        Why Reach Out
+                                    <p className="uppercase tracking-[2px] font-medium">
+                                        Email
                                     </p>
 
-                                    <h3 className="text-[28px] sm:text-[36px] leading-[1.15] font-semibold mb-7">
-                                        Start the Right Conversation
-                                    </h3>
-
-                                    <div className="w-10 h-[1px] bg-white/20 mb-8" />
-
-                                    <p className="text-[14px] md:text-[15px] leading-[2] text-white/70 font-light mb-10">
-                                        Whether you’re seeking a keynote
-                                        speaker, a strategic advisor, or a media
-                                        voice on financial wellness and fintech,
-                                        Harish Parmar brings decades of global
-                                        financial leadership experience.
-                                    </p>
-
-                                    {/* Points */}
-                                    <div className="space-y-4 mb-12">
-                                        {[
-                                            "Speaking Engagements & Keynotes",
-                                            "Media & Press Inquiries",
-                                            "Advisory & Consulting",
-                                            "Strategic Partnerships",
-                                        ].map((item, i) => (
-                                            <div
-                                                key={i}
-                                                className="flex items-center gap-3"
-                                            >
-                                                <div className="w-1.5 h-1.5 rounded-full bg-white/50 flex-shrink-0" />
-
-                                                <p className="text-[11px] uppercase tracking-[3px] text-white/65">
-                                                    {item}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Contact Links */}
-                                <div className="border-t border-white/10 pt-8 space-y-5">
-                                    <p className="text-[11px] uppercase tracking-[4px] text-white/35">
-                                        Direct Contact
-                                    </p>
-
-                                    {/* LinkedIn */}
                                     <a
-                                        href="https://linkedin.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="group flex items-center gap-4"
+                                        href="mailto:connect@harishparmar.com"
+                                        className="text-black/70 hover:text-black transition"
                                     >
-                                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:border-white/50 group-hover:text-white transition-all duration-300 flex-shrink-0">
-                                            <LinkedinIcon />
-                                        </div>
-
-                                        <div>
-                                            <p className="text-[11px] uppercase tracking-[3px] text-white/40 mb-1">
-                                                LinkedIn
-                                            </p>
-
-                                            <p className="text-[14px] text-white/80 group-hover:text-white transition-colors duration-200 font-light">
-                                                Connect Professionally
-                                            </p>
-                                        </div>
-
-                                        <ArrowUpRight
-                                            size={15}
-                                            className="ml-auto text-white/30 group-hover:text-white/70 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                        />
-                                    </a>
-
-                                    {/* Email */}
-                                    <a
-                                        href="mailto:hello@example.com"
-                                        className="group flex items-center gap-4"
-                                    >
-                                        <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:border-white/50 group-hover:text-white transition-all duration-300 flex-shrink-0">
-                                            <Mail size={18} />
-                                        </div>
-
-                                        <div>
-                                            <p className="text-[11px] uppercase tracking-[3px] text-white/40 mb-1">
-                                                Email
-                                            </p>
-
-                                            <p className="text-[14px] text-white/80 group-hover:text-white transition-colors duration-200 font-light break-all">
-                                                hello@example.com
-                                            </p>
-                                        </div>
-
-                                        <ArrowUpRight
-                                            size={15}
-                                            className="ml-auto text-white/30 group-hover:text-white/70 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                                        />
+                                        connect@harishparmar.com
                                     </a>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* ───────────────── RIGHT PANEL ───────────────── */}
-                        <div className="p-8 sm:p-10 md:p-14 lg:p-16">
-                            {submitted ? (
-                                <div className="h-full min-h-[500px] flex flex-col items-center justify-center text-center">
-                                    <div className="w-16 h-16 rounded-full bg-[#3E3AA8]/10 flex items-center justify-center mb-7">
-                                        <svg
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="#3E3AA8"
-                                            strokeWidth="2.5"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        >
-                                            <polyline points="20 6 9 17 4 12" />
-                                        </svg>
-                                    </div>
+                            <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-4">
+                                <Phone
+                                    size={20}
+                                    className="text-[#e48720] mt-1 flex-shrink-0"
+                                />
 
-                                    <p className="text-[11px] uppercase tracking-[5px] text-[#4D4AB8] mb-5">
-                                        Message Sent
+                                <div>
+                                    <p className="uppercase tracking-[2px] font-medium">
+                                        Phone
                                     </p>
 
-                                    <h3 className="text-[32px] font-semibold text-black mb-4">
-                                        Thank You
-                                    </h3>
-
-                                    <p className="text-[15px] leading-[1.9] text-[#666] max-w-md">
-                                        Your inquiry has been received. Harish
-                                        Parmar’s team will respond within 24
-                                        hours.
-                                    </p>
-
-                                    <button
-                                        onClick={() => {
-                                            setSubmitted(false);
-
-                                            setForm({
-                                                name: "",
-                                                email: "",
-                                                company: "",
-                                                type: "",
-                                                message: "",
-                                            });
-                                        }}
-                                        className="mt-10 border border-[#3E3AA8]/30 px-6 py-3 text-[11px] uppercase tracking-[3px] text-[#3E3AA8] hover:bg-[#3E3AA8] hover:text-white transition-all duration-300"
+                                    <a
+                                        href="tel:+919876543210"
+                                        className="text-black/70 hover:text-black transition"
                                     >
-                                        Send Another Message
-                                    </button>
+                                        +91 98765 43210
+                                    </a>
                                 </div>
-                            ) : (
-                                <form
-                                    onSubmit={handleSubmit}
-                                    className="flex flex-col gap-10"
-                                >
-                                    {/* Heading */}
-                                    <div>
-                                        <p className="text-[11px] uppercase tracking-[5px] text-[#4D4AB8] font-semibold mb-5">
-                                            Contact Form
-                                        </p>
+                            </div>
 
-                                        <h3 className="text-[30px] md:text-[40px] leading-[1.1] font-semibold text-black">
-                                            Let’s Connect
-                                        </h3>
-                                    </div>
+                            <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-4">
+                                <MapPin
+                                    size={20}
+                                    className="text-[#e48720] mt-1 flex-shrink-0"
+                                />
 
-                                    {/* Inputs */}
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                                        <div>
-                                            <label className="block text-[11px] uppercase tracking-[3px] text-black/55 mb-3">
-                                                Full Name *
-                                            </label>
+                                <div>
+                                    <p className="uppercase tracking-[2px] font-medium">
+                                        Location
+                                    </p>
 
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                required
-                                                placeholder="John Smith"
-                                                value={form.name}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setFocused("name")
-                                                }
-                                                onBlur={() => setFocused("")}
-                                                className="w-full bg-transparent pb-3 text-[15px] text-black placeholder-black/25"
-                                                style={underline("name")}
-                                            />
-                                        </div>
+                                    <p className="text-black/70">
+                                        India | UAE | UK
+                                    </p>
+                                </div>
+                            </div>
 
-                                        <div>
-                                            <label className="block text-[11px] uppercase tracking-[3px] text-black/55 mb-3">
-                                                Email Address *
-                                            </label>
-
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                required
-                                                placeholder="you@company.com"
-                                                value={form.email}
-                                                onChange={handleChange}
-                                                onFocus={() =>
-                                                    setFocused("email")
-                                                }
-                                                onBlur={() => setFocused("")}
-                                                className="w-full bg-transparent pb-3 text-[15px] text-black placeholder-black/25"
-                                                style={underline("email")}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-[11px] uppercase tracking-[3px] text-black/55 mb-3">
-                                            Company / Organisation
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            name="company"
-                                            placeholder="Your company name"
-                                            value={form.company}
-                                            onChange={handleChange}
-                                            onFocus={() =>
-                                                setFocused("company")
-                                            }
-                                            onBlur={() => setFocused("")}
-                                            className="w-full bg-transparent pb-3 text-[15px] text-black placeholder-black/25"
-                                            style={underline("company")}
-                                        />
-                                    </div>
-
-                                    {/* Inquiry Types */}
-                                    <div>
-                                        <p className="text-[11px] uppercase tracking-[4px] text-black/55 mb-5">
-                                            Nature of Inquiry *
-                                        </p>
-
-                                        <div className="flex flex-wrap gap-3">
-                                            {inquiryTypes.map((type) => (
-                                                <button
-                                                    key={type}
-                                                    type="button"
-                                                    onClick={() =>
-                                                        setForm((prev) => ({
-                                                            ...prev,
-                                                            type,
-                                                        }))
-                                                    }
-                                                    className="px-4 py-2.5 border text-[11px] uppercase tracking-[2px] transition-all duration-300"
-                                                    style={{
-                                                        backgroundColor:
-                                                            form.type === type
-                                                                ? "#3E3AA8"
-                                                                : "transparent",
-
-                                                        borderColor:
-                                                            form.type === type
-                                                                ? "#3E3AA8"
-                                                                : "rgba(0,0,0,0.15)",
-
-                                                        color:
-                                                            form.type === type
-                                                                ? "#fff"
-                                                                : "rgba(0,0,0,0.6)",
-                                                    }}
-                                                >
-                                                    {type}
-                                                </button>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    {/* Message */}
-                                    <div>
-                                        <label className="block text-[11px] uppercase tracking-[3px] text-black/55 mb-3">
-                                            Your Message *
-                                        </label>
-
-                                        <textarea
-                                            name="message"
-                                            required
-                                            rows={6}
-                                            placeholder="Describe your inquiry, event details, or how you'd like to collaborate..."
-                                            value={form.message}
-                                            onChange={handleChange}
-                                            onFocus={() =>
-                                                setFocused("message")
-                                            }
-                                            onBlur={() => setFocused("")}
-                                            className="w-full bg-transparent pb-3 text-[15px] text-black placeholder-black/25 resize-none"
-                                            style={{
-                                                outline: "none",
-                                                borderBottom: `1px solid ${focused === "message"
-                                                    ? "#3E3AA8"
-                                                    : "rgba(0,0,0,0.15)"
-                                                    }`,
-                                                transition:
-                                                    "border-color 0.3s ease",
-                                            }}
-                                        />
-                                    </div>
-
-                                    {/* Footer */}
-                                    <div className="flex flex-col sm:flex-row gap-5 sm:items-center sm:justify-between pt-2">
-                                        <p className="text-[11px] uppercase tracking-[2px] text-black/30">
-                                            * Required fields
-                                        </p>
-
-                                        <button
-                                            type="submit"
-                                            disabled={loading}
-                                            className="group inline-flex items-center justify-center gap-3 bg-[#3E3AA8] hover:bg-[#2f2c8f] text-white px-8 py-4 text-[11px] uppercase tracking-[3px] font-semibold transition-all duration-300 active:scale-95 disabled:opacity-60"
-                                        >
-                                            {loading ? (
-                                                <>
-                                                    <svg
-                                                        className="animate-spin"
-                                                        width="15"
-                                                        height="15"
-                                                        viewBox="0 0 24 24"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        strokeWidth="2"
-                                                    >
-                                                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                                                    </svg>
-
-                                                    Sending...
-                                                </>
-                                            ) : (
-                                                <>
-                                                    Send Message
-                                                    <Send
-                                                        size={14}
-                                                        className="group-hover:translate-x-0.5 transition-transform duration-300"
-                                                    />
-                                                </>
-                                            )}
-                                        </button>
-                                    </div>
-                                </form>
-                            )}
                         </div>
+
+                        {/* Social Icons */}
+
+                        <div className="flex items-center justify-center md:justify-start gap-6 mt-12">
+                            <a
+                                href="https://www.facebook.com/profile.php?id=61587471657903"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[#e48720] hover:scale-110 transition duration-300"
+                            >
+                                <FacebookIcon size={20} />
+                            </a>
+
+                            <a
+                                href="https://www.instagram.com/harishparmarr_?igsh=MTI5aG1sMjQ0a21ucg=="
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[#e48720] hover:scale-110 transition duration-300"
+                            >
+                                <InstagramIcon size={20} />
+                            </a>
+
+                            <a
+                                href="https://www.linkedin.com/in/harishparmar1/"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[#e48720] hover:scale-110 transition duration-300"
+                            >
+                                <LinkedinIcon size={20} />
+                            </a>
+
+                            <a
+                                href="https://x.com/HarishParmarr_"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-[#e48720] hover:scale-110 transition duration-300 text-lg font-medium"
+                            >
+                                X
+                            </a>
+                        </div>
+
                     </div>
+
+                    {/* Right Side */}
+                    <div className="lg:border-l-2 border-[#e48720] lg:pl-14">
+
+                        <h3 className="font-serif text-[30px] uppercase text-[#161616] mb-8 text-center md:text-left">
+                            Send A Message
+                        </h3>
+
+                        <form
+                            onSubmit={handleSubmit}
+                            className="space-y-4"
+                        >
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={form.name}
+                                    onChange={handleChange}
+                                    placeholder="Full Name"
+                                    required
+                                    className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
+                                />
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    placeholder="Email"
+                                    required
+                                    className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
+                                />
+
+                            </div>
+
+                            <input
+                                type="text"
+                                name="company"
+                                value={form.company}
+                                onChange={handleChange}
+                                placeholder="Company / Organization"
+                                className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
+                            />
+
+                            <input
+                                type="text"
+                                name="subject"
+                                value={form.subject}
+                                onChange={handleChange}
+                                placeholder="Subject"
+                                required
+                                className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
+                            />
+
+                            <select
+                                name="type"
+                                value={form.type}
+                                onChange={handleChange}
+                                className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
+                            >
+                                {inquiryTypes.map((type) => (
+                                    <option key={type} value={type}>
+                                        {type}
+                                    </option>
+                                ))}
+                            </select>
+
+                            <textarea
+                                rows={6}
+                                name="message"
+                                value={form.message}
+                                onChange={handleChange}
+                                placeholder="Your Message"
+                                required
+                                className="w-full border border-black/10 bg-transparent px-4 py-4 resize-none focus:outline-none focus:border-[#e48720]"
+                            />
+
+                            {submitted && (
+                                <div className="text-green-700 text-sm">
+                                    Thank you. Your message has been sent successfully.
+                                </div>
+                            )}
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="
+                                    w-full
+                                    bg-[#c8c2b7]
+                                    hover:bg-[#b9b2a6]
+                                    py-4
+                                    uppercase
+                                    tracking-[2px]
+                                    transition
+                                    disabled:opacity-50
+                                "
+                            >
+                                {loading ? "Sending..." : "Send Message"}
+                            </button>
+
+                        </form>
+
+                    </div>
+
                 </div>
 
-                {/* ───── Bottom Strip ───── */}
-                <div className="mt-10 border border-black/10 bg-white rounded-[24px] p-7 sm:p-9 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-                    <div>
-                        <p className="text-[11px] uppercase tracking-[4px] text-black/50 mb-2">
-                            Based in India
-                        </p>
+                <div className=" md:border-t-2 border-[#e48720] mt-16" />
 
-                        <h4 className="text-[22px] font-semibold text-black">
-                            Harish Parmar
-                        </h4>
-
-                        <p className="text-[14px] text-[#777] mt-1">
-                            Founder & Chairman, SingleDebt
-                        </p>
-                    </div>
-
-                    <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-
-                        <span className="text-[12px] uppercase tracking-[3px] text-[#666]">
-                            Open to Engagements
-                        </span>
-                    </div>
-                </div>
             </div>
         </section>
     );

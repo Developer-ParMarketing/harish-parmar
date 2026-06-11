@@ -4,7 +4,7 @@ const Contact = require("../models/Contact");
 // Submit a new contact inquiry
 const submitContact = async (req, res) => {
     try {
-        const { name, email, company, type, message } = req.body;
+        const { name, email, company, type, message, subject, } = req.body;
 
         // Basic presence check before hitting mongoose validation
         if (!name || !email || !type || !message) {
@@ -14,7 +14,7 @@ const submitContact = async (req, res) => {
             });
         }
 
-        const contact = await Contact.create({ name, email, company, type, message });
+        const contact = await Contact.create({ name, email, company, type, message, subject, });
 
         return res.status(201).json({
             success: true,

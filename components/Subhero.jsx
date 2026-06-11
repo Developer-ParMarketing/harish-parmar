@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const history = [
     {
         year: "1994",
+        imageClass: "h-[200px]",
         title: "Academic & Early UK Foundation",
         img: "/billu.png",
         desc: "Harish Parmar, founder of SingleDebt, graduated from The University of Manchester Institute of Science and Technology (UMIST) and began consulting on the design of financial products for banks in the UK and USA.",
@@ -13,6 +14,7 @@ const history = [
     },
     {
         year: "1999",
+        imageClass: "h-[320px]",
         title: "India Market Entry & Institutional Building",
         img: "/billu.png",
         desc: "Founded One Debt, a debt management company catering to UK nationals, at a time when consumer debt in the UK was increasing significantly.",
@@ -20,6 +22,7 @@ const history = [
     },
     {
         year: "2007",
+        imageClass: "h-[200px]",
         title: "BPO & Financial Operations Expansion",
         img: "/billu.png",
         desc: "Established a Business Process Outsourcing (BPO) center in India to support financial products and banking services for clients in the UK and USA.",
@@ -27,6 +30,7 @@ const history = [
     },
     {
         year: "2020",
+        imageClass: "h-[200px]",
         title: "Ecosystem Leadership & Mass Impact",
         img: "/billu.png",
         desc: "Founded SingleDebt, introducing a structured legal-fintech model for debt resolution in India.",
@@ -41,6 +45,7 @@ const history = [
     },
     {
         year: "2021",
+        imageClass: "h-[300px]",
         title: "First Debt Management Platform",
         img: "/billu.png",
         desc: "Introduced a customer-first Debt Management Platform, providing easy access to representatives and online resources for debt solutions.",
@@ -48,6 +53,7 @@ const history = [
     },
     {
         year: "2022",
+        imageClass: "h-[200px]",
         title: "UAE Expansion – Dubai Headquarters",
         img: "/billu.png",
         desc: "Expanded operations to the UAE, establishing Dubai as a regional headquarters. Extended services to the GCC market.",
@@ -81,10 +87,20 @@ const TimelineCard = ({ item }) => (
         className="relative"
     >
         {/* Gold connector line */}
-        <div className="absolute -top-16 left-0 w-[2px] h-28 bg-[#C19A5B]" />
+        <div className="hidden md:block absolute -top-16 left-0 w-[2px] h-28 bg-[#e48720]" />
+
 
         {/* Image */}
-        <div className="relative mb-6 h-[220px] w-full overflow-hidden bg-[#5c5c5c]">
+        <div
+            className={`
+    relative
+    mb-6
+    w-full
+    overflow-hidden
+    bg-[#5c5c5c]
+    ${item.imageClass || "h-[220px]"}
+  `}
+        >
             <Image
                 src={item.img}
                 alt={item.title}
@@ -177,19 +193,19 @@ export default function TimelineSection() {
                         <div className="flex items-center justify-center relative">
                             <h2
                                 className="
-    font-[family-name:var(--font-serif)]
-    text-[78px]
-    leading-[0.95]
-    uppercase
-    text-[#161616]
-    absolute
-    top-30
-    lg:left-[200px]
-    md:left-[100px]
-    bg-[#ece7dc]
-    whitespace-pre-line
-    w-[500px]
-  "
+                                font-[family-name:var(--font-serif)]
+                                text-[78px]
+                                leading-[0.95]
+                                uppercase
+                                text-[#161616]
+                                absolute
+                                top-30
+                                lg:left-[200px]
+                                md:left-[100px]
+                                bg-[#ece7dc]
+                                whitespace-pre-line
+                                w-[500px]
+                            "
                             >
                                 A TIMELINE
                                 <br />
@@ -201,19 +217,19 @@ export default function TimelineSection() {
                         <div className="flex flex-col justify-center pl-20 relative">
                             <h2
                                 className="
-          font-[family-name:var(--font-serif)]
-          text-[78px]
-          leading-[0.95]
-          uppercase
-          text-[#161616]
-          absolute
-          top-90
-          lg:right-[200px]
-           md:right-[100px]
-          bg-[#ece7dc]
-          whitespace-pre-line
-        
-        "
+                            font-[family-name:var(--font-serif)]
+                            text-[78px]
+                            leading-[0.95]
+                            uppercase
+                            text-[#161616]
+                            absolute
+                            top-90
+                            lg:right-[200px]
+                            md:right-[100px]
+                            bg-[#ece7dc]
+                            whitespace-pre-line
+                                
+                            "
                             >
                                 FINANCIAL
                                 <br />
@@ -222,16 +238,16 @@ export default function TimelineSection() {
 
                             <p
                                 className="
-          mt-5
-          max-w-[420px]
-          text-[17px]
-         
-          text-black/80
-          absolute
-          top-[550px]
-          lg:right-[150px]
-        md:left-[18px]
-        "
+                                mt-5
+                                max-w-[420px]
+                                text-[17px]
+                                
+                                text-black/80
+                                absolute
+                                top-[550px]
+                                lg:right-[150px]
+                                md:left-[18px]
+                                "
                             >
                                 Harish Parmar's journey reflects a rare blend of
                                 international exposure, system-building expertise,
@@ -252,13 +268,13 @@ export default function TimelineSection() {
                     <div className="max-w-3xl mx-auto text-center space-y-8">
                         <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
                             A TIMELINE
-                            <br />
+
                             OF GLOBAL
                         </h2>
 
                         <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
                             FINANCIAL
-                            <br />
+
                             LEADERSHIP
                         </h2>
 

@@ -19,6 +19,11 @@ const contactSchema = new mongoose.Schema(
             trim: true,
             default: "",
         },
+        subject: {
+            type: String,
+            required: [true, "Subject is required"],
+            trim: true,
+        },
         type: {
             type: String,
             enum: [

@@ -95,7 +95,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="w-full bg-[#3E3AA8] text-white overflow-hidden relative">
+        <footer className="w-full bg-[#141414]/90 text-white overflow-hidden relative">
 
             {/* Background Glow */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
