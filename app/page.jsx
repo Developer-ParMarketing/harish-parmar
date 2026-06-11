@@ -5,6 +5,7 @@ import FinancialEducation from '@/components/FinancialEducation'
 import Hero from '@/components/Hero'
 import Leadership from '@/components/Leadership'
 import MyWork from '@/components/MyWork'
+import QuoteSection from '@/components/QuoteSection'
 
 import Subhero from '@/components/Subhero'
 import Vision from '@/components/Vision'
@@ -23,6 +24,7 @@ const page = () => {
 
 
       <Contact />
+      <QuoteSection />
 
     </>
   )
