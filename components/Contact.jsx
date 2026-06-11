@@ -135,7 +135,7 @@ const Contact = () => {
 
                     <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-10 bg-[#e48720]" />
 
-                    <p className="uppercase tracking-[3px] text-[#e48720] text-sm">
+                    <p className="uppercase tracking-[3px] text-[#e48720] text-sm font-bold">
                         LET'S CONNECT
                     </p>
 
@@ -149,6 +149,7 @@ const Contact = () => {
                             text-[#161616]
                             mt-4
                             uppercase
+                            font-bold
                         "
                     >
                         Let's Start a
@@ -172,7 +173,7 @@ const Contact = () => {
                     {/* Left Side */}
                     <div className="lg:pr-14">
 
-                        <h3 className="font-serif text-[30px] uppercase text-[#161616] text-center md:text-left">
+                        <h3 className="font-serif text-[30px] uppercase text-[#161616] text-center md:text-left font-bold">
                             Get In Touch
                         </h3>
 
@@ -193,7 +194,7 @@ const Contact = () => {
                                 />
 
                                 <div>
-                                    <p className="uppercase tracking-[2px] font-medium">
+                                    <p className="uppercase tracking-[2px] font-bold font-serif">
                                         Email
                                     </p>
 
@@ -213,7 +214,7 @@ const Contact = () => {
                                 />
 
                                 <div>
-                                    <p className="uppercase tracking-[2px] font-medium">
+                                    <p className="uppercase tracking-[2px] font-bold font-serif">
                                         Phone
                                     </p>
 
@@ -233,7 +234,7 @@ const Contact = () => {
                                 />
 
                                 <div>
-                                    <p className="uppercase tracking-[2px] font-medium">
+                                    <p className="uppercase tracking-[2px] font-bold font-serif">
                                         Location
                                     </p>
 
@@ -290,7 +291,7 @@ const Contact = () => {
                     {/* Right Side */}
                     <div className="lg:border-l-2 border-[#e48720] lg:pl-14">
 
-                        <h3 className="font-serif text-[30px] uppercase text-[#161616] mb-8 text-center md:text-left">
+                        <h3 className="font-serif text-[30px] uppercase text-[#161616] mb-8 text-center md:text-left font-bold">
                             Send A Message
                         </h3>
 

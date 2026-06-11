@@ -111,7 +111,7 @@ const Footer = () => {
                     {/* Left */}
                     <div className="max-w-xl text-center lg:text-left">
 
-                        <p className="text-[11px] uppercase tracking-[4px] text-white/40 mb-5">
+                        <p className="text-[11px] uppercase tracking-[4px] text-white/80 mb-5">
                             Harish Parmar
                         </p>
 
@@ -132,32 +132,7 @@ const Footer = () => {
                         {/* Countries */}
                         <div className="mt-8 flex flex-col sm:flex-row items-center gap-5">
 
-                            <div className="flex items-center gap-4 -space-x-3">
 
-                                <Image
-                                    src="/ind.png"
-                                    alt="India"
-                                    width={38}
-                                    height={38}
-                                    className="rounded-full object-cover border-2 border-[#3E3AA8]"
-                                />
-
-                                <Image
-                                    src="/uae.png"
-                                    alt="UAE"
-                                    width={38}
-                                    height={38}
-                                    className="rounded-full object-cover border-2 border-[#3E3AA8]"
-                                />
-
-                                <Image
-                                    src="/uk.png"
-                                    alt="UK"
-                                    width={38}
-                                    height={38}
-                                    className="rounded-full object-cover border-2 border-[#3E3AA8]"
-                                />
-                            </div>
 
                             <div className="text-center sm:text-left">
                                 <p className="text-[12px] uppercase tracking-[3px] text-white/40">
@@ -180,7 +155,7 @@ const Footer = () => {
                                 <li key={i} className="relative group">
                                     <Link
                                         href={link.path}
-                                        className="text-white/75 hover:text-white transition-all duration-300"
+                                        className="text-white/75 hover:text-white transition-all duration-300 uppercase"
                                     >
                                         {link.name}
                                     </Link>

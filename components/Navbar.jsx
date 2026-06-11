@@ -33,7 +33,7 @@ const Navbar = () => {
             <nav className="flex items-center justify-between px-6 md:px-16 py-5">
                 {/* Logo */}
                 <Link href="/" aria-label="Home">
-                    <div className="relative w-[150px] md:w-[200px] md:h-[88px] h-[50px] cursor-pointer">
+                    <div className="relative w-[150px] md:w-[200px] md:h-[68px] h-[50px] cursor-pointer">
                         <Image
                             src="/HP-logo.png"
                             alt="Harish Parmar Signature"

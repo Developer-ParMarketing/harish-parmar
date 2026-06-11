@@ -39,7 +39,7 @@ const Hero = () => {
                     {/* Subtitle (Jost, inherited) */}
                     <motion.p
                         {...fadeUp(0.3)}
-                        className="mt-2 text-[16px] font-light leading-relaxed tracking-wide text-[#CFCABF] sm:text-[17px]"
+                        className=" text-[16px] font-light leading-relaxed tracking-wide text-[#CFCABF] sm:text-[17px]"
                     >
                         Founder · Leading Financial Groups in India, UAE, UK
                         <br />
@@ -59,16 +59,17 @@ const Hero = () => {
                     <motion.p
                         {...fadeUp(0.6)}
                         className="
-    mt-6
-    max-w-[760px]
-    ml-auto
-    text-justify
-    text-[#B5B0A6]
-    font-light
-    leading-[1.7]
-    text-[18px]
-    xl:text-[20px]
-  "
+                        mt-6
+                        max-w-[760px]
+                        ml-auto
+                        text-justify
+                        text-[#B5B0A6]
+                       
+                        leading-[1.2]
+                        text-[18px]
+                        xl:text-[20px]
+                        font-bold
+                    "
                     >
                         For over four decades, Harish Parmar has been a transformative force
                         in global finance. From foundational advisory roles to pioneering
