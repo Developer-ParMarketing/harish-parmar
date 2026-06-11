@@ -20,9 +20,6 @@ const page = () => {
       <Subhero />
       <MyWork />
       <Bitabout />
-
-
-
       <Contact />
       <QuoteSection />
 
