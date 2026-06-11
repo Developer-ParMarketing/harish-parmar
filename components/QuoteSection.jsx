@@ -63,7 +63,7 @@ export default function QuoteSection() {
                                     font-light
                                 "
                                 style={{
-                                    fontFamily: "cursive",
+                                    fontFamily: "var(--font-script)",
                                 }}
                             >
                                 Harish Parmar
