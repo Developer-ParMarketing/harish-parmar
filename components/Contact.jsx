@@ -163,7 +163,7 @@ const Contact = () => {
                         or media conversations.
                     </p>
 
-                    <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[2px] h-10 bg-[#e48720]" />
+
 
                 </div>
 
@@ -248,7 +248,7 @@ const Contact = () => {
 
                         {/* Social Icons */}
 
-                        <div className="flex items-center justify-center md:justify-start gap-6 mt-12">
+                        {/* <div className="flex items-center justify-center md:justify-start gap-6 mt-12">
                             <a
                                 href="https://www.facebook.com/profile.php?id=61587471657903"
                                 target="_blank"
@@ -284,7 +284,7 @@ const Contact = () => {
                             >
                                 X
                             </a>
-                        </div>
+                        </div> */}
 
                     </div>
 
@@ -357,7 +357,7 @@ const Contact = () => {
                             </select>
 
                             <textarea
-                                rows={6}
+                                rows={3}
                                 name="message"
                                 value={form.message}
                                 onChange={handleChange}

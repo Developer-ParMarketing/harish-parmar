@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+import { useRef } from "react";
 
 const history = [
     {
@@ -78,98 +80,123 @@ const renderTextWithLinks = (text, links = {}) => {
     });
 };
 
-const TimelineCard = ({ item }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="relative"
-    >
-        {/* Gold connector line */}
-        <div className="hidden md:block absolute -top-16 left-0 w-[2px] h-28 bg-[#e48720]" />
+const TimelineCard = ({ item }) => {
+    const ref = useRef(null);
 
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 85%", "end 15%"],
+    });
 
-        {/* Image */}
-        <div
-            className={`
-    relative
-    mb-6
-    w-full
-    overflow-hidden
-    bg-[#5c5c5c]
-    ${item.imageClass || "h-[220px]"}
-  `}
+    const y = useTransform(scrollYProgress, [0, 1], [100, -20]);
+
+    const opacity = useTransform(
+        scrollYProgress,
+        [0, 0.25, 1],
+        [0, 1, 1]
+    );
+
+    const scale = useTransform(
+        scrollYProgress,
+        [0, 1],
+        [1.25, 1]
+    );
+
+    return (
+        <motion.div
+            ref={ref}
+            style={{ y, opacity }}
+            className="relative"
         >
-            <Image
-                src={item.img}
-                alt={item.title}
-                fill
-                sizes="(max-width:1024px) 100vw, 320px"
-                className="object-cover"
-            />
-        </div>
+            {/* Gold connector line */}
+            <div className="hidden md:block absolute -top-16 left-0 w-[2px] h-28 bg-[#e48720]" />
 
-        {/* Year */}
-        <h3
-            className="
-                font-[family-name:var(--font-serif)]
-                text-[58px]
-                leading-none
-                text-[#161616]
-            "
-        >
-            {item.year}
-        </h3>
+            {/* Image */}
+            <div
+                className={`
+                    relative
+                    mb-6
+                    w-full
+                    overflow-hidden
+                    bg-[#5c5c5c]
+                    ${item.imageClass || "h-[220px]"}
+                `}
+            >
+                <motion.div
+                    style={{ scale }}
+                    className="absolute inset-0"
+                >
+                    <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width:1024px) 100vw, 320px"
+                        className="object-cover"
+                    />
+                </motion.div>
+            </div>
 
-        {/* Title */}
-        <h4
-            className="
-                mt-2
-                text-[18px]
-                font-semibold
-                text-[#161616]
-                leading-tight
-            "
-        >
-            {item.title}
-        </h4>
+            {/* Year */}
+            <h3
+                className="
+                    font-[family-name:var(--font-serif)]
+                    text-[58px]
+                    leading-none
+                    text-[#161616]
+                "
+            >
+                {item.year}
+            </h3>
 
-        {/* Description */}
-        <p
-            className="
-                mt-4
-                text-[14px]
-                leading-[1.7]
-                text-[#6E695E]
-            "
-        >
-            {renderTextWithLinks(item.desc, item.links)}
-        </p>
+            {/* Title */}
+            <h4
+                className="
+                    mt-2
+                    text-[18px]
+                    font-semibold
+                    text-[#161616]
+                    leading-tight
+                "
+            >
+                {item.title}
+            </h4>
 
-        {/* Bullet Points */}
-        {item.points && (
-            <ul className="mt-4 space-y-2">
-                {item.points.map((p, idx) => (
-                    <li
-                        key={idx}
-                        className="flex items-start gap-3 text-[13px] leading-relaxed text-[#6E695E]"
-                    >
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#C19A5B]" />
-                        <span>{p}</span>
-                    </li>
-                ))}
-            </ul>
-        )}
-
-        {/* Extra text */}
-        {item.extra && (
-            <p className="mt-4 text-[13px]  text-[#6E695E]">
-                {item.extra}
+            {/* Description */}
+            <p
+                className="
+                    mt-4
+                    text-[14px]
+                    leading-[1.7]
+                    text-[#6E695E]
+                "
+            >
+                {renderTextWithLinks(item.desc, item.links)}
             </p>
-        )}
-    </motion.div>
-);
+
+            {/* Bullet Points */}
+            {item.points && (
+                <ul className="mt-4 space-y-2">
+                    {item.points.map((p, idx) => (
+                        <li
+                            key={idx}
+                            className="flex items-start gap-3 text-[13px] leading-relaxed text-[#6E695E]"
+                        >
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#C19A5B]" />
+                            <span>{p}</span>
+                        </li>
+                    ))}
+                </ul>
+            )}
+
+            {/* Extra text */}
+            {item.extra && (
+                <p className="mt-4 text-[13px] text-[#6E695E]">
+                    {item.extra}
+                </p>
+            )}
+        </motion.div>
+    );
+};
 
 export default function TimelineSection() {
     const columns = [[], [], []];

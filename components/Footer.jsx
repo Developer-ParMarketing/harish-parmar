@@ -103,10 +103,10 @@ const Footer = () => {
                 <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full border border-white/5" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-8 md:py-12">
 
                 {/* Top Section */}
-                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-14 border-b border-white/15 pb-14">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-14 border-b border-white/15 ">
 
                     {/* Left */}
                     <div className="max-w-xl text-center lg:text-left">
@@ -130,20 +130,7 @@ const Footer = () => {
                         </p>
 
                         {/* Countries */}
-                        <div className="mt-8 flex flex-col sm:flex-row items-center gap-5">
 
-
-
-                            <div className="text-center sm:text-left">
-                                <p className="text-[12px] uppercase tracking-[3px] text-white/40">
-                                    Global Presence
-                                </p>
-
-                                <p className="text-[14px] text-white/75 mt-1">
-                                    India · UAE · United Kingdom
-                                </p>
-                            </div>
-                        </div>
                     </div>
 
                     {/* Right */}
@@ -183,15 +170,16 @@ const Footer = () => {
                         </div>
 
                         {/* Small Card */}
-                        <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl px-6 py-5 max-w-sm text-center lg:text-right">
-                            <p className="text-[11px] uppercase tracking-[3px] text-white/35 mb-2">
-                                Open For
-                            </p>
+                        <div className="bg-white/5 border border-white/10 backdrop-blur-sm rounded-2xl px-6 py-5 max-w-sm text-center lg:text-right mb-10">
+                            <div className="text-center sm:text-left">
+                                <p className="text-[12px] uppercase tracking-[3px] text-white/40">
+                                    Global Presence
+                                </p>
 
-                            <p className="text-[15px] leading-[1.8] text-white/80">
-                                Speaking Engagements · Advisory · Media
-                                Collaborations · Strategic Partnerships
-                            </p>
+                                <p className="text-[14px] text-white/75 mt-1">
+                                    India · UAE · United Kingdom
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
