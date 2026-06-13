@@ -11,7 +11,7 @@ const history = [
         imageClass: "h-[200px]",
         title: "Academic & Early UK Foundation",
         img: "/billu.png",
-        desc: "Harish Parmar, founder of SingleDebt, graduated from The University of Manchester Institute of Science and Technology (UMIST) and began consulting on the design of financial products for banks in the UK and USA.",
+        desc: "Harish Parmar, founder of SingleDebt, began his journey with consulting on the design of financial products for banks in the UK and USA.",
         links: { SingleDebt: "https://singledebt.in/" },
     },
     {
