@@ -10,7 +10,7 @@ export default function QuoteSection() {
                 {/* Top Line */}
 
 
-                <div className="pb-12 md:pb-20">
+                <div className="py-12 md:py-20">
 
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
