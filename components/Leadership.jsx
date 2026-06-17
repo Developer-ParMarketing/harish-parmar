@@ -3,7 +3,7 @@ import React from "react";
 
 const Leadership = () => {
     return (
-        <section className="relative w-full bg-[#3E3AA8] text-white overflow-hidden">
+        <section className="relative w-full bg-[#141414]/90 text-white overflow-hidden pt-15 md:pt-30">
 
             {/* Decorative background geometry */}
             <div className="absolute inset-0 pointer-events-none select-none">
@@ -35,9 +35,9 @@ const Leadership = () => {
                     <div className="flex flex-col">
 
                         {/* Headline */}
-                        <h2 className="text-[42px] sm:text-[58px] md:text-[76px] leading-[1.0] font-semibold tracking-tight">
+                        <h2 className=" font-[family-name:var(--font-serif)] uppercase text-[42px] sm:text-[58px] md:text-[76px] leading-[1.0] font-semibold tracking-tight">
                             Redefining<br />
-                            <span className="text-white/30">an Industry</span>
+                            <span className="text-[#e4881e]/60">an Industry</span>
                         </h2>
 
                         {/* Divider with dot */}
@@ -88,7 +88,7 @@ const Leadership = () => {
                             />
 
                             {/* Bottom gradient overlay */}
-                            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#3E3AA8]/80 via-[#3E3AA8]/20 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#ECE7DC]/80 via-[#ECE7DC]/20 to-transparent" />
 
                             {/* Name plate */}
                             <div className="absolute bottom-0 left-0 right-0 p-7">
@@ -116,7 +116,7 @@ const Leadership = () => {
                     <div className="mt-10 md:mt-14 rounded-[28px] border border-white/[0.10] bg-white/[0.04] backdrop-blur-xl px-6 md:px-12 py-10 md:py-14 overflow-hidden relative">
 
                         {/* Glow effect */}
-                        <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#4D4AB8]/20 blur-3xl rounded-full pointer-events-none" />
+                        <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full pointer-events-none" />
 
                         {/* Content */}
                         <div className="relative z-10">
@@ -125,7 +125,7 @@ const Leadership = () => {
 
 
                             {/* Heading */}
-                            <h3 className="text-[24px] md:text-[32px] leading-[1.25] font-semibold max-w-4xl">
+                            <h3 className=" font-[family-name:var(--font-serif)] uppercase text-[24px] md:text-[32px] leading-[1.25] font-semibold max-w-4xl">
                                 ET Brand Equity DigiPlus Awards 2026
                             </h3>
 
@@ -153,7 +153,6 @@ const Leadership = () => {
 
                                 {/* Logos grid */}
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
-
                                     {[
                                         "/SOS-Unit.webp",
                                         "/Maan-Talks.webp",
@@ -162,16 +161,38 @@ const Leadership = () => {
                                     ].map((logo, i) => (
                                         <div
                                             key={i}
-                                            className="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md h-[90px] md:h-[110px] flex items-center justify-center p-5 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 hover:-translate-y-1"
+                                            className="
+                group
+                rounded-2xl
+                border border-white/10
+                bg-white/[0.03]
+                backdrop-blur-md
+                h-[100px] sm:h-[110px] md:h-[120px]
+                flex items-center justify-center
+                p-4 sm:p-5
+                transition-all duration-300
+                hover:bg-white/[0.06]
+                hover:border-white/20
+            "
                                         >
                                             <img
                                                 src={logo}
                                                 alt="Recognition Logo"
-                                                className="max-h-full max-w-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+                                                className="
+                    md:w-full
+                    md:h-full
+                    md:object-contain
+
+                     max-w-[100%]
+    max-h-[100%]
+    object-contain
+                    
+                    group-hover:opacity-100
+                    transition-opacity duration-300
+                "
                                             />
                                         </div>
                                     ))}
-
                                 </div>
                             </div>
                         </div>

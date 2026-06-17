@@ -48,7 +48,7 @@ const ContactCell = ({ m }) => (
     <div
         className="relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden"
         style={{
-            backgroundColor: m.dark ? "#3E3AA8" : "#ffffff",
+            backgroundColor: m.dark ? "#141414" : "#ffff",
             minHeight: "160px",
         }}
     >
@@ -59,7 +59,7 @@ const ContactCell = ({ m }) => (
         {/* Top */}
         <div className="flex items-center justify-between">
             <p
-                className="text-[16px] uppercase tracking-[4px] font-semibold"
+                className="text-[16px] uppercase tracking-[4px] font-semibold font-[family-name:var(--font-serif)] uppercase"
                 style={{ color: m.dark ? "rgba(255,255,255,0.55)" : "rgba(0,0,0,0.45)" }}
             >
                 {m.label}
@@ -159,27 +159,13 @@ const ContactPage = () => {
     });
 
     return (
-        <div className="bg-[#f7f6f3] overflow-hidden">
+        <div className="bg-[#ECE7DC] overflow-hidden ">
 
             {/* ══ HERO ══ */}
-            <div className="relative bg-[#3E3AA8] text-white overflow-hidden">
+            <div className="relative bg-[#141414]/90 text-white overflow-hidden">
 
-                {/* BG geometry */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full border border-white/[0.06]" />
-                    <div className="absolute -top-10 -right-10 w-[330px] h-[330px] rounded-full border border-white/[0.04]" />
-                    <div className="absolute bottom-0 left-0 w-[200px] h-[200px] border-t border-r border-white/[0.06]" />
-                    <div
-                        className="absolute inset-0 opacity-[0.025]"
-                        style={{ backgroundImage: "repeating-linear-gradient(135deg,white 0,white 1px,transparent 1px,transparent 80px)" }}
-                    />
-                    <div className="absolute top-8 left-8 md:top-12 md:left-14 w-7 h-7 border-t border-l border-white/20" />
-                    <div className="absolute top-8 right-8 md:top-12 md:right-14 w-7 h-7 border-t border-r border-white/20" />
-                    <div className="absolute bottom-8 left-8 md:bottom-12 md:left-14 w-7 h-7 border-b border-l border-white/20" />
-                    <div className="absolute bottom-8 right-8 md:bottom-12 md:right-14 w-7 h-7 border-b border-r border-white/20" />
-                </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-20 md:pt-28 pb-16 md:pb-20">
+                <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pt-30 md:pt-28 pb-16 md:pb-20">
 
                     {/* Label */}
                     <div
@@ -206,9 +192,9 @@ const ContactPage = () => {
                             transition: "opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s",
                         }}
                     >
-                        <h1 className="text-[40px] sm:text-[56px] md:text-[72px] xl:text-[82px] leading-[1.0] font-semibold tracking-tight text-white">
+                        <h1 className="text-[40px] sm:text-[56px] md:text-[72px] xl:text-[82px] leading-[1.0] font-semibold tracking-tight text-white  font-[family-name:var(--font-serif)]  uppercase">
                             Let's Start a<br />
-                            <span className="text-white/30">Professional Dialogue</span>
+                            <span className="text-[#e4881e]/60">Professional Dialogue</span>
                         </h1>
                         <p className="text-[15px] md:text-[24px] leading-[1.9] text-white/65 font-light lg:pb-1">
                             For speaking engagements, media inquiries, advisory
@@ -238,7 +224,7 @@ const ContactPage = () => {
                 >
 
                     {/* ── LEFT: context panel ── */}
-                    <div className="relative bg-[#3E3AA8] text-white p-8 sm:p-10 md:p-14 flex flex-col justify-between overflow-hidden">
+                    <div className="relative bg-[#141414] text-white p-8 sm:p-10 md:p-14 flex flex-col justify-between overflow-hidden">
                         <div className="absolute inset-0 pointer-events-none">
                             <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full border border-white/[0.06]" />
                             <div className="absolute -bottom-4 -right-4 w-40 h-40 rounded-full border border-white/[0.04]" />
@@ -249,7 +235,7 @@ const ContactPage = () => {
                             <p className="text-[16px] uppercase tracking-[5px] text-white/50 mb-8">
                                 Why Reach Out
                             </p>
-                            <h2 className="text-[26px] sm:text-[32px] md:text-[36px] font-semibold leading-[1.15] text-white mb-6">
+                            <h2 className="text-[26px] sm:text-[32px] md:text-[36px] font-semibold leading-[1.15] text-white mb-6 font-[family-name:var(--font-serif)] uppercase">
                                 Start the Right Conversation
                             </h2>
                             <div className="w-8 h-[1px] bg-white/25 mb-8" />
@@ -384,8 +370,8 @@ const ContactPage = () => {
                                                 onClick={() => setForm((p) => ({ ...p, type: t }))}
                                                 className="text-[11px] uppercase tracking-[2px] px-4 py-2 border transition-all duration-200"
                                                 style={{
-                                                    backgroundColor: form.type === t ? "#3E3AA8" : "transparent",
-                                                    borderColor: form.type === t ? "#3E3AA8" : "rgba(0,0,0,0.15)",
+                                                    backgroundColor: form.type === t ? "#141414" : "transparent",
+                                                    borderColor: form.type === t ? "#141414" : "rgba(0,0,0,0.15)",
                                                     color: form.type === t ? "#ffffff" : "rgba(0,0,0,0.55)",
                                                 }}
                                             >
@@ -426,7 +412,7 @@ const ContactPage = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="flex items-center gap-3 bg-[#3E3AA8] text-white px-8 py-4 text-[12px] uppercase tracking-[3px] font-semibold hover:bg-[#2f2c8f] active:scale-95 transition-all duration-300 disabled:opacity-60"
+                                        className="flex items-center gap-3 bg-[#141414] text-white px-8 py-4 text-[12px] uppercase tracking-[3px] font-semibold hover:bg-[#2f2c8f] active:scale-95 transition-all duration-300 disabled:opacity-60"
                                     >
                                         {loading ? (
                                             <>
@@ -449,7 +435,7 @@ const ContactPage = () => {
             {/* ══ FOOTER STRIP ══ */}
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pb-20 md:pb-28">
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-3 border border-black/10"
+                    className="grid grid-cols-1 sm:grid-cols-3 border border-black/10 "
                     style={{ gap: "1px", backgroundColor: "rgba(0,0,0,0.08)" }}
                 >
                     {[
@@ -459,14 +445,14 @@ const ContactPage = () => {
                     ].map((item, i) => (
                         <div
                             key={i}
-                            className="relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden"
-                            style={{ backgroundColor: item.dark ? "#3E3AA8" : "#ffffff", minHeight: "120px" }}
+                            className="relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden "
+                            style={{ backgroundColor: item.dark ? "#141414" : "#ffffff", minHeight: "120px" }}
                         >
                             {item.dark && (
                                 <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full border border-white/[0.07] pointer-events-none" />
                             )}
                             <p
-                                className="text-[16px] uppercase tracking-[4px] font-semibold"
+                                className="text-[16px] uppercase tracking-[4px] font-semibold font-[family-name:var(--font-serif)] uppercase"
                                 style={{ color: item.dark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}
                             >
                                 {item.label}

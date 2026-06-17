@@ -118,7 +118,7 @@ const Footer = () => {
                         <h2 className="text-[34px] sm:text-[42px] md:text-[56px] leading-[1.02] font-semibold tracking-tight">
                             Trusted Financial
                             <br />
-                            <span className="text-white/45">
+                            <span className="text-[#e4881e]/60">
                                 Leadership
                             </span>
                         </h2>
@@ -142,12 +142,12 @@ const Footer = () => {
                                 <li key={i} className="relative group">
                                     <Link
                                         href={link.path}
-                                        className="text-white/75 hover:text-white transition-all duration-300 uppercase"
+                                        className="text-white/75 group-hover:text-[#C19A5B] transition-all duration-300 uppercase"
                                     >
                                         {link.name}
                                     </Link>
 
-                                    <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
+                                    <span className="absolute left-0 -bottom-2 h-[1px] w-0 bg-[#C19A5B] transition-all duration-300 group-hover:w-full" />
                                 </li>
                             ))}
                         </ul>

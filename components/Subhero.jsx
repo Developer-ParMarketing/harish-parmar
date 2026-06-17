@@ -80,7 +80,7 @@ const renderTextWithLinks = (text, links = {}) => {
     });
 };
 
-const TimelineCard = ({ item }) => {
+const TimelineCard = ({ item, showConnector = true }) => {
     const ref = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -106,10 +106,12 @@ const TimelineCard = ({ item }) => {
         <motion.div
             ref={ref}
             style={{ y, opacity }}
-            className="relative"
+            className="relative md:pl-10"
         >
             {/* Gold connector line */}
-            <div className="hidden md:block absolute -top-16 left-0 w-[2px] h-28 bg-[#e48720]" />
+            {showConnector && (
+                <div className="hidden md:block absolute -top-16 left-0 w-[2px] h-150 bg-[#e48720]" />
+            )}
 
             {/* Image */}
             <div
@@ -320,14 +322,39 @@ export default function TimelineSection() {
                         <div
                             key={colIndex}
                             className={`
+                relative
                 ${colIndex === 0 ? "pt-0" : ""}
                 ${colIndex === 1 ? "pt-32" : ""}
                 ${colIndex === 2 ? "pt-16" : ""}
                 space-y-44
             `}
                         >
+                            {/* TOP CONNECTOR */}
+                            <div
+                                className="absolute left-0 w-[2px] bg-[#e48720]"
+                                style={{
+                                    top:
+                                        colIndex === 0
+                                            ? "-85px"
+                                            : colIndex === 1
+                                                ? "-85px"
+                                                : "-85px",
+
+                                    height:
+                                        colIndex === 0
+                                            ? "272px"
+                                            : colIndex === 1
+                                                ? "600px"
+                                                : "406px",
+                                }}
+                            />
+
                             {col.map((item, i) => (
-                                <TimelineCard key={i} item={item} />
+                                <TimelineCard
+                                    key={i}
+                                    item={item}
+                                    showConnector={i !== 0}
+                                />
                             ))}
                         </div>
                     ))}

@@ -41,10 +41,10 @@ const BlogsPage = () => {
     const restBlogs = blogs.slice(1);
 
     return (
-        <div className="min-h-screen bg-[#f7f6f3]">
+        <div className="min-h-screen bg-[#ECE7DC] ">
 
             {/* Hero */}
-            <div className="relative bg-[#3E3AA8] text-white overflow-hidden">
+            <div className="relative bg-[#141414]/90 text-white overflow-hidden pt-15 md:pt-30">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full border border-white/[0.06]" />
                     <div className="absolute bottom-0 left-0 w-[200px] h-[200px] border-t border-r border-white/[0.04]" />
@@ -56,9 +56,9 @@ const BlogsPage = () => {
                         <p className="uppercase tracking-[5px] text-[11px] font-semibold text-white/60">Insights & Articles</p>
                         <span className="block w-6 h-[1px] bg-white/40" />
                     </div>
-                    <h1 className="text-[40px] sm:text-[60px] md:text-[72px] font-semibold leading-[1.0] tracking-tight text-white mb-6">
+                    <h1 className="text-[40px] sm:text-[60px] md:text-[72px] font-semibold leading-[1.0] tracking-tight text-white mb-6  font-[family-name:var(--font-serif)] uppercase ">
                         Financial<br />
-                        <span className="text-white/30">Perspectives</span>
+                        <span className="text-[#e4881e]/60">Perspectives</span>
                     </h1>
                     <p className="text-[15px] md:text-[18px] leading-[1.9] text-white/60 max-w-xl">
                         Insights on debt resolution, financial wellness, and the future of fintech — from four decades of global experience.
@@ -66,7 +66,7 @@ const BlogsPage = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-14">
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 py-14 ">
 
                 {/* Search + Category filters */}
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -143,7 +143,7 @@ const BlogsPage = () => {
                                                     <span key={cat} className="text-[10px] uppercase tracking-[3px] text-[#3E3AA8] bg-[#3E3AA8]/10 px-2.5 py-1">{cat}</span>
                                                 ))}
                                             </div>
-                                            <h2 className="text-[26px] sm:text-[32px] font-semibold text-black leading-[1.2] mb-4 group-hover:text-[#3E3AA8] transition-colors duration-200">
+                                            <h2 className="text-[26px] sm:text-[32px] font-semibold text-black leading-[1.2] mb-4 group-hover:text-[#3E3AA8] transition-colors duration-200  font-[family-name:var(--font-serif)]">
                                                 {featuredBlog.title}
                                             </h2>
                                             {featuredBlog.excerpt && (

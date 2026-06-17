@@ -25,13 +25,13 @@ const programs = [
 
 const FinancialEducation = () => {
     return (
-        <section className="relative w-full bg-[#f7f6f3] overflow-hidden">
+        <section className="relative w-full bg-[#141414]/90 text-white overflow-hidden pt-15 md:pt-30">
 
             {/* ── Subtle background texture ── */}
             <div className="absolute inset-0 pointer-events-none select-none">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-[#4D4AB8]/[0.07]" style={{ transform: "translate(30%, -30%)" }} />
-                <div className="absolute top-0 right-0 w-[340px] h-[340px] rounded-full border border-[#4D4AB8]/[0.05]" style={{ transform: "translate(20%, -20%)" }} />
-                <div className="absolute bottom-0 left-0 w-[280px] h-[280px] border-t border-r border-[#4D4AB8]/[0.06]" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full border border-[#141414]/[0.07]" style={{ transform: "translate(30%, -30%)" }} />
+                <div className="absolute top-0 right-0 w-[340px] h-[340px] rounded-full border border-[#141414]/[0.05]" style={{ transform: "translate(20%, -20%)" }} />
+                <div className="absolute bottom-0 left-0 w-[280px] h-[280px] border-t border-r border-[#141414]/[0.06]" />
             </div>
 
             {/* ══════════════════════════════════
@@ -44,12 +44,12 @@ const FinancialEducation = () => {
                 {/* Headline + body — two column on lg */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-10 lg:gap-20 items-end">
 
-                    <h2 className="text-[38px] sm:text-[52px] md:text-[68px] xl:text-[76px] leading-[1.0] font-semibold text-black tracking-tight">
+                    <h2 className="text-[38px] sm:text-[52px] md:text-[68px] xl:text-[76px] leading-[1.0] font-semibold  tracking-tight  font-[family-name:var(--font-serif)] uppercase">
                         Empowering Through<br />
-                        <span className="text-[#4D4AB8]/25">Financial Literacy</span>
+                        <span className="text-[#e4881e]/60">Financial Literacy</span>
                     </h2>
 
-                    <p className="text-[16px] md:text-[18px] leading-[1.9] text-[#555] font-light lg:pb-2">
+                    <p className="text-[16px] md:text-[18px] leading-[1.9] text-white/75 font-light lg:pb-2">
                         Driving change requires empowering minds. Beyond
                         boardroom strategy, Harish Parmar champions mass
                         financial literacy. He architects educational programs
@@ -60,14 +60,14 @@ const FinancialEducation = () => {
                 </div>
 
                 {/* Full-width rule */}
-                <div className="w-full h-[1px] bg-black/10 mt-14" />
+                <div className="w-full h-[1px] bg-[#e4881e]/10 mt-14" />
             </div>
 
             {/* ══════════════════════════════════
                 PROGRAM CARDS
             ══════════════════════════════════ */}
             <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 md:px-16 mt-0">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-black/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#e4881e]/10">
                     {programs.map((item, i) => (
                         <div
                             key={i}
@@ -75,29 +75,29 @@ const FinancialEducation = () => {
                         >
                             {/* Top row: number + icon */}
                             <div className="flex items-center justify-between">
-                                <span className="text-[11px] uppercase tracking-[4px] text-[#4D4AB8]/40 font-semibold">
+                                <span className="text-[11px] uppercase tracking-[4px] text-[#e4881e]/40 font-semibold">
                                     {item.number}
                                 </span>
-                                <div className="w-10 h-10 rounded-full border border-[#4D4AB8]/20 bg-white flex items-center justify-center text-[#4D4AB8] group-hover:bg-[#4D4AB8] group-hover:text-white group-hover:border-transparent transition-all duration-300">
+                                <div className="w-10 h-10 rounded-full border border-[#141414]/20 bg-[#e4881e] flex items-center justify-center text-[#141414] group-hover:bg-[#a3a3a31a] group-hover:text-[#e4881e] group-hover:border-transparent transition-all duration-300">
                                     {item.icon}
                                 </div>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-[20px] md:text-[23px] leading-[1.35] font-semibold text-black">
+                            <h3 className="text-[20px] md:text-[23px] leading-[1.35] font-semibold  font-[family-name:var(--font-serif)] uppercase">
                                 {item.title}
                             </h3>
 
                             {/* Divider */}
-                            <div className="w-8 h-[1px] bg-[#4D4AB8]/30 group-hover:w-16 transition-all duration-500" />
+                            <div className="w-8 h-[1px] bg-[#141414]/30 group-hover:w-16 transition-all duration-500" />
 
                             {/* Description */}
-                            <p className="text-[15px] md:text-[16px] leading-[1.85] text-[#666] font-light">
+                            <p className="text-[15px] md:text-[16px] leading-[1.85] text-white/75 font-light">
                                 {item.desc}
                             </p>
 
                             {/* Bottom accent line on hover */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4D4AB8] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 hidden sm:block" />
+                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#e4881e]/90 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 hidden sm:block" />
                         </div>
                     ))}
                 </div>
@@ -106,26 +106,26 @@ const FinancialEducation = () => {
             {/* ══════════════════════════════════
                 PUBLIC ENGAGEMENT — IMAGE + TEXT
             ══════════════════════════════════ */}
-            <div className="relative z-10 max-full    mt-16 md:mt-20">
+            <div className="relative z-10 max-full mt-16 md:mt-20  bg-[#ECE7DC]">
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0 border border-black/10 overflow-hidden bg-white">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-0  overflow-hidden max-w-7xl mx-auto px-5 sm:px-8 md:px-16 ">
 
                     {/* Left — text panel */}
-                    <div className="p-8 sm:p-10 md:p-14 flex flex-col justify-center">
+                    <div className="p-8 sm:p-10 md:p-14 flex flex-col justify-center ">
 
 
                         <div className="flex items-center gap-3 mb-10">
-                            <span className="block w-7 h-[1px] bg-[#4D4AB8]/50" />
-                            <p className="uppercase tracking-[5px] text-[10px] font-semibold text-[#4D4AB8]/70">
+                            <span className="block w-7 h-[1px] bg-[#141414]/50" />
+                            <p className="uppercase tracking-[5px] text-[10px] font-semibold text-[#141414]/70">
                                 Public Engagement
                             </p>
                         </div>
 
-                        <h3 className="text-[28px] sm:text-[36px] md:text-[44px] leading-[1.15] font-semibold text-black">
+                        <h3 className="text-[28px] sm:text-[36px] md:text-[44px] leading-[1.15] font-semibold text-black  font-[family-name:var(--font-serif)] uppercase">
                             Educating Communities Through Real Conversations
                         </h3>
 
-                        <div className="w-10 h-[2px] bg-[#4D4AB8]/40 my-8" />
+                        <div className="w-10 h-[2px] bg-[#141414]/40 my-8" />
 
                         <p className="text-[15px] md:text-[17px] leading-[1.9] text-[#555] font-light">
                             A short, impactful video montage blending clips
@@ -143,7 +143,7 @@ const FinancialEducation = () => {
                                 { val: "5+", label: "Platforms" },
                             ].map((s, i) => (
                                 <div key={i}>
-                                    <p className="text-[26px] md:text-[32px] font-semibold text-[#4D4AB8] leading-none">
+                                    <p className="text-[26px] md:text-[32px] font-semibold text-[#141414] leading-none">
                                         {s.val}
                                     </p>
                                     <p className="text-[12px] text-[#888] mt-1 uppercase tracking-[2px]">

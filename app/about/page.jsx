@@ -95,7 +95,7 @@ function Cell({ item, index }) {
             ref={ref}
             className="relative flex flex-col justify-between p-7 sm:p-8 md:p-10 overflow-hidden"
             style={{
-                backgroundColor: isDark ? "#3E3AA8" : "#ffffff",
+                backgroundColor: isDark ? "#141414" : "#ffffff",
                 color: isDark ? "#ffffff" : "#000000",
                 minHeight: "280px",
                 opacity: inView ? 1 : 0,
@@ -121,7 +121,7 @@ function Cell({ item, index }) {
                 </span>
                 <span
                     className="text-[9px] uppercase tracking-[3px] text-right"
-                    style={{ color: isDark ? "rgba(255,255,255,0.35)" : "rgba(0,0,0,0.3)" }}
+                    style={{ color: isDark ? "rgba(255,255,255,0.70)" : "rgba(0,0,0,0.9)" }}
                 >
                     {item.geo}
                 </span>
@@ -139,7 +139,7 @@ function Cell({ item, index }) {
 
                 {/* Title */}
                 <h3
-                    className="text-[16px] sm:text-[17px] md:text-[18px] font-bold leading-[1.3] mb-3"
+                    className="text-[16px] sm:text-[17px] md:text-[18px] font-bold leading-[1.3] mb-3  font-[family-name:var(--font-serif)] uppercase"
                     style={{ color: isDark ? "#ffffff" : "#000000" }}
                 >
                     {item.label}
@@ -178,12 +178,12 @@ export default function Page() {
     useEffect(() => { setMounted(true); }, []);
 
     return (
-        <div className="bg-[#f7f6f3] overflow-hidden">
+        <div className="bg-[#ECE7DC] overflow-hidden ">
             <Leadership />
             {/* ══════════════════════════════════════
                 HERO HEADER
             ══════════════════════════════════════ */}
-            <div className="relative bg-[#3E3AA8] text-white overflow-hidden">
+            <div className="relative bg-[#141414]/90 text-white overflow-hidden">
 
                 {/* BG geometry */}
                 <div className="absolute inset-0 pointer-events-none">
@@ -223,7 +223,7 @@ export default function Page() {
 
                     {/* If 9 items in 3-col grid = 3 rows perfect. On 2-col = 1 orphan. Fill it with a dark closer cell */}
                     <div
-                        className="hidden sm:flex lg:hidden flex-col items-center justify-center p-10 bg-[#3E3AA8] relative overflow-hidden"
+                        className="hidden sm:flex lg:hidden flex-col items-center justify-center p-10 bg-[#141414]/90 relative overflow-hidden"
                         style={{ minHeight: "280px" }}
                     >
                         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "repeating-linear-gradient(135deg,white 0,white 1px,transparent 1px,transparent 60px)" }} />
@@ -240,7 +240,7 @@ export default function Page() {
                 CLOSING CTA
             ══════════════════════════════════════ */}
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pb-24 md:pb-32">
-                <div className="relative bg-[#3E3AA8] text-white overflow-hidden">
+                <div className="relative bg-[#141414]/90 text-white overflow-hidden">
                     <div className="absolute top-6 left-6 w-7 h-7 border-t border-l border-white/20" />
                     <div className="absolute top-6 right-6 w-7 h-7 border-t border-r border-white/20" />
                     <div className="absolute bottom-6 left-6 w-7 h-7 border-b border-l border-white/20" />
@@ -248,7 +248,7 @@ export default function Page() {
                     <div className="relative z-10 p-10 sm:p-14 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                         <div>
                             <p className="text-[10px] uppercase tracking-[5px] text-white/35 mb-4">Start a Conversation</p>
-                            <h2 className="text-[26px] sm:text-[34px] md:text-[40px] font-semibold leading-[1.15]">
+                            <h2 className="text-[26px] sm:text-[34px] md:text-[40px] uppercase font-semibold leading-[1.15] font-[family-name:var(--font-serif)]">
                                 Let's Start a<br />Professional Dialogue
                             </h2>
                             <p className="text-[14px] md:text-[15px] text-white/50 mt-4 font-light max-w-sm">
@@ -257,7 +257,7 @@ export default function Page() {
                         </div>
                         <a
                             href="/contact"
-                            className="flex-shrink-0 flex items-center gap-3 border border-white/30 px-7 py-4 text-[11px] uppercase tracking-[3px] font-semibold hover:bg-white hover:text-[#3E3AA8] transition-all duration-300 whitespace-nowrap"
+                            className="flex-shrink-0 flex items-center gap-3 border border-white/30 px-7 py-4 text-[11px] uppercase tracking-[3px] font-semibold hover:bg-white hover:text-[#e4881e] transition-all duration-300 whitespace-nowrap"
                         >
                             Get in Touch <span>↗</span>
                         </a>
