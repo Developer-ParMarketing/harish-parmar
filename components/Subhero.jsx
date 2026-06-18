@@ -9,7 +9,7 @@ const history = [
     {
         year: "1994",
         imageClass: "h-[200px]",
-        title: "Academic & Early UK Foundation",
+        title: "Academic & Early UK Foundation to Early UK Foundation",
         img: "/billu.png",
         desc: "Harish Parmar, founder of SingleDebt, began his journey with consulting on the design of financial products for banks in the UK and USA.",
         links: { SingleDebt: "https://singledebt.in/" },

@@ -106,7 +106,7 @@ const Footer = () => {
             <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-16 py-8 md:py-12">
 
                 {/* Top Section */}
-                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-14 border-b border-white/15 ">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-14  ">
 
                     {/* Left */}
                     <div className="max-w-xl text-center lg:text-left">
@@ -183,7 +183,60 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                <div className=" pb-10 border-b border-white/15">
 
+                    <div className="flex items-center gap-3 mb-5 ">
+                        <div className="h-px flex-1 bg-white/10" />
+                        <span className="text-[11px] uppercase tracking-[4px] text-white/40 whitespace-nowrap">
+                            Associated Recognition
+                        </span>
+                        <div className="h-px flex-1 bg-white/10" />
+                    </div>
+
+                    {/* Logos grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
+                        {[
+                            "/SOS-Unit.webp",
+                            "/Maan-Talks.webp",
+                            "/IFTA-Unit-White.webp",
+                            "/Unicef-1.webp",
+                        ].map((logo, i) => (
+                            <div
+                                key={i}
+                                className="
+                group
+                rounded-2xl
+                border border-white/10
+                bg-white/[0.03]
+                backdrop-blur-md
+                h-[100px] sm:h-[110px] md:h-[120px]
+                flex items-center justify-center
+                p-4 sm:p-5
+                transition-all duration-300
+                hover:bg-white/[0.06]
+                hover:border-white/20
+            "
+                            >
+                                <img
+                                    src={logo}
+                                    alt="Recognition Logo"
+                                    className="
+                    md:w-full
+                    md:h-full
+                    md:object-contain
+
+                     max-w-[100%]
+    max-h-[100%]
+    object-contain
+                    
+                    group-hover:opacity-100
+                    transition-opacity duration-300
+                "
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
                 {/* Bottom */}
                 <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
 

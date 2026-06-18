@@ -8,7 +8,7 @@ const milestones = [
     {
         year: "1994",
         geo: "UK · USA",
-        label: "Academic & Early UK Foundation",
+        label: "Academic & Early UK Foundation to Early UK Foundation",
         desc: "Graduated from UMIST and began consulting on the design of financial products for banks in the UK and USA.",
     },
     {
