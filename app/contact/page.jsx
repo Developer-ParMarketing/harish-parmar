@@ -117,7 +117,7 @@ const ContactCell = ({ m }) => (
 /* ─── Main Component ────────────────────────────────────────────────────── */
 const ContactPage = () => {
     const [mounted, setMounted] = useState(false);
-    const [form, setForm] = useState({ name: "", email: "", company: "", type: "", message: "" });
+    const [form, setForm] = useState({ name: "", email: "", company: "", type: "", message: "", subject: "", });
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [focused, setFocused] = useState("");
@@ -154,7 +154,7 @@ const ContactPage = () => {
 
     const underline = (field) => ({
         outline: "none",
-        borderBottom: `1px solid ${focused === field ? "#3E3AA8" : "rgba(0,0,0,0.15)"}`,
+        borderBottom: `1px solid ${focused === field ? "#141414" : "rgba(0,0,0,0.15)"}`,
         transition: "border-color 0.3s ease",
     });
 
@@ -278,19 +278,19 @@ const ContactPage = () => {
                         {submitted ? (
                             /* Success */
                             <div className="h-full flex flex-col items-center justify-center text-center py-16">
-                                <div className="w-14 h-14 rounded-full bg-[#3E3AA8]/10 flex items-center justify-center mb-6">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3E3AA8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <div className="w-14 h-14 rounded-full bg-[#141414]/10 flex items-center justify-center mb-6">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141414" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                         <polyline points="20 6 9 17 4 12" />
                                     </svg>
                                 </div>
-                                <p className="text-[16px] uppercase tracking-[5px] text-[#4D4AB8] mb-4">Message Sent</p>
+                                <p className="text-[16px] uppercase tracking-[5px] text-[#141414] mb-4">Message Sent</p>
                                 <h3 className="text-[24px] font-semibold text-black mb-3">Thank You</h3>
                                 <p className="text-[14px] text-[#555] leading-[1.85] max-w-xs">
                                     Your message has been received. Harish's team will respond within 24 hours.
                                 </p>
                                 <button
-                                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", company: "", type: "", message: "" }); }}
-                                    className="mt-8 text-[11px] uppercase tracking-[3px] text-[#3E3AA8] border border-[#3E3AA8]/30 px-5 py-2.5 hover:bg-[#3E3AA8] hover:text-white transition-all duration-300"
+                                    onClick={() => { setSubmitted(false); setForm({ name: "", email: "", company: "", type: "", message: "", subject: "", }); }}
+                                    className="mt-8 text-[11px] uppercase tracking-[3px] text-[#141414] border border-[#141414]/30 px-5 py-2.5 hover:bg-[#141414] hover:text-white transition-all duration-300"
                                 >
                                     Send Another
                                 </button>
@@ -355,30 +355,52 @@ const ContactPage = () => {
                                             style={underline("company")}
                                         />
                                     </div>
-                                </div>
 
+                                </div>
+                                <div>
+                                    <label className="block text-[16px] uppercase tracking-[3px] text-black mb-3">
+                                        Subject *
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        name="subject"
+                                        required
+                                        placeholder="Speaking request for fintech conference"
+                                        value={form.subject}
+                                        onChange={handleChange}
+                                        onFocus={() => setFocused("subject")}
+                                        onBlur={() => setFocused("")}
+                                        className="w-full bg-transparent pb-3 text-[14px] text-black placeholder-black/30"
+                                        style={underline("subject")}
+                                    />
+                                </div>
                                 {/* Inquiry type */}
                                 <div>
                                     <p className="text-[16px] uppercase tracking-[5px] text-black mb-5">
                                         Nature of Inquiry *
                                     </p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {inquiryTypes.map((t) => (
-                                            <button
-                                                key={t}
-                                                type="button"
-                                                onClick={() => setForm((p) => ({ ...p, type: t }))}
-                                                className="text-[11px] uppercase tracking-[2px] px-4 py-2 border transition-all duration-200"
-                                                style={{
-                                                    backgroundColor: form.type === t ? "#141414" : "transparent",
-                                                    borderColor: form.type === t ? "#141414" : "rgba(0,0,0,0.15)",
-                                                    color: form.type === t ? "#ffffff" : "rgba(0,0,0,0.55)",
-                                                }}
-                                            >
-                                                {t}
-                                            </button>
+
+                                    <select
+                                        name="type"
+                                        value={form.type}
+                                        onChange={handleChange}
+                                        required
+                                        className="w-full bg-transparent pb-3 text-[14px] text-black"
+                                        style={underline("type")}
+                                        onFocus={() => setFocused("type")}
+                                        onBlur={() => setFocused("")}
+                                    >
+                                        <option value="" disabled>
+                                            Select Inquiry Type
+                                        </option>
+
+                                        {inquiryTypes.map((type) => (
+                                            <option key={type} value={type}>
+                                                {type}
+                                            </option>
                                         ))}
-                                    </div>
+                                    </select>
                                 </div>
 
                                 {/* Message */}
@@ -398,7 +420,7 @@ const ContactPage = () => {
                                         className="w-full bg-transparent pb-3 text-[14px] text-black placeholder-black/30 resize-none"
                                         style={{
                                             outline: "none",
-                                            borderBottom: `1px solid ${focused === "message" ? "#3E3AA8" : "rgba(0,0,0,0.15)"}`,
+                                            borderBottom: `1px solid ${focused === "message" ? "#141414" : "rgba(0,0,0,0.15)"}`,
                                             transition: "border-color 0.3s ease",
                                         }}
                                     />
@@ -412,7 +434,7 @@ const ContactPage = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="flex items-center gap-3 bg-[#141414] text-white px-8 py-4 text-[12px] uppercase tracking-[3px] font-semibold hover:bg-[#2f2c8f] active:scale-95 transition-all duration-300 disabled:opacity-60"
+                                        className="flex items-center gap-3 bg-[#141414] text-white px-8 py-4 text-[12px] uppercase tracking-[3px] font-semibold hover:bg-[#423d3d] active:scale-95 transition-all duration-300 disabled:opacity-60"
                                     >
                                         {loading ? (
                                             <>

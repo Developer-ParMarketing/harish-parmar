@@ -70,7 +70,7 @@ const Contact = () => {
         email: "",
         company: "",
         subject: "",
-        type: "Speaking Engagement",
+        type: "",
         message: "",
     });
 
@@ -307,7 +307,7 @@ const Contact = () => {
                                     name="name"
                                     value={form.name}
                                     onChange={handleChange}
-                                    placeholder="Full Name"
+                                    placeholder="Full Name*"
                                     required
                                     className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
                                 />
@@ -317,7 +317,7 @@ const Contact = () => {
                                     name="email"
                                     value={form.email}
                                     onChange={handleChange}
-                                    placeholder="Email"
+                                    placeholder="Email*"
                                     required
                                     className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
                                 />
@@ -338,7 +338,7 @@ const Contact = () => {
                                 name="subject"
                                 value={form.subject}
                                 onChange={handleChange}
-                                placeholder="Subject"
+                                placeholder="Subject*"
                                 required
                                 className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
                             />
@@ -349,6 +349,10 @@ const Contact = () => {
                                 onChange={handleChange}
                                 className="w-full border border-black/10 bg-transparent px-4 py-4 focus:outline-none focus:border-[#e48720]"
                             >
+                                <option value="" disabled>
+                                    Select Inquiry Type*
+                                </option>
+
                                 {inquiryTypes.map((type) => (
                                     <option key={type} value={type}>
                                         {type}
@@ -361,7 +365,7 @@ const Contact = () => {
                                 name="message"
                                 value={form.message}
                                 onChange={handleChange}
-                                placeholder="Your Message"
+                                placeholder="Your Message*"
                                 required
                                 className="w-full border border-black/10 bg-transparent px-4 py-4 resize-none focus:outline-none focus:border-[#e48720]"
                             />
