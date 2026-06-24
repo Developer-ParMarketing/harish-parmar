@@ -78,6 +78,7 @@ export default function QuoteSection() {
                 {/* Bottom Line */}
 
 
+                <div className="border-t-2 border-[#e48720]" />
             </div>
         </section>
     );
