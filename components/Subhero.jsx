@@ -117,7 +117,7 @@ const TimelineCard = ({ item, showConnector = true }) => {
             <div
                 className={`
                     relative
-                    mb-6
+                    mb-3
                     w-full
                     overflow-hidden
                     bg-[#5c5c5c]
@@ -293,18 +293,16 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Mobile & Tablet Version */}
-                <div className="lg:hidden py-10 px-6">
+                <div className="lg:hidden py-5 ">
                     <div className="max-w-3xl mx-auto text-center space-y-8">
-                        <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
-                            A TIMELINE
-
-                            OF GLOBAL
-                        </h2>
-
-                        <h2 className="font-[family-name:var(--font-serif)] text-[42px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
-                            FINANCIAL
-
-                            LEADERSHIP
+                        <h2 className="font-[family-name:var(--font-serif)] font-bold text-[27px] sm:text-[52px] leading-[0.95] uppercase text-[#161616]">
+                            <span className="whitespace-nowrap">
+                                A TIMELINE OF GLOBAL
+                            </span>
+                            <br />
+                            <span className="whitespace-nowrap">
+                                FINANCIAL LEADERSHIP
+                            </span>
                         </h2>
 
                         <p className="text-[15px] leading-[1.8] text-[#6E695E] max-w-md mx-auto">
@@ -362,8 +360,8 @@ export default function TimelineSection() {
                 </div>
 
                 {/* Mobile Layout */}
-                <div className="lg:hidden space-y-16 relative pl-10">
-                    <div className="absolute left-4 top-6 bottom-8 w-px bg-[#C19A5B]/50" />
+                <div className="lg:hidden space-y-2 relative pl-5">
+                    <div className="absolute left-0.5 top-6 bottom-8 w-px bg-[#C19A5B]/50" />
                     {history.map((item, i) => (
                         <div key={i} className="relative">
                             <div className="absolute -left-6 top-7 h-3 w-3 rounded-full border-[2.5px] border-[#C19A5B] bg-[#ECE7DC]" />
