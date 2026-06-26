@@ -33,7 +33,7 @@ export default function Bitabout() {
                     {/* Center Divider */}
 
 
-                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center pb-12 md:pb-16">
+                    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center pb-12 md:pb-8">
 
                         {/* Image */}
                         <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2">

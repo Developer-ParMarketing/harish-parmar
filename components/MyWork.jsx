@@ -47,13 +47,13 @@ export default function MyWork() {
     const [open, setOpen] = useState(0);
 
     return (
-        <section className="relative overflow-hidden bg-[#ECE7DC] text-[#1c1a17] py-6 md:py-20 px-5 md:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#ECE7DC] text-[#1c1a17] py-6 md:py-10 px-5 md:px-10 lg:px-16">
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* ── Heading (desktop) ── */}
-                <div className="hidden lg:block relative h-[520px] border-t-[2px] border-b-[1px] border-[#e48720]">
+                <div className="hidden lg:block relative h-[360px] border-t-[2px] border-b-[1px] border-[#e48720]">
 
                     {/* center vertical line */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#e48720]" />
+
 
                     {/* upper segment */}
                     <div className="absolute left-1/2 top-0 h-[85px] w-[2px] bg-[#e48720]" />
@@ -62,7 +62,7 @@ export default function MyWork() {
                     <div className="absolute left-1/2 bottom-0 h-[95px] w-[2px] bg-[#e48720]" />
 
                     {/* Heading Block */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <div className="absolute inset-x-0 top-24 flex flex-col items-center">
 
                         <h2
                             className="
@@ -96,7 +96,7 @@ export default function MyWork() {
                     </div>
 
                     {/* Description */}
-                    <div className="absolute bottom-0 left-1/2 border-l-[2px] border-[#e48720] pl-8 pb-20">
+                    <div className="absolute bottom-0 left-1/2 border-l-[2px] border-[#e48720] pl-8 pb-10">
                         <p className="max-w-[420px] text-[16px] leading-[1.7] text-black/70">
                             Showcase leadership impact through specific companies and
                             large-scale outcomes.

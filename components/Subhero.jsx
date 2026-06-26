@@ -208,13 +208,13 @@ export default function TimelineSection() {
         <section className="relative bg-[#ECE7DC] py-10 lg:py-12 overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 lg:px-10 relative">
                 {/* Header - Desktop Version (Large Screens) */}
-                <div className="relative mb-72 hidden lg:block">
+                <div className="relative mb-20 hidden lg:block">
 
                     {/* Top horizontal line */}
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#e48720]" />
 
                     {/* Center vertical line */}
-                    <div className="absolute left-1/2 top-0 h-[720px] w-[2px] bg-[#e48720]" />
+                    <div className="absolute left-1/2 top-0 h-[560px] w-[2px] bg-[#e48720]" />
 
                     <div className="grid grid-cols-2 min-h-[520px]">
 
@@ -228,7 +228,7 @@ export default function TimelineSection() {
                                 uppercase
                                 text-[#161616]
                                 absolute
-                                top-30
+                                top-10
                                 lg:left-[200px]
                                 md:left-[100px]
                                 bg-[#ece7dc]
@@ -252,7 +252,7 @@ export default function TimelineSection() {
                             uppercase
                             text-[#161616]
                             absolute
-                            top-90
+                            top-60
                             lg:right-[200px]
                             md:right-[100px]
                             bg-[#ece7dc]
@@ -273,7 +273,7 @@ export default function TimelineSection() {
                                 
                                 text-black/80
                                 absolute
-                                top-[550px]
+                                top-[400px]
                                 lg:right-[150px]
                                 md:left-[18px]
                                 "
@@ -288,7 +288,7 @@ export default function TimelineSection() {
                     </div>
 
                     {/* Bottom horizontal line */}
-                    <div className="absolute left-0 right-0 top-[720px] h-[2px] bg-[#e48720]" />
+                    <div className="absolute left-0 right-0 top-[560px] h-[2px] bg-[#e48720]" />
 
                 </div>
 
@@ -333,10 +333,10 @@ export default function TimelineSection() {
                                 style={{
                                     top:
                                         colIndex === 0
-                                            ? "-85px"
+                                            ? "-40px"
                                             : colIndex === 1
-                                                ? "-85px"
-                                                : "-85px",
+                                                ? "-40px"
+                                                : "-40px",
 
                                     height:
                                         colIndex === 0
