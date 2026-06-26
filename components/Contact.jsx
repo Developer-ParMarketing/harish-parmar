@@ -127,7 +127,7 @@ const Contact = () => {
     };
 
     return (
-        <section className="bg-[#ECE7DC] px-5 md:px-10 lg:px-16 ">
+        <section className="bg-[#ECE7DC] px-6 md:px-10 lg:px-16 ">
             <div className="max-w-7xl mx-auto">
 
                 {/* Heading */}
@@ -157,7 +157,7 @@ const Contact = () => {
                         Professional Conversation
                     </h2>
 
-                    <p className="max-w-xl mx-auto mt-6 text-black/60 text-[15px] md:text-[16px] leading-relaxed">
+                    <p className="max-w-xl mx-auto mt-3 text-black/60 text-[15px] md:text-[16px] leading-relaxed">
                         For speaking engagements, strategic advisory,
                         consulting opportunities, partnerships,
                         or media conversations.
@@ -177,7 +177,7 @@ const Contact = () => {
                             Get In Touch
                         </h3>
 
-                        <p className="mt-8 text-black/70 leading-7 md:leading-8 max-w-md text-center md:text-left">
+                        <p className="mt-4 text-black/70 leading-7 md:leading-8 max-w-md text-center md:text-left">
                             Whether you're seeking a keynote speaker,
                             strategic advisor, or a media voice on
                             financial wellness and fintech,

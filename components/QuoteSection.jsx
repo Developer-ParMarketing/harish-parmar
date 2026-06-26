@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function QuoteSection() {
     return (
-        <section className="bg-[#ECE7DC] px-5 md:px-10 lg:px-16 ">
+        <section className="bg-[#ECE7DC] px-6 md:px-10 lg:px-16 ">
             <div className="max-w-7xl mx-auto">
 
                 {/* Top Line */}
@@ -38,7 +38,7 @@ export default function QuoteSection() {
 
                             <blockquote
                                 className="
-                                    -mt-4
+                                    -mt-7
                                     font-serif
                                     text-[28px]
                                     md:text-[42px]
@@ -53,20 +53,23 @@ export default function QuoteSection() {
                             </blockquote>
 
                             {/* Signature */}
-                            <div
-                                className="
-                                    mt-10
-                                    text-[#e48720]
-                                    text-[40px]
-                                    md:text-[56px]
-                                    leading-none
-                                    font-light
-                                "
-                                style={{
-                                    fontFamily: "var(--font-script)",
-                                }}
-                            >
-                                Harish Parmar
+                            <div className="mt-10 flex items-center justify-end gap-4">
+                                <div className="h-px w-8 md:w-12 bg-[#e48720]/70" />
+
+                                <div
+                                    className="
+            text-[#e48720]
+            text-[40px]
+            md:text-[56px]
+            leading-none
+            font-light
+        "
+                                    style={{
+                                        fontFamily: "var(--font-script)",
+                                    }}
+                                >
+                                    Harish Parmar
+                                </div>
                             </div>
 
                         </div>

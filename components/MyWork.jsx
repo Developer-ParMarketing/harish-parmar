@@ -47,7 +47,7 @@ export default function MyWork() {
     const [open, setOpen] = useState(0);
 
     return (
-        <section className="relative overflow-hidden bg-[#ECE7DC] text-[#1c1a17] py-12 md:py-20 px-5 md:px-10 lg:px-16">
+        <section className="relative overflow-hidden bg-[#ECE7DC] text-[#1c1a17] py-6 md:py-20 px-5 md:px-10 lg:px-16">
             <div className="relative z-10 max-w-7xl mx-auto">
                 {/* ── Heading (desktop) ── */}
                 <div className="hidden lg:block relative h-[520px] border-t-[2px] border-b-[1px] border-[#e48720]">
@@ -106,7 +106,7 @@ export default function MyWork() {
                 </div>
 
                 {/* ── Heading (mobile) ── */}
-                <div className="lg:hidden text-center mb-12">
+                <div className="lg:hidden text-center mb-6">
                     <h2 className="text-4xl md:text-5xl font-serif leading-[1.1] uppercase">
                         Expertise &amp; Core Focus Areas
                     </h2>
@@ -123,7 +123,7 @@ export default function MyWork() {
                         return (
                             <div
                                 key={index}
-                                className="border-t-2 border-[#e48720] py-10 lg:py-12"
+                                className="border-t-2 border-[#e48720] py-5 lg:py-12"
                             >
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 items-start">
                                     {/* Title */}

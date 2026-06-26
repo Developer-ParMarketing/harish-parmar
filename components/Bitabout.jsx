@@ -22,7 +22,7 @@ const media = [
 
 export default function Bitabout() {
     return (
-        <section className="bg-[#ECE7DC] px-5 md:px-10 lg:px-16  overflow-hidden">
+        <section className="bg-[#ECE7DC] px-6 md:px-10 lg:px-16  overflow-hidden">
             <div className="max-w-7xl mx-auto">
 
                 {/* Top Line */}
@@ -84,7 +84,7 @@ export default function Bitabout() {
                                 & Industry Voice
                             </h2>
 
-                            <p className="mt-8 max-w-[560px] text-[15px] md:text-[16px] leading-[1.8] text-black/70">
+                            <p className="mt-4 max-w-[560px] text-[15px] md:text-[16px] leading-[1.8] text-black/70">
                                 A Trusted Voice in Finance: Harish Parmar&apos;s
                                 insights shape industry conversations. He is
                                 regularly featured in business media and invited
@@ -93,12 +93,12 @@ export default function Bitabout() {
                                 industry forums.
                             </p>
 
-                            <div className="mt-12">
+                            <div className="mt-6">
                                 <h3 className="font-serif font-extrabold text-[24px] md:text-[28px] text-[#161616] text-center md:text-left">
                                     Featured Media Platforms
                                 </h3>
 
-                                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-10 mt-8">
+                                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 md:gap-10 mt-4">
                                     {media.map((item) => (
                                         <a
                                             key={item.name}
