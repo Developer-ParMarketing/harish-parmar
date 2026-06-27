@@ -46,16 +46,21 @@ const inquiryTypes = [
 /* ─── Chess Cell ────────────────────────────────────────────────────────── */
 const ContactCell = ({ m }) => (
     <div
-        className="relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden"
+        className={`relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden ${m.dark ? "bg-[#141414]/90" : "bg-white"
+            }`}
         style={{
-            backgroundColor: m.dark ? "#141414" : "#ffff",
             minHeight: "160px",
         }}
     >
         {m.dark && (
-            <div className="absolute -bottom-6 -right-6 w-28 h-28 rounded-full border border-white/[0.08] pointer-events-none" />
-        )}
+            <>
+                {/* Glow */}
+                <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full pointer-events-none" />
 
+                {/* Circle */}
+                <div className="absolute -bottom-6 -right-6 w-28 h-28 rounded-full border border-white/[0.08] pointer-events-none" />
+            </>
+        )}
         {/* Top */}
         <div className="flex items-center justify-between">
             <p
@@ -224,11 +229,16 @@ const ContactPage = () => {
                 >
 
                     {/* ── LEFT: context panel ── */}
-                    <div className="relative bg-[#141414] text-white p-8 sm:p-10 md:p-14 flex flex-col justify-between overflow-hidden">
+                    <div className="relative bg-[#141414]/90 text-white p-8 sm:p-10 md:p-14 flex flex-col justify-between overflow-hidden">
                         <div className="absolute inset-0 pointer-events-none">
+
+                            {/* Same glow used across the site */}
+                            <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full" />
+
+                            {/* Decorative circles */}
                             <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full border border-white/[0.06]" />
                             <div className="absolute -bottom-4 -right-4 w-40 h-40 rounded-full border border-white/[0.04]" />
-                            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "repeating-linear-gradient(135deg,white 0,white 1px,transparent 1px,transparent 70px)" }} />
+
                         </div>
 
                         <div className="relative z-10">
@@ -273,7 +283,7 @@ const ContactPage = () => {
                     </div>
 
                     {/* ── RIGHT: form ── */}
-                    <div className="bg-white p-8 sm:p-10 md:p-14">
+                    <div className="bg-[#F9F6F0] p-8 sm:p-10 md:p-14">
 
                         {submitted ? (
                             /* Success */
@@ -467,11 +477,20 @@ const ContactPage = () => {
                     ].map((item, i) => (
                         <div
                             key={i}
-                            className="relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden "
-                            style={{ backgroundColor: item.dark ? "#141414" : "#ffffff", minHeight: "120px" }}
+                            className={`relative flex flex-col justify-between p-7 sm:p-8 overflow-hidden ${item.dark ? "bg-[#141414]/90" : "bg-white"
+                                }`}
+                            style={{
+                                minHeight: "120px",
+                            }}
                         >
                             {item.dark && (
-                                <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full border border-white/[0.07] pointer-events-none" />
+                                <>
+                                    {/* Glow */}
+                                    <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full pointer-events-none" />
+
+                                    {/* Decorative Circle */}
+                                    <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-full border border-white/[0.07] pointer-events-none" />
+                                </>
                             )}
                             <p
                                 className="text-[16px] uppercase tracking-[4px] font-semibold font-[family-name:var(--font-serif)] uppercase"

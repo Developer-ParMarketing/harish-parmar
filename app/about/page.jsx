@@ -93,9 +93,12 @@ function Cell({ item, index }) {
     return (
         <div
             ref={ref}
-            className="relative flex flex-col justify-between p-7 sm:p-8 md:p-10 overflow-hidden"
+            className={`relative flex flex-col justify-between p-7 sm:p-8 md:p-10 overflow-hidden ${isDark ? "bg-[#141414]/90" : "bg-white"
+                }`}
             style={{
-                backgroundColor: isDark ? "#141414" : "#ffffff",
+                border: isDark
+                    ? "1px solid rgba(255,255,255,0.10)"
+                    : "1px solid rgba(0,0,0,0.06)",
                 color: isDark ? "#ffffff" : "#000000",
                 minHeight: "280px",
                 opacity: inView ? 1 : 0,
@@ -106,6 +109,10 @@ function Cell({ item, index }) {
             {/* BG decoration for dark cells */}
             {isDark && (
                 <div className="absolute inset-0 pointer-events-none">
+                    {/* Same glow as Leadership card */}
+                    <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full" />
+
+                    {/* Decorative circles */}
                     <div className="absolute -bottom-8 -right-8 w-36 h-36 rounded-full border border-white/[0.07]" />
                     <div className="absolute -bottom-2 -right-2 w-20 h-20 rounded-full border border-white/[0.05]" />
                 </div>
@@ -214,8 +221,8 @@ export default function Page() {
                     All cells uniform height via grid rows
                 */}
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-black/10"
-                    style={{ gap: "1px", backgroundColor: "rgba(0,0,0,0.08)" }}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-black/10 bg-[#141414]"
+                    style={{ gap: "1px", }}
                 >
                     {milestones.map((item, i) => (
                         <Cell key={i} item={item} index={i} />
@@ -240,7 +247,11 @@ export default function Page() {
                 CLOSING CTA
             ══════════════════════════════════════ */}
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pb-24 md:pb-32">
-                <div className="relative bg-[#141414]/90 text-white overflow-hidden">
+                <div className="relative rounded-[28px] border border-white/[0.10] bg-[#141414]/90 text-white overflow-hidden">
+
+                    {/* Glow */}
+                    <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#ECE7DC]/20 blur-3xl rounded-full pointer-events-none" />
+
                     <div className="absolute top-6 left-6 w-7 h-7 border-t border-l border-white/20" />
                     <div className="absolute top-6 right-6 w-7 h-7 border-t border-r border-white/20" />
                     <div className="absolute bottom-6 left-6 w-7 h-7 border-b border-l border-white/20" />

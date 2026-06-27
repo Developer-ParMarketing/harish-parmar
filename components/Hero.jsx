@@ -14,7 +14,7 @@ const GOLD = "#e48720";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen w-full overflow-hidden bg-[#0B0B0B] ">
+        <section className="relative min-h-screen w-full overflow-hidden bg-[#0B0B0B] pt-10 md:pt-0">
             {/* Background image + overlay — DESKTOP ONLY */}
             <Image
                 src="/HP-Banner.jpg"
