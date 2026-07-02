@@ -66,11 +66,11 @@ const AdminBlogs = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#f7f6f3]">
+        <div className="min-h-screen bg-[#f7f6f3] ">
 
             {/* Header */}
-            <div className="bg-[#3E3AA8] text-white px-6 md:px-12 py-5 flex items-center justify-between">
-                <div className="flex items-center gap-6">
+            <div className="bg-[#141414]/95 text-white px-6 md:px-12 py-5 flex items-center justify-between">
+                <div className="flex items-center gap-6 pt-30">
                     <div>
                         <p className="text-[11px] uppercase tracking-[5px] text-white/50">Admin Panel</p>
                         <h1 className="text-[20px] font-semibold">Blog Management</h1>
@@ -81,7 +81,7 @@ const AdminBlogs = () => {
                         <span className="text-[11px] uppercase tracking-[3px] text-white">Blogs</span>
                     </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 pt-30">
                     <Link
                         href="/admin/blogs/create"
                         className="text-[11px] uppercase tracking-[3px] bg-white text-[#3E3AA8] px-4 py-2.5 font-semibold hover:bg-white/90 transition-all duration-200"
@@ -106,7 +106,7 @@ const AdminBlogs = () => {
                         { label: "Published", value: stats.published, dark: true },
                         { label: "Drafts", value: stats.draft, dark: false },
                     ].map((s) => (
-                        <div key={s.label} className="p-6" style={{ backgroundColor: s.dark ? "#3E3AA8" : "#ffffff" }}>
+                        <div key={s.label} className="p-6" style={{ backgroundColor: s.dark ? "#141414" : "#ffffff" }}>
                             <p className="text-[11px] uppercase tracking-[4px] mb-3" style={{ color: s.dark ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.4)" }}>{s.label}</p>
                             <p className="text-[36px] font-semibold" style={{ color: s.dark ? "#ffffff" : "#000000" }}>{s.value}</p>
                         </div>
@@ -148,7 +148,7 @@ const AdminBlogs = () => {
                     ) : blogs.length === 0 ? (
                         <div className="flex flex-col items-center justify-center py-20 gap-4">
                             <p className="text-[12px] uppercase tracking-[3px] text-black/40">No blogs found</p>
-                            <Link href="/admin/blogs/create" className="bg-[#3E3AA8] text-white px-5 py-2.5 text-[11px] uppercase tracking-[3px] hover:bg-[#2f2c8f] transition-colors">
+                            <Link href="/admin/blogs/create" className="bg-[#141414]/95 text-white px-5 py-2.5 text-[11px] uppercase tracking-[3px] hover:bg-[#141414] transition-colors">
                                 Create First Blog
                             </Link>
                         </div>

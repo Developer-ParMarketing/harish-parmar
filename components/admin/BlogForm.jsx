@@ -175,10 +175,10 @@ const BlogForm = ({ initialData = null, blogId = null }) => {
     const isPublished = form.status === "published";
 
     return (
-        <div className="min-h-screen bg-[#f7f6f3]">
+        <div className="min-h-screen bg-[#f7f6f3] ">
 
             {/* ── Header ── */}
-            <div className="bg-[#3E3AA8] text-white px-6 md:px-12 py-5 flex items-center justify-between">
+            <div className="bg-[#141414]/95 text-white px-6 md:px-12 py-5 flex items-center justify-between pt-30">
                 <div className="flex items-center gap-5">
                     <button
                         onClick={() => router.push("/blogs")}
