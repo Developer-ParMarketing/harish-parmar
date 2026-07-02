@@ -181,11 +181,7 @@ const ContactPage = () => {
                             transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s",
                         }}
                     >
-                        <span className="block w-6 h-[1px] bg-white/40" />
-                        <p className="uppercase tracking-[5px] text-[16px] font-semibold text-white/60">
-                            Connect / Contact
-                        </p>
-                        <span className="block w-6 h-[1px] bg-white/40" />
+
                     </div>
 
                     {/* Headline + subtext */}
@@ -467,13 +463,13 @@ const ContactPage = () => {
             {/* ══ FOOTER STRIP ══ */}
             <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-16 pb-20 md:pb-28">
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-3 border border-black/10 "
+                    className="grid grid-cols-1 md:grid-cols-2 border border-black/10"
                     style={{ gap: "1px", backgroundColor: "rgba(0,0,0,0.08)" }}
                 >
                     {[
                         { dark: false, label: "Based In", value: "Mumbai, India" },
-                        { dark: true, label: "Response Time", value: "Within 24 Hours" },
-                        { dark: false, label: "Languages", value: "English · Hindi · Gujarati" },
+
+                        { dark: true, label: "Languages", value: "English · Hindi · Gujarati" },
                     ].map((item, i) => (
                         <div
                             key={i}
