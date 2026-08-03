@@ -8,9 +8,9 @@ import { useRef } from "react";
 const history = [
     {
         year: "1994",
-        imageClass: "h-[200px]",
+        imageClass: "h-[280px]",
         title: "Academic & Early UK Foundation to Early UK Foundation",
-        img: "/billu.png",
+        img: "/1995.png",
         desc: "Harish Parmar, founder of SingleDebt, began his journey with consulting on the design of financial products for banks in the UK and USA.",
         links: { SingleDebt: "https://singledebt.in/" },
     },
@@ -18,23 +18,23 @@ const history = [
         year: "1999",
         imageClass: "h-[320px]",
         title: "India Market Entry & Institutional Building",
-        img: "/billu.png",
+        img: "/1999.png",
         desc: "Founded One Debt, a debt management company catering to UK nationals, at a time when consumer debt in the UK was increasing significantly.",
         links: {},
     },
     {
         year: "2007",
-        imageClass: "h-[200px]",
+        imageClass: "h-[300px]",
         title: "BPO & Financial Operations Expansion",
-        img: "/billu.png",
+        img: "/2007.png",
         desc: "Established a Business Process Outsourcing (BPO) center in India to support financial products and banking services for clients in the UK and USA.",
         links: {},
     },
     {
         year: "2020",
-        imageClass: "h-[200px]",
+        imageClass: "h-[280px]",
         title: "Ecosystem Leadership & Mass Impact",
-        img: "/billu.png",
+        img: "/2020.png",
         desc: "Founded SingleDebt, introducing a structured legal-fintech model for debt resolution in India.",
         points: [
             "Simplify formal insolvency processes",
@@ -49,15 +49,15 @@ const history = [
         year: "2021",
         imageClass: "h-[300px]",
         title: "First Debt Management Platform",
-        img: "/billu.png",
+        img: "/2021.png",
         desc: "Introduced a customer-first Debt Management Platform, providing easy access to representatives and online resources for debt solutions.",
         links: {},
     },
     {
         year: "2022",
-        imageClass: "h-[200px]",
+        imageClass: "h-[300px]",
         title: "UAE Expansion – Dubai Headquarters",
-        img: "/billu.png",
+        img: "/2022.png",
         desc: "Expanded operations to the UAE, establishing Dubai as a regional headquarters. Extended services to the GCC market.",
         links: {},
     },
@@ -120,7 +120,7 @@ const TimelineCard = ({ item, showConnector = true }) => {
                     mb-3
                     w-full
                     overflow-hidden
-                    bg-[#5c5c5c]
+                 
                     ${item.imageClass || "h-[220px]"}
                 `}
             >
