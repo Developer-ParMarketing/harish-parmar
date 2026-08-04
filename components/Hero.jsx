@@ -17,7 +17,7 @@ const Hero = () => {
         <section className="relative min-h-screen w-full overflow-hidden bg-[#0B0B0B] pt-10 md:pt-0">
             {/* Background image + overlay — DESKTOP ONLY */}
             <Image
-                src="/HP-Banner_1.jpg"
+                src="/HP-Banner.png"
                 alt="Harish Parmar"
                 fill
                 priority
@@ -34,7 +34,7 @@ const Hero = () => {
                     <div className="lg:hidden relative -mx-6">
                         <div className="relative w-full h-[70vh]">
                             <Image
-                                src="/HP-Banner_1.jpg"
+                                src="/HP-Banner.png"
                                 alt="Harish Parmar"
                                 fill
                                 priority
@@ -58,9 +58,9 @@ const Hero = () => {
                                         fontFamily: "var(--font-script)",
                                         color: GOLD,
                                         overflow: "hidden",
-                                        letterSpacing: "0.06em",
+                                        letterSpacing: "0.18em",
                                     }}
-                                    className="text-[46px] leading-none whitespace-nowrap "
+                                    className="text-[46px] leading-none whitespace-nowrap"
                                 >
                                     Harish Parmar
                                 </motion.h1>
@@ -89,7 +89,7 @@ const Hero = () => {
                                     fontFamily: "var(--font-script)",
                                     color: GOLD,
                                 }}
-                                className="leading-none text-[90px] xl:text-[100px] whitespace-nowrap tracking-[0.1em]"
+                                className="leading-none text-[90px] xl:text-[100px] whitespace-nowrap tracking-[0.15em]"
 
                             >
                                 Harish Parmar

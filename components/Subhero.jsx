@@ -115,14 +115,13 @@ const TimelineCard = ({ item, showConnector = true }) => {
 
             {/* Image */}
             <div
-                className={`
-                    relative
-                    mb-3
-                    w-full
-                    overflow-hidden
-                 
-                    ${item.imageClass || "h-[220px]"}
-                `}
+                className="
+    relative
+    w-full
+    overflow-hidden
+    h-[160px]
+    lg:h-[220px]
+  "
             >
                 <motion.div
                     style={{ scale }}
@@ -141,7 +140,13 @@ const TimelineCard = ({ item, showConnector = true }) => {
                         alt={item.title}
                         width={260}
                         height={320}
-                        className="h-[300px] w-[260px] object-cover ml-5"
+                        className="
+    h-[150px] w-[150px]
+    sm:h-[180px] sm:w-[180px]
+    lg:h-[200px] lg:w-[200px]
+    object-cover
+    mx-auto lg:ml-5
+  "
                     />
                 </motion.div>
             </div>
@@ -331,7 +336,7 @@ export default function TimelineSection() {
                 relative
                 ${colIndex === 0 ? "pt-0" : ""}
                 ${colIndex === 1 ? "pt-32" : ""}
-                ${colIndex === 2 ? "pt-16" : ""}
+                ${colIndex === 2 ? "pt-0" : ""}
                 space-y-44
             `}
                         >
