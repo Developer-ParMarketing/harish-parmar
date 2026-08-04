@@ -128,12 +128,20 @@ const TimelineCard = ({ item, showConnector = true }) => {
                     style={{ scale }}
                     className="absolute inset-0"
                 >
-                    <Image
+                    {/* <Image
                         src={item.img}
                         alt={item.title}
                         fill
                         sizes="(max-width:1024px) 100vw, 320px"
                         className="object-cover"
+                    /> */}
+
+                    <Image
+                        src={item.img}
+                        alt={item.title}
+                        width={260}
+                        height={320}
+                        className="h-[300px] w-[260px] object-cover ml-5"
                     />
                 </motion.div>
             </div>
