@@ -1,7 +1,7 @@
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { Cormorant_Garamond, Allura, Jost } from "next/font/google";
+import { Cormorant_Garamond, Allison, Jost } from "next/font/google";
 
 const sans = Jost({
   subsets: ["latin"],
@@ -15,7 +15,7 @@ const serif = Cormorant_Garamond({
   variable: "--font-serif",
 });
 
-const script = Allura({
+const script = Allison({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-script",
