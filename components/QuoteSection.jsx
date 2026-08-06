@@ -62,7 +62,7 @@ export default function QuoteSection() {
             text-[40px]
             md:text-[56px]
             leading-none
-            font-light
+            font-light tracking-[0.15em]
         "
                                     style={{
                                         fontFamily: "var(--font-script)",

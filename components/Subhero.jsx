@@ -236,13 +236,13 @@ export default function TimelineSection() {
                             <h2
                                 className="
                                 font-[family-name:var(--font-serif)]
-                                text-[50px]
+                                text-[78px]
                                 leading-[0.95]
                                 uppercase
                                 text-[#161616]
                                 absolute
                                 top-10
-                                lg:left-[350px]
+                                lg:left-[200px]
                                 md:left-[100px]
                                 bg-[#ece7dc]
                                 whitespace-pre-line
@@ -260,13 +260,13 @@ export default function TimelineSection() {
                             <h2
                                 className="
                             font-[family-name:var(--font-serif)]
-                            text-[50px]
+                            text-[78px]
                             leading-[0.95]
                             uppercase
                             text-[#161616]
                             absolute
-                            top-50
-                            lg:right-[342px]
+                            top-45
+                            lg:right-[202px]
                             md:right-[100px]
                             bg-[#ece7dc]
                             whitespace-pre-line
