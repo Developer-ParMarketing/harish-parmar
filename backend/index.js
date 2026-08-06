@@ -9,7 +9,8 @@ const blogRoutes = require("./routes/blogRoutes");
 const app = express();
 const PORT = 5000;
 // const MONGO_URI = "mongodb://admin:Admin%40123@14.96.214.34:27017/harishparmar?authSource=admin";
-const MONGO_URI = "mongodb://admin:Parmarketing%404545%23@localhost:27017/harishparmar?authSource=admin";
+// const MONGO_URI = "mongodb://admin:Parmarketing%404545%23@localhost:27017/harishparmar?authSource=admin";
+const MONGO_URI = "mongodb://admin:Parmarketing%404545%23@193.203.161.242:27017/harishparmar?authSource=admin";
 
 const allowedOrigins = [
     "http://localhost:3000",
