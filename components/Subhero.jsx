@@ -143,7 +143,7 @@ const TimelineCard = ({ item, showConnector = true }) => {
                         className="
     h-[150px] w-[150px]
     sm:h-[180px] sm:w-[180px]
-    lg:h-[200px] lg:w-[200px]
+    lg:h-[180px] lg:w-[180px]
     object-cover
     mx-auto lg:ml-5
   "
@@ -227,7 +227,7 @@ export default function TimelineSection() {
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#e48720]" />
 
                     {/* Center vertical line */}
-                    <div className="absolute left-1/2 top-0 h-[560px] w-[2px] bg-[#e48720]" />
+                    <div className="absolute left-1/2 top-0 h-[460px] w-[2px] bg-[#e48720]" />
 
                     <div className="grid grid-cols-2 min-h-[520px]">
 
@@ -236,13 +236,13 @@ export default function TimelineSection() {
                             <h2
                                 className="
                                 font-[family-name:var(--font-serif)]
-                                text-[78px]
+                                text-[50px]
                                 leading-[0.95]
                                 uppercase
                                 text-[#161616]
                                 absolute
                                 top-10
-                                lg:left-[200px]
+                                lg:left-[350px]
                                 md:left-[100px]
                                 bg-[#ece7dc]
                                 whitespace-pre-line
@@ -260,13 +260,13 @@ export default function TimelineSection() {
                             <h2
                                 className="
                             font-[family-name:var(--font-serif)]
-                            text-[78px]
+                            text-[50px]
                             leading-[0.95]
                             uppercase
                             text-[#161616]
                             absolute
-                            top-60
-                            lg:right-[200px]
+                            top-50
+                            lg:right-[342px]
                             md:right-[100px]
                             bg-[#ece7dc]
                             whitespace-pre-line
@@ -286,7 +286,7 @@ export default function TimelineSection() {
                                 
                                 text-black/80
                                 absolute
-                                top-[400px]
+                                top-[330px]
                                 lg:right-[150px]
                                 md:left-[18px]
                                 "
@@ -301,7 +301,7 @@ export default function TimelineSection() {
                     </div>
 
                     {/* Bottom horizontal line */}
-                    <div className="absolute left-0 right-0 top-[560px] h-[2px] bg-[#e48720]" />
+                    <div className="absolute left-0 right-0 top-[460px] h-[2px] bg-[#e48720]" />
 
                 </div>
 
@@ -333,10 +333,14 @@ export default function TimelineSection() {
                         <div
                             key={colIndex}
                             className={`
-                relative
-                ${colIndex === 0 ? "pt-0" : ""}
-                ${colIndex === 1 ? "pt-32" : ""}
-                ${colIndex === 2 ? "pt-0" : ""}
+               relative
+  ${colIndex === 0
+                                    ? "-mt-20"
+                                    : colIndex === 1
+                                        ? "-mt-40"
+                                        : "-mt-30"
+                                }
+  space-y-44
                 space-y-44
             `}
                         >
@@ -346,10 +350,10 @@ export default function TimelineSection() {
                                 style={{
                                     top:
                                         colIndex === 0
-                                            ? "-40px"
+                                            ? "-60px"
                                             : colIndex === 1
-                                                ? "-40px"
-                                                : "-40px",
+                                                ? "20px"
+                                                : "-20px",
 
                                     height:
                                         colIndex === 0

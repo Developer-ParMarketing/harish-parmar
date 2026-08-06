@@ -97,10 +97,10 @@ export default function MyWork() {
 
                     {/* Description */}
                     <div className="absolute bottom-0 left-1/2 border-l-[2px] border-[#e48720] pl-8 pb-10">
-                        <p className="max-w-[420px] text-[16px] leading-[1.7] text-black/70">
+                        {/* <p className="max-w-[420px] text-[16px] leading-[1.7] text-black/70">
                             Impact through specific companies and
                             large-scale outcomes.
-                        </p>
+                        </p> */}
                     </div>
 
                 </div>

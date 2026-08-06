@@ -135,9 +135,9 @@ const Contact = () => {
 
                     <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[2px] h-10 bg-[#e48720]" />
 
-                    <p className="uppercase tracking-[3px] text-[#e48720] text-sm font-bold">
+                    {/* <p className="uppercase tracking-[3px] text-[#e48720] text-sm font-bold">
                         LET'S CONNECT
-                    </p>
+                    </p> */}
 
                     <h2
                         className="
@@ -147,7 +147,7 @@ const Contact = () => {
                             md:text-[68px]
                             leading-[1.05]
                             text-[#161616]
-                            mt-4
+                            
                             uppercase
                             font-bold
                         "
